@@ -65,7 +65,7 @@ class StudentController extends Controller
            ]);
            }
 
-      activity()->withProperties(['name' => $request->name])->log('Admitted named');
+      activity()->withProperties(['name' => $request->name])->log('New student admitted named');
       notify()->success($request->name . ' ' . 'Admitted Successfully');
       return back();
     }
@@ -150,7 +150,7 @@ class StudentController extends Controller
       ]);
 
 
-
+      activity()->withProperties(['name' => $request->name])->log('Student profile updated');
       notify()->success($request->name . ' ' . 'Updated Successfully');
       return back();
     }

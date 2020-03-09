@@ -63,7 +63,7 @@ class CourseController extends Controller
 
 
 
-    activity()->withProperties(['name' => $request->course_name])->log('Course Added named');
+    activity()->withProperties(['name' => $request->course_name])->log('New course added named');
     notify()->success($request->course_name . ' ' . 'Courese Added Successfully');
     return back();
   }

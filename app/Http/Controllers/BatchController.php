@@ -30,7 +30,7 @@ class BatchController extends Controller
     }
 
 
-    activity()->withProperties(['name' => $request->batch_no])->log('Batch created named');
+    activity()->withProperties(['name' => $request->batch_no])->log('New Batch created named');
     notify()->success($request->batch_no . ' ' . 'Created Successfully');
     return back();
   }

@@ -83,7 +83,7 @@
                                 <h5>{{ $students_count }}</h5>
                                 <span><i class="zmdi zmdi-eye col-amber"></i>Students</span>
                             </div>
-                            <div class="sparkline" data-type="bar" data-width="97%" data-height="55px" data-bar-Width="3" data-bar-Spacing="5" data-bar-Color="#FFC107">5,2,3,7,6,4,8,1100</div>
+                            <div class="sparkline" data-type="bar" data-width="97%" data-height="55px" data-bar-Width="3" data-bar-Spacing="5" data-bar-Color="#FFC107">{{ $student_last6daysAgo }},{{ $student_last5daysAgo }},{{ $student_last4daysAgo }},{{ $student_last3daysAgo }},{{ $student_last2daysAgo }},{{ $student_yesterday }},{{ $student_today }}</div>
                         </div>
                     </div>
                   </a>
@@ -96,10 +96,10 @@
                     <div class="card state_w1">
                         <div class="body d-flex justify-content-between">
                             <div>
-                                <h5>25</h5>
+                                <h5>{{ $teachers_count }}</h5>
                                 <span><i class="zmdi zmdi-thumb-up col-blue"></i>Teachers</span>
                             </div>
-                            <div class="sparkline" data-type="bar" data-width="97%" data-height="55px" data-bar-Width="3" data-bar-Spacing="5" data-bar-Color="#46b6fe">8,2,6,5,1,4,4,3</div>
+                            <div class="sparkline" data-type="bar" data-width="97%" data-height="55px" data-bar-Width="3" data-bar-Spacing="5" data-bar-Color="#46b6fe">{{ $teacher_last6daysAgo }},{{ $teacher_last5daysAgo }},{{ $teacher_last4daysAgo }},{{ $teacher_last3daysAgo }},{{ $teacher_last2daysAgo }},{{ $teacher_yesterday }},{{ $teacher_today }}</div>
                         </div>
                     </div>
                 </div>

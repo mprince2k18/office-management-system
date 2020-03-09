@@ -76,7 +76,7 @@ class TeacherController extends Controller
          ]);
          }
 
-    activity()->withProperties(['name' => $request->name])->log('Admitted named');
+    activity()->withProperties(['name' => $request->name])->log('New trainer joined named');
     notify()->success($request->name . ' ' . 'Admitted Successfully');
     return back();
   }
@@ -162,6 +162,7 @@ class TeacherController extends Controller
       'assigned_course'=>$request->assigned_course,
     ]);
 
+    activity()->withProperties(['name' => $request->name])->log('trainer profile updated');
     notify()->success($request->name . ' ' . 'Updated Successfully');
     return back();
   }
