@@ -45,6 +45,14 @@
             </li>
 
             <li class="{{ Request::segment(1) === 'app' ? 'active open' : null }}">
+                <a href="#App" class="menu-toggle"><i class="zmdi zmdi-apps"></i> <span>Batch Area</span></a>
+                <ul class="ml-menu">
+                    <li class="{{ Request::segment(2) === 'inbox' ? 'active' : null }}"><a href="{{route('batch.index')}}">New Batch</a></li>
+                    <!-- <li class="{{ Request::segment(2) === 'chat' ? 'active' : null }}"><a href="{{route('course.all')}}">All Batch</a></li> -->
+                </ul>
+            </li>
+
+            <li class="{{ Request::segment(1) === 'app' ? 'active open' : null }}">
                 <a href="#App" class="menu-toggle"><i class="zmdi zmdi-apps"></i> <span>Activity Log</span></a>
                 <ul class="ml-menu">
                     <li class="{{ Request::segment(2) === 'inbox' ? 'active' : null }}"><a href="{{route('activity.index')}}">Logs</a></li>

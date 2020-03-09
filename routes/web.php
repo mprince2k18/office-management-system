@@ -24,6 +24,14 @@ Route::get('course/profile/{course_id}', 'CourseController@profile')->name('cour
 Route::get('course/edit/{course_id}', 'CourseController@edit')->name('course.edit');
 Route::post('course/update/{course_id}', 'CourseController@update')->name('course.update');
 
+// CourseController
+Route::get('batch', 'BatchController@index')->name('batch.index');
+Route::post('batch/create', 'BatchController@create')->name('batch.create');
+// Route::get('batch/all', 'BatchController@all')->name('batch.all');
+// Route::get('batch/profile/{course_id}', 'BatchController@profile')->name('batch.profile');
+// Route::get('batch/edit/{course_id}', 'BatchController@edit')->name('batch.edit');
+// Route::post('batch/update/{course_id}', 'BatchController@update')->name('batch.update');
+
 // ActivityController
 Route::get('activity/log', 'ActivityController@index')->name('activity.index');
 Route::post('activity/log/search', 'ActivityController@searchLog')->name('activity.search');
