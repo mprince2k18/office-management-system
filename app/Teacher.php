@@ -45,5 +45,10 @@ class Teacher extends Model
       'assigned_course',
     ];
 
+    public function relationBetweenCourse()
+    {
+      return $this->hasOne('App\Course','id','assigned_course');
+    }
+
     //END
 }

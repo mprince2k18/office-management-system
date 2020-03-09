@@ -1,8 +1,23 @@
 @extends('layout.master')
-@section('title', 'All Student')
-@section('parentPageTitle', 'Student Area')
+@section('title', 'All Batch')
+@section('parentPageTitle', 'Course Area')
 @section('page-style')
 <link rel="stylesheet" href="{{asset('assets/plugins/jquery-datatable/dataTables.bootstrap4.min.css')}}"/>
+  <style media="screen">
+  .mcard_4 {
+    border: 3px solid #f5f5f5 !important;
+  }
+  .title{
+    font-size: 17px;
+  }
+  .fee_title{
+    font-size: 16px;
+  }
+
+  a{
+    color: #000 !important;
+  }
+  </style>
 @stop
 @section('content')
 
@@ -11,7 +26,7 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="header">
-                <h2><strong>All</strong> Student </h2>
+                <h2><strong>All</strong> Course </h2>
                 <ul class="header-dropdown">
                     <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
                         <ul class="dropdown-menu dropdown-menu-right slideUp">
@@ -26,51 +41,48 @@
                 </ul>
             </div>
             <div class="body">
-                <div class="table-responsive">
-                    <table class="table table-bordered table-striped table-hover dataTable js-exportable">
-                        <thead>
-                            <tr>
-                                <th>Photo</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Phone</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tfoot>
-                            <tr>
-                              <th>Photo</th>
-                              <th>Name</th>
-                              <th>Email</th>
-                              <th>Phone</th>
-                              <th>Action</th>
-                            </tr>
-                        </tfoot>
-                        <tbody>
-
-                          @foreach ($students as $student)
-
-                          <tr>
-                              <td>
-                                <img src="{{ asset('uploads/student') }}/{{ $student->avatar }}" style="width: 25%;border-radius: 50%;" alt="">
-                              </td>
-                              <td>{{ $student->name }}</td>
-                              <td>{{ $student->email }}</td>
-                              <td>{{ $student->phone }}</td>
-                              <td>
-                                <a href="{{ url('student/edit') }}/{{ $student->id }}" class="btn-sm btn-primary">Edit</a>
-                                <a href="{{ url('student/profile') }}/{{ $student->id }}" class="btn-sm btn-success">View</a>
-                                <a href="#" class="btn-sm btn-danger">Delete</a>
-                              </td>
-                          </tr>
-
-                          @endforeach
 
 
 
-                        </tbody>
-                    </table>
-                </div>
+              <div class="row clearfix">
+
+
+  @foreach ($batches as $batch)
+
+      <div class="col-xl-3 col-lg-3 col-md-6">
+          <div class="card mcard_4">
+              <div class="body">
+                  <ul class="header-dropdown list-unstyled">
+                      <li class="dropdown">
+                          <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-menu"></i> </a>
+                          <ul class="dropdown-menu slideUp">
+                              <li><a href="javascript:void(0);">Edit</a></li>
+                              <li><a href="javascript:void(0);">Delete</a></li>
+                              <li><a href="javascript:void(0);">Report</a></li>
+                          </ul>
+                      </li>
+                  </ul>
+                  <div class="img">
+                      <img src="{{ asset('uploads/course') }}/{{ $batch->relationBetweenTeacher->relationBetweenCourse->course_thumb }}" class="rounded-circle" alt="profile-image">
+                  </div>
+                  <a href="#">
+                    <div class="user">
+                        <h5 class="mt-3 mb-1 title">{{ $batch->batch_no }}</h5>
+                        <h6 class="mt-3 mb-1 fee_title">{{ $batch->relationBetweenTeacher->name }}</h6>
+                    </div>
+                  </a>
+
+                  <ul class="list-unstyled social-links">
+                      <li><a href="javascript:void(0);">Enrolled: 10</a></li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+@endforeach
+
+
+  </div>
+
             </div>
         </div>
     </div>

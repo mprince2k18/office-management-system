@@ -34,12 +34,12 @@ class BatchController extends Controller
     notify()->success($request->batch_no . ' ' . 'Created Successfully');
     return back();
   }
-  // // all
-  // function all()
-  // {
-  //   $students = Student::all();
-  //   return view('student.allstudent.all',compact('students'));
-  // }
+  // all
+  function all()
+  {
+    $batches = Batch::all();
+    return view('batch.allbatch.all',compact('batches'));
+  }
   // // profile
   // function profile($student_id)
   // {
