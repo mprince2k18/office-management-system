@@ -14,7 +14,7 @@
 
         <div class="card mcard_3">
             <div class="body">
-                <a href="{{ url('student/profile') }}/{{ $edit_student->id }}"><img src="{{asset('uploads/student')}}/{{ $edit_student->avatar }}" class="rounded-circle shadow " alt="profile-image"></a>
+                <a href="{{ url('student/profile') }}/{{ $edit_student->id }}"><img src="{{ asset($edit_student->avatar) }}" class="rounded-circle shadow " alt="profile-image"></a>
                 <h4 class="m-t-10">{{ $edit_student->name }}</h4>
                 <div class="row">
                     <div class="col-12">

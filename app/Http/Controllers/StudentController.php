@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Student;
+use File;
 use Image;
 
 class StudentController extends Controller
@@ -93,25 +94,24 @@ class StudentController extends Controller
       if($request->hasFile('avatar')){
         if(Student::find($student_id)->avatar =='default.png'){
          $photo_upload     = $request->avatar;
-         $photo_extension  =  $photo_upload->getClientOriginalExtension();
-         $photo_name       =  $request->avatar . "." . $photo_extension;
-         Image::make($photo_upload)->save(base_path('public/uploads/student/'.$photo_name),100);
+         $path = $request->file('avatar')->store('uploads/students');
          Student::find($student_id)->update([
-         'avatar'          => $photo_name,
+         'avatar'          => $path,
         ]);
         }
         else {
          //delete
          $delete_photo=Student::find($student_id)->avatar;
-         unlink(base_path('public/uploads/student/'.$delete_photo));
+
+          if (!file_exists(base_path('public/'.$delete_photo))) {
+            //unlink(base_path('public/'.$delete_photo));
+          }
          //update
          $photo_upload     = $request->avatar;
-         $photo_extension  =  $photo_upload->getClientOriginalExtension();
-         $photo_name       =  $student_id . "." . $photo_extension;
-         Image::make($photo_upload)->save(base_path('public/uploads/student/'.$photo_name),100);
-         Student::find($student_id)->update([
-         'avatar'          => $photo_name,
-        ]);
+         $path = $request->file('avatar')->store('uploads/students');
+           Student::find($student_id)->update([
+           'avatar'          => $path,
+          ]);
         }
      }
 
