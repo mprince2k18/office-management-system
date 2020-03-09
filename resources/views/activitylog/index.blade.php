@@ -149,7 +149,7 @@
                       <!-- <span>Today</span> -->
                   </div>
                   <h5>
-                    <span> A student just been {{ $activity->description }}</span>
+                    <span>{{ $activity->description }}</span>
                     <a href="javascript:void(0);">
                       @foreach ($activity->properties as  $value)
                           {{ $value }}

@@ -8,6 +8,22 @@ Route::get('student/profile/{student_id}', 'StudentController@profile')->name('s
 Route::get('student/edit/{student_id}', 'StudentController@edit')->name('student.edit');
 Route::post('student/update/{student_id}', 'StudentController@update')->name('student.update');
 
+// TeacherController
+Route::get('teacher', 'TeacherController@index')->name('teacher.index');
+Route::post('teacher/create', 'TeacherController@create')->name('teacher.create');
+Route::get('teacher/all', 'TeacherController@all')->name('teacher.all');
+Route::get('teacher/profile/{teacher_id}', 'TeacherController@profile')->name('teacher.profile');
+Route::get('teacher/edit/{teacher_id}', 'TeacherController@edit')->name('teacher.edit');
+Route::post('teacher/update/{teacher_id}', 'TeacherController@update')->name('teacher.update');
+
+// CourseController
+Route::get('course', 'CourseController@index')->name('course.index');
+Route::post('course/create', 'CourseController@create')->name('course.create');
+Route::get('course/all', 'CourseController@all')->name('course.all');
+Route::get('course/profile/{course_id}', 'CourseController@profile')->name('course.profile');
+Route::get('course/edit/{course_id}', 'CourseController@edit')->name('course.edit');
+Route::post('course/update/{course_id}', 'CourseController@update')->name('course.update');
+
 // ActivityController
 Route::get('activity/log', 'ActivityController@index')->name('activity.index');
 Route::post('activity/log/search', 'ActivityController@searchLog')->name('activity.search');

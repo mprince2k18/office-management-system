@@ -39,15 +39,19 @@ class StudentController extends Controller
         'ssc_inst'=>$request->ssc_inst,
         'ssc_board'=>$request->ssc_board,
         'ssc_subject'=>$request->ssc_subject,
+        'ssc_passing'=>$request->ssc_passing,
         'hsc_inst'=>$request->hsc_inst,
         'hsc_board'=>$request->hsc_board,
         'hsc_subject'=>$request->hsc_subject,
+        'hsc_passing'=>$request->hsc_passing,
         'grad_inst'=>$request->grad_inst,
         'grad_board'=>$request->grad_board,
         'grad_subject'=>$request->grad_subject,
+        'grad_passing'=>$request->grad_passing,
         'masters_inst'=>$request->masters_inst,
         'masters_board'=>$request->masters_board,
         'masters_subject'=>$request->masters_subject,
+        'masters_passing'=>$request->masters_passing,
       ]);
 
       if ($request->hasFile('avatar')) {
@@ -130,16 +134,22 @@ class StudentController extends Controller
         'ssc_inst'=>$request->ssc_inst,
         'ssc_board'=>$request->ssc_board,
         'ssc_subject'=>$request->ssc_subject,
+        'ssc_passing'=>$request->ssc_passing,
         'hsc_inst'=>$request->hsc_inst,
         'hsc_board'=>$request->hsc_board,
         'hsc_subject'=>$request->hsc_subject,
+        'hsc_passing'=>$request->hsc_passing,
         'grad_inst'=>$request->grad_inst,
         'grad_board'=>$request->grad_board,
         'grad_subject'=>$request->grad_subject,
+        'grad_passing'=>$request->grad_passing,
         'masters_inst'=>$request->masters_inst,
         'masters_board'=>$request->masters_board,
         'masters_subject'=>$request->masters_subject,
+        'masters_passing'=>$request->masters_passing,
       ]);
+
+
 
       notify()->success($request->name . ' ' . 'Updated Successfully');
       return back();

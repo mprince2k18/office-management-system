@@ -25,8 +25,22 @@
                 <ul class="ml-menu">
                     <li class="{{ Request::segment(2) === 'inbox' ? 'active' : null }}"><a href="{{route('student.index')}}">New Student</a></li>
                     <li class="{{ Request::segment(2) === 'chat' ? 'active' : null }}"><a href="{{route('student.all')}}">All Student</a></li>
-                    <li class="{{ Request::segment(2) === 'calendar' ? 'active' : null }}"><a href="{{route('app.calendar')}}">Calendar</a></li>
-                    <li class="{{ Request::segment(2) === 'contact-list' ? 'active' : null }}"><a href="{{route('app.contact-list')}}">Contact list</a></li>
+                </ul>
+            </li>
+
+            <li class="{{ Request::segment(1) === 'app' ? 'active open' : null }}">
+                <a href="#App" class="menu-toggle"><i class="zmdi zmdi-apps"></i> <span>Teacher Area</span></a>
+                <ul class="ml-menu">
+                    <li class="{{ Request::segment(2) === 'inbox' ? 'active' : null }}"><a href="{{route('teacher.index')}}">New Teacher</a></li>
+                    <li class="{{ Request::segment(2) === 'chat' ? 'active' : null }}"><a href="{{route('teacher.all')}}">All Teacher</a></li>
+                </ul>
+            </li>
+
+            <li class="{{ Request::segment(1) === 'app' ? 'active open' : null }}">
+                <a href="#App" class="menu-toggle"><i class="zmdi zmdi-apps"></i> <span>Course Area</span></a>
+                <ul class="ml-menu">
+                    <li class="{{ Request::segment(2) === 'inbox' ? 'active' : null }}"><a href="{{route('course.index')}}">New Course</a></li>
+                    <li class="{{ Request::segment(2) === 'chat' ? 'active' : null }}"><a href="{{route('course.all')}}">All Course</a></li>
                 </ul>
             </li>
 
