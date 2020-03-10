@@ -18,12 +18,7 @@
                 <h4 class="m-t-10">{{ $edit_teacher->name }}</h4>
                 <div class="row">
                     <div class="col-12">
-                        <!-- <ul class="social-links list-unstyled">
-                            <li><a title="facebook" href="javascript:void(0);"><i class="zmdi zmdi-facebook"></i></a></li>
-                            <li><a title="twitter" href="javascript:void(0);"><i class="zmdi zmdi-twitter"></i></a></li>
-                            <li><a title="instagram" href="javascript:void(0);"><i class="zmdi zmdi-instagram"></i></a></li>
-                        </ul> -->
-                        <p class="text-muted">Wordpress Development</p>
+                        <p class="text-muted">{{ $edit_teacher->relationBetweenCourse->course_name }}</p>
                     </div>
                     <div class="col-4">
                         <small>Batch</small>
@@ -136,7 +131,6 @@
               <hr>
 
               <small class="text-muted">Occupation: </small>
-              <p>Software Developer</p>
               <input type="email" class="form-control" name="occupation" value="{{ $edit_teacher->occupation }}">
 
               <hr>
@@ -169,10 +163,22 @@
               <hr>
 
               <small class="text-muted">Marketplace Profile Links: </small>
-              <input type="text" class="form-control" name="marketplace" value="{{ $edit_teacher->marketplace }}">
+
+              <!-- @foreach ($y as $value)
+              <input type="text" class="form-control" name="marketplace" value="{{ $value }}">
+              @endforeach -->
+
+              <!-- marketplace Profile Links -->
+              <div id="dynamic-field-1" class="form-group form-float dynamic-field">
+                @foreach ($y as $value)
+                <input type="text" placeholder="Marketplace Profile Links" value="{{ $value }}" id="field" class="form-control" name="marketplace[]" />
+                @endforeach
+              </div>
+              <button type="button" id="add-button" class="btn btn-secondary float-left text-uppercase shadow-sm"><i class="fas fa-plus fa-fw"></i> Add</button>
+
+
               <hr>
 
-              <small class="text-muted">Profile Avatar: </small>
               <div class="card">
                   <div class="body">
                       <p>teacher Photo</p>
@@ -184,7 +190,7 @@
 
 
                             <small class="text-muted">Password: </small>
-                            <input type="text" class="form-control" name="password" value="{{ $edit_teacher->password }}">
+                            <input type="password" class="form-control" name="password" value="{{ $edit_teacher->password }}">
                             <hr>
 
               <div class="card">
@@ -313,6 +319,78 @@
 
 $("#updateButton").click(function(){
   $("#updateForm").submit();
+});
+
+</script>
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+  var buttonAdd = $("#add-button");
+  var buttonRemove = $("#remove-button");
+  var className = ".dynamic-field";
+  var count = 0;
+  var field = "";
+  var maxFields = 5;
+
+  function totalFields() {
+    return $(className).length;
+  }
+
+  function addNewField() {
+    count = totalFields() + 1;
+    field = $("#dynamic-field-1").clone();
+    field.attr("id", "dynamic-field-" + count);
+    field.children("label").text("Field " + count);
+    field.find("input").val("");
+    $(className + ":last").after($(field));
+  }
+
+  function removeLastField() {
+    if (totalFields() > 1) {
+      $(className + ":last").remove();
+    }
+  }
+
+  function enableButtonRemove() {
+    if (totalFields() === 2) {
+      buttonRemove.removeAttr("disabled");
+      buttonRemove.addClass("shadow-sm");
+    }
+  }
+
+  function disableButtonRemove() {
+    if (totalFields() === 1) {
+      buttonRemove.attr("disabled", "disabled");
+      buttonRemove.removeClass("shadow-sm");
+    }
+  }
+
+  function disableButtonAdd() {
+    if (totalFields() === maxFields) {
+      buttonAdd.attr("disabled", "disabled");
+      buttonAdd.removeClass("shadow-sm");
+    }
+  }
+
+  function enableButtonAdd() {
+    if (totalFields() === (maxFields - 1)) {
+      buttonAdd.removeAttr("disabled");
+      buttonAdd.addClass("shadow-sm");
+    }
+  }
+
+  buttonAdd.click(function() {
+    addNewField();
+    enableButtonRemove();
+    disableButtonAdd();
+  });
+
+  buttonRemove.click(function() {
+    removeLastField();
+    disableButtonRemove();
+    enableButtonAdd();
+  });
 });
 
 </script>

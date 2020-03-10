@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Student;
+use Carbon\Carbon;
 use File;
 use Image;
 
@@ -53,6 +54,7 @@ class StudentController extends Controller
         'masters_board'=>$request->masters_board,
         'masters_subject'=>$request->masters_subject,
         'masters_passing'=>$request->masters_passing,
+        'created_at'=>Carbon::now(),
       ]);
 
       if ($request->hasFile('avatar')) {
@@ -147,6 +149,7 @@ class StudentController extends Controller
         'masters_board'=>$request->masters_board,
         'masters_subject'=>$request->masters_subject,
         'masters_passing'=>$request->masters_passing,
+        'updated_at'=>Carbon::now(),
       ]);
 
 

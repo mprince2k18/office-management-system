@@ -20,22 +20,22 @@
                             <li><a title="twitter" href="javascript:void(0);"><i class="zmdi zmdi-twitter"></i></a></li>
                             <li><a title="instagram" href="javascript:void(0);"><i class="zmdi zmdi-instagram"></i></a></li>
                         </ul>
-                        <p class="text-muted">{{ $student->relationBetweenEnroll->relationBetweenCourse->course_name }}</p>
+                        <p class="text-muted">Wordpress Development</p>
                     </div>
 
                     <div class="col-4">
                         <small>Batch</small>
-                        <h5>{{ $student->relationBetweenEnroll->relationBetweenBatch->batch_no }}</h5>
+                        <h5>STIT 2020</h5>
                     </div>
 
                     <div class="col-4">
                         <small>Roll No:</small>
-                        <h5>{{ $student->relationBetweenEnroll->student_roll }}</h5>
+                        <h5>001</h5>
                     </div>
 
                     <div class="col-4">
                         <small>Course Enrolled</small>
-                        <h5>{{ $student->relationBetweenEnroll->where('student_name',$student->id)->count() }}</h5>
+                        <h5>02</h5>
                     </div>
 
                 </div>
@@ -88,7 +88,16 @@
                         <code>fideltonn@gmail.com</code>
                         <small>1 months ago.</small>
                     </li>
-
+                    <li class="a_email">
+                        <h4>New Email</h4>
+                        <p>Contrary to popular belief, Lorem Ipsum is not simply</p>
+                        <small>3 months ago.</small>
+                    </li>
+                    <li class="a_contact">
+                        <h4>Add New Contact</h4>
+                        <code>maryamamiri@gmail.com</code>
+                        <small>1 months ago.</small>
+                    </li>
                 </ul>
             </div>
         </div>

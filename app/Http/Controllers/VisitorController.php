@@ -4,42 +4,44 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Batch;
+use App\Visitor;
 use App\Teacher;
+use App\Course;
+use Carbon\Carbon;
 use Image;
 
-class BatchController extends Controller
+class VisitorController extends Controller
 {
   // index
   function index()
   {
-    $teachers= Teacher::all();
-    return view('batch.newbatch.index',compact('teachers'));
+    $courses= Course::all();
+    return view('visitor.newvisitor.index',compact('courses'));
   }
   // create
   function create(Request $request)
   {
 
 
-    $teachers = $request->teacher;
-
-    foreach ($teachers as $teacher) {
-      $last_inserted_id = Batch::insertGetId([
-        'batch_no'=>$request->batch_no,
-        'teacher'=>$teacher,
+      $last_inserted_id = Visitor::insertGetId([
+        'name'=>$request->name,
+        'email'=>$request->email,
+        'phone'=>$request->phone,
+        'talked'=>$request->talked,
+        'address'=>$request->address,
         'created_at'=>Carbon::now(),
       ]);
-    }
 
 
-    activity()->withProperties(['name' => $request->batch_no])->log('New Batch created named');
+    activity()->withProperties(['name' => $request->name])->log('New Visitor named');
     notify()->success($request->batch_no . ' ' . 'Created Successfully');
     return back();
   }
   // all
   function all()
   {
-    $batches = Batch::all();
-    return view('batch.allbatch.all',compact('batches'));
+    $visitors = Visitor::all();
+    return view('visitor.allvisitor.all',compact('visitors'));
   }
   // // profile
   // function profile($student_id)

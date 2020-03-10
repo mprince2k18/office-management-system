@@ -22,6 +22,7 @@ class CourseController extends Controller
         'course_fee'=>$request->course_fee,
         'course_outline'=>$request->course_outline,
         'course_thumb'=>$request->course_thumb,
+        'created_at'=>Carbon::now(),
       ]);
 
         if ($request->hasFile('course_thumb')) {
@@ -118,6 +119,7 @@ class CourseController extends Controller
       'course_name'=>$request->course_name,
       'course_fee'=>$request->course_fee,
       'course_outline'=>$request->course_outline,
+      'updated_at'=>Carbon::now(),
     ]);
 
     activity()->withProperties(['name' => $request->course_name])->log('Course Updated');

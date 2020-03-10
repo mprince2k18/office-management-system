@@ -53,6 +53,22 @@
             </li>
 
             <li class="{{ Request::segment(1) === 'app' ? 'active open' : null }}">
+                <a href="#App" class="menu-toggle"><i class="zmdi zmdi-apps"></i> <span>Visitor Area</span></a>
+                <ul class="ml-menu">
+                    <li class="{{ Request::segment(2) === 'inbox' ? 'active' : null }}"><a href="{{route('visitor.index')}}">New Visitor</a></li>
+                    <li class="{{ Request::segment(2) === 'chat' ? 'active' : null }}"><a href="{{route('visitor.all')}}">All Visitor</a></li>
+                </ul>
+            </li>
+
+            <li class="{{ Request::segment(1) === 'app' ? 'active open' : null }}">
+                <a href="#App" class="menu-toggle"><i class="zmdi zmdi-apps"></i> <span>Enrollment Area</span></a>
+                <ul class="ml-menu">
+                    <li class="{{ Request::segment(2) === 'inbox' ? 'active' : null }}"><a href="{{route('enroll.index')}}">New Enrollment</a></li>
+                    <li class="{{ Request::segment(2) === 'chat' ? 'active' : null }}"><a href="{{route('enroll.all')}}">All Enroll</a></li>
+                </ul>
+            </li>
+
+            <li class="{{ Request::segment(1) === 'app' ? 'active open' : null }}">
                 <a href="#App" class="menu-toggle"><i class="zmdi zmdi-apps"></i> <span>Activity Log</span></a>
                 <ul class="ml-menu">
                     <li class="{{ Request::segment(2) === 'inbox' ? 'active' : null }}"><a href="{{route('activity.index')}}">Logs</a></li>

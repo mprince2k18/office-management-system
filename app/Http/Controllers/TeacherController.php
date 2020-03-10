@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Teacher;
 use App\Course;
 use Image;
+use Carbon\Carbon;
 
 class TeacherController extends Controller
 {
@@ -13,6 +14,7 @@ class TeacherController extends Controller
   function index()
   {
     $courses = Course::all();
+
     return view('teacher.newTeacher.index',compact('courses'));
   }
   // create
@@ -64,6 +66,7 @@ class TeacherController extends Controller
       'masters_passing'=>$request->masters_passing,
       'assigned_course'=>$request->assigned_course,
       'avatar'=>$request->avatar,
+      'created_at'=>Carbon::now(),
     ]);
 
     if ($request->hasFile('avatar')) {
@@ -90,13 +93,24 @@ class TeacherController extends Controller
   function profile($teacher_id)
   {
     $teacher = Teacher::findOrFail($teacher_id);
-    return view('teacher.profile.profile',compact('teacher'));
+    // dd(json_decode($teacher->marketplace));
+    $x = json_decode($teacher->marketplace);
+    $y=[];
+    foreach ($x as $xs) {
+      array_push($y,$xs);
+    }
+    return view('teacher.profile.profile',compact('teacher','y'));
   }
   // edit
   function edit($teacher_id)
   {
     $edit_teacher = Teacher::findOrFail($teacher_id);
-    return view('teacher.editTeacher.edit',compact('edit_teacher'));
+    $x = json_decode($edit_teacher->marketplace);
+    $y=[];
+    foreach ($x as $xs) {
+      array_push($y,$xs);
+    }
+    return view('teacher.editTeacher.edit',compact('edit_teacher','y'));
   }
   // update
   function update(Request $request,$teacher_id)
@@ -160,6 +174,7 @@ class TeacherController extends Controller
       'masters_subject'=>$request->masters_subject,
       'masters_passing'=>$request->masters_passing,
       'assigned_course'=>$request->assigned_course,
+      'updated_at'=>Carbon::now(),
     ]);
 
     activity()->withProperties(['name' => $request->name])->log('trainer profile updated');

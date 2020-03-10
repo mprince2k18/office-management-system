@@ -1,5 +1,5 @@
 @extends('layout.master')
-@section('title', 'Student Profile')
+@section('title', 'teacher Profile')
 @section('parentPageTitle', 'Pages')
 @section('page-style')
 <link rel="stylesheet" href="{{asset('assets/plugins/light-gallery/css/lightgallery.css')}}">
@@ -14,8 +14,8 @@
 
         <div class="card mcard_3">
             <div class="body">
-                <a href="{{ url('student/profile') }}/{{ $edit_student->id }}"><img src="{{ asset('uploads/student') }}/{{ $edit_student->avatar }}" class="rounded-circle shadow " alt="profile-image"></a>
-                <h4 class="m-t-10">{{ $edit_student->name }}</h4>
+                <a href="{{ url('teacher/profile') }}/{{ $edit_teacher->id }}"><img src="{{asset('uploads/teacher')}}/{{ $edit_teacher->avatar }}" class="rounded-circle shadow " alt="profile-image"></a>
+                <h4 class="m-t-10">{{ $edit_teacher->name }}</h4>
                 <div class="row">
                     <div class="col-12">
                         <!-- <ul class="social-links list-unstyled">
@@ -59,7 +59,7 @@
     </div>
     <div class="col-lg-8 col-md-12">
 
-      <form action="{{ url('student/update') }}/{{ $edit_student->id }}" id="updateForm" method="post" enctype="multipart/form-data">
+      <form action="{{ url('teacher/update') }}/{{ $edit_teacher->id }}" id="updateForm" method="post" enctype="multipart/form-data">
 
 @csrf
 
@@ -67,28 +67,28 @@
           <div class="body">
 
             <small class="text-muted">Name: </small>
-            <input type="text" class="form-control" name="name" value="{{ $edit_student->name }}">
+            <input type="text" class="form-control" name="name" value="{{ $edit_teacher->name }}">
             <hr>
 
 
             <small class="text-muted">Father's Name: </small>
-            <input type="text" class="form-control" name="father_name" value="{{ $edit_student->father_name }}">
+            <input type="text" class="form-control" name="father_name" value="{{ $edit_teacher->father_name }}">
 
             <hr>
 
             <small class="text-muted">Mother's Name: </small>
-            <input type="text" class="form-control" name="mother_name" value="{{ $edit_student->mother_name }}">
+            <input type="text" class="form-control" name="mother_name" value="{{ $edit_teacher->mother_name }}">
 
             <hr>
 
 
               <small class="text-muted">Email address: </small>
-              <input type="email" class="form-control" name="email" value="{{ $edit_student->email }}">
+              <input type="email" class="form-control" name="email" value="{{ $edit_teacher->email }}">
 
               <hr>
 
               <small class="text-muted">Gender: </small>
-              @if( $edit_student->gender === 'Male')
+              @if( $edit_teacher->gender === 'Male')
               <div class="form-group">
                   <div class="radio inlineblock m-r-20">
                       <input type="radio" name="gender" id="male" class="with-gap" value="Male" checked="">
@@ -115,14 +115,14 @@
               <hr>
 
               <small class="text-muted">Natonality: </small>
-              <input type="text" class="form-control" name="nationality" value="{{ $edit_student->nationality }}">
+              <input type="text" class="form-control" name="nationality" value="{{ $edit_teacher->nationality }}">
 
               <hr>
 
               <small class="text-muted">Blood Group: </small>
               <div class="form-group form-float">
                 <select name="blood_group" class="form-control show-tick ms select2" data-placeholder="Blood Group">
-                    <option value="{{ $edit_student->blood_group }}" class="bg-dark text-white">{{ $edit_student->blood_group }}</option>
+                    <option value="{{ $edit_teacher->blood_group }}" class="bg-dark text-white">{{ $edit_teacher->blood_group }}</option>
                     <option value="A+">A+</option>
                     <option value="A-">A-</option>
                     <option value="B+">B+</option>
@@ -137,7 +137,7 @@
 
               <small class="text-muted">Occupation: </small>
               <p>Software Developer</p>
-              <input type="email" class="form-control" name="occupation" value="{{ $edit_student->occupation }}">
+              <input type="email" class="form-control" name="occupation" value="{{ $edit_teacher->occupation }}">
 
               <hr>
 
@@ -146,37 +146,37 @@
                   <div class="input-group-prepend">
                       <span class="input-group-text"><i class="zmdi zmdi-calendar"></i></span>
                   </div>
-                  <input type="text" value="{{ $edit_student->dob }}" name="dob" class="form-control date" placeholder="{{ $edit_student->dob }}">
+                  <input type="text" value="{{ $edit_teacher->dob }}" name="dob" class="form-control date" placeholder="{{ $edit_teacher->dob }}">
               </div>
               <hr>
 
               <small class="text-muted">Present Address: </small>
 
               <div class="form-group form-float">
-                  <textarea name="present_address" cols="30" rows="5" placeholder="Present Address" class="form-control no-resize" required>{{ $edit_student->present_address }}</textarea>
+                  <textarea name="present_address" cols="30" rows="5" placeholder="Present Address" class="form-control no-resize" required>{{ $edit_teacher->present_address }}</textarea>
               </div>
               <hr>
 
               <small class="text-muted">Permanent Address: </small>
               <div class="form-group form-float">
-                  <textarea name="permanent_address" cols="30" rows="5" placeholder="Present Address" class="form-control no-resize" required>{{ $edit_student->permanent_address }}</textarea>
+                  <textarea name="permanent_address" cols="30" rows="5" placeholder="Present Address" class="form-control no-resize" required>{{ $edit_teacher->permanent_address }}</textarea>
               </div>
               <hr>
 
               <small class="text-muted">Contact Number: </small>
-              <input type="number" class="form-control" name="phone" value="{{ $edit_student->phone }}">
+              <input type="number" class="form-control" name="phone" value="{{ $edit_teacher->phone }}">
 
               <hr>
 
               <small class="text-muted">Marketplace Profile Links: </small>
-              <input type="text" class="form-control" name="marketplace" value="{{ $edit_student->marketplace }}">
+              <input type="text" class="form-control" name="marketplace" value="{{ $edit_teacher->marketplace }}">
               <hr>
 
               <small class="text-muted">Profile Avatar: </small>
               <div class="card">
                   <div class="body">
-                      <p>Student Photo</p>
-                      <input name="avatar" type="file" id="dropify-event" data-default-file="{{asset('uploads/student')}}/{{ $edit_student->avatar }}">
+                      <p>teacher Photo</p>
+                      <input name="avatar" type="file" id="dropify-event" data-default-file="{{asset('uploads/teacher')}}/{{ $edit_teacher->avatar }}">
                   </div>
               </div>
 
@@ -184,7 +184,7 @@
 
 
                             <small class="text-muted">Password: </small>
-                            <input type="password" class="form-control" name="password" value="{{ $edit_student->password }}">
+                            <input type="text" class="form-control" name="password" value="{{ $edit_teacher->password }}">
                             <hr>
 
               <div class="card">
@@ -219,16 +219,16 @@
                                   <span class="text-muted">SSC</span>
                               </td>
                               <td>
-                                <input type="text" class="form-control" name="ssc_inst" value="{{ $edit_student->ssc_inst }}">
+                                <input type="text" class="form-control" name="ssc_inst" value="{{ $edit_teacher->ssc_inst }}">
                               </td>
                               <td>
-                                <input type="text" class="form-control" name="ssc_board" value="{{ $edit_student->ssc_board }}">
+                                <input type="text" class="form-control" name="ssc_board" value="{{ $edit_teacher->ssc_board }}">
                               </td>
                               <td>
-                                <input type="text" class="form-control" name="ssc_subject" value="{{ $edit_student->ssc_subject }}">
+                                <input type="text" class="form-control" name="ssc_subject" value="{{ $edit_teacher->ssc_subject }}">
                               </td>
                               <td>
-                                <input type="text" class="form-control" name="ssc_passing" value="{{ $edit_student->ssc_passing }}">
+                                <input type="text" class="form-control" name="ssc_passing" value="{{ $edit_teacher->ssc_passing }}">
                               </td>
 
                           </tr>
@@ -238,16 +238,16 @@
                                   <span class="text-muted">HSC</span>
                               </td>
                               <td>
-                                <input type="text" class="form-control" name="hsc_inst" value="{{ $edit_student->hsc_inst }}">
+                                <input type="text" class="form-control" name="hsc_inst" value="{{ $edit_teacher->hsc_inst }}">
                               </td>
                               <td>
-                                <input type="text" class="form-control" name="hsc_board" value="{{ $edit_student->hsc_board }}">
+                                <input type="text" class="form-control" name="hsc_board" value="{{ $edit_teacher->hsc_board }}">
                               </td>
                               <td>
-                                <input type="text" class="form-control" name="hsc_subject" value="{{ $edit_student->hsc_subject }}">
+                                <input type="text" class="form-control" name="hsc_subject" value="{{ $edit_teacher->hsc_subject }}">
                               </td>
                               <td>
-                                <input type="text" class="form-control" name="hsc_passing" value="{{ $edit_student->hsc_passing }}">
+                                <input type="text" class="form-control" name="hsc_passing" value="{{ $edit_teacher->hsc_passing }}">
                               </td>
 
                           </tr>
@@ -257,16 +257,16 @@
                                   <span class="text-muted">Graduation</span>
                               </td>
                               <td>
-                                <input type="text" class="form-control" name="grad_inst" value="{{ $edit_student->grad_inst }}">
+                                <input type="text" class="form-control" name="grad_inst" value="{{ $edit_teacher->grad_inst }}">
                               </td>
                               <td>
-                                <input type="text" class="form-control" name="grad_board" value="{{ $edit_student->grad_board }}">
+                                <input type="text" class="form-control" name="grad_board" value="{{ $edit_teacher->grad_board }}">
                               </td>
                               <td>
-                                <input type="text" class="form-control" name="grad_subject" value="{{ $edit_student->grad_subject }}">
+                                <input type="text" class="form-control" name="grad_subject" value="{{ $edit_teacher->grad_subject }}">
                               </td>
                               <td>
-                                <input type="text" class="form-control" name="grad_passing" value="{{ $edit_student->grad_subject }}">
+                                <input type="text" class="form-control" name="grad_passing" value="{{ $edit_teacher->grad_subject }}">
                               </td>
 
                           </tr>
@@ -276,16 +276,16 @@
                                   <span class="text-muted">Masters</span>
                               </td>
                               <td>
-                                <input type="text" class="form-control" name="masters_inst" value="{{ $edit_student->masters_inst }}">
+                                <input type="text" class="form-control" name="masters_inst" value="{{ $edit_teacher->masters_inst }}">
                               </td>
                               <td>
-                                <input type="text" class="form-control" name="masters_board" value="{{ $edit_student->masters_board }}">
+                                <input type="text" class="form-control" name="masters_board" value="{{ $edit_teacher->masters_board }}">
                               </td>
                               <td>
-                                <input type="text" class="form-control" name="masters_subject" value="{{ $edit_student->masters_subject }}">
+                                <input type="text" class="form-control" name="masters_subject" value="{{ $edit_teacher->masters_subject }}">
                               </td>
                               <td>
-                                <input type="text" class="form-control" name="masters_passing" value="{{ $edit_student->masters_passing }}">
+                                <input type="text" class="form-control" name="masters_passing" value="{{ $edit_teacher->masters_passing }}">
                               </td>
 
                           </tr>

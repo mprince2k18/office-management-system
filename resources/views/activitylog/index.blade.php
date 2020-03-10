@@ -107,10 +107,10 @@
                     <div class="card state_w1">
                         <div class="body d-flex justify-content-between">
                             <div>
-                                <h5>50</h5>
+                                <h5>{{ $visitors_count }}</h5>
                                 <span><i class="zmdi zmdi-comment-text col-red"></i> Visitors</span>
                             </div>
-                            <div class="sparkline" data-type="bar" data-width="97%" data-height="55px" data-bar-Width="3" data-bar-Spacing="5" data-bar-Color="#ee2558">4,4,3,9,2,1,5,7</div>
+                            <div class="sparkline" data-type="bar" data-width="97%" data-height="55px" data-bar-Width="3" data-bar-Spacing="5" data-bar-Color="#ee2558">{{ $visitor_last6daysAgo }},{{ $visitor_last5daysAgo }},{{ $visitor_last4daysAgo }},{{ $visitor_last3daysAgo }},{{ $visitor_last2daysAgo }},{{ $visitor_yesterday }},{{ $visitor_today }}</div>
                         </div>
                     </div>
                 </div>
@@ -118,10 +118,10 @@
                     <div class="card state_w1">
                         <div class="body d-flex justify-content-between">
                             <div>
-                                <h5>50</h5>
+                                <h5>{{ $enrolled_count }}</h5>
                                 <span><i class="zmdi zmdi-comment-text col-green"></i> Enrolled</span>
                             </div>
-                            <div class="sparkline" data-type="bar" data-width="97%" data-height="55px" data-bar-Width="3" data-bar-Spacing="5" data-bar-Color="#ee2558">4,4,3,9,2,1,5,7</div>
+                            <div class="sparkline" data-type="bar" data-width="97%" data-height="55px" data-bar-Width="3" data-bar-Spacing="5" data-bar-Color="#ee2558">{{ $enrolled_last6daysAgo }},{{ $enrolled_last5daysAgo }},{{ $enrolled_last4daysAgo }},{{ $enrolled_last3daysAgo }},{{ $enrolled_last2daysAgo }},{{ $enrolled_yesterday }},{{ $enrolled_today }}</div>
                         </div>
                     </div>
                 </div>

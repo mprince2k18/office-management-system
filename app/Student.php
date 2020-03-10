@@ -44,5 +44,9 @@ class Student extends Model
       'masters_passing',
     ];
 
+    public function relationBetweenEnroll()
+    {
+      return $this->hasOne('App\Enroll','student_name','id');
+    }
     //END
 }

@@ -10,8 +10,8 @@
     <div class="col-lg-4 col-md-12">
         <div class="card mcard_3">
             <div class="body">
-                <a href="{{ url('student/profile') }}/{{ $student->id }}"><img src="{{ asset('uploads/student') }}/{{ $student->avatar }}" class="rounded-circle shadow " alt="profile-image"></a>
-                <h4 class="m-t-10">{{ $student->name }}</h4>
+                <a href="{{ url('teacher/profile') }}/{{ $teacher->id }}"><img src="{{ asset('uploads/teacher') }}/{{ $teacher->avatar }}" class="rounded-circle shadow " alt="profile-image"></a>
+                <h4 class="m-t-10">{{ $teacher->name }}</h4>
                 <div class="row">
 
                     <div class="col-12">
@@ -20,29 +20,29 @@
                             <li><a title="twitter" href="javascript:void(0);"><i class="zmdi zmdi-twitter"></i></a></li>
                             <li><a title="instagram" href="javascript:void(0);"><i class="zmdi zmdi-instagram"></i></a></li>
                         </ul>
-                        <p class="text-muted">{{ $student->relationBetweenEnroll->relationBetweenCourse->course_name }}</p>
+                        <p class="text-muted">Wordpress Development</p>
                     </div>
 
                     <div class="col-4">
                         <small>Batch</small>
-                        <h5>{{ $student->relationBetweenEnroll->relationBetweenBatch->batch_no }}</h5>
+                        <h5>STIT 2020</h5>
                     </div>
 
                     <div class="col-4">
                         <small>Roll No:</small>
-                        <h5>{{ $student->relationBetweenEnroll->student_roll }}</h5>
+                        <h5>001</h5>
                     </div>
 
                     <div class="col-4">
                         <small>Course Enrolled</small>
-                        <h5>{{ $student->relationBetweenEnroll->where('student_name',$student->id)->count() }}</h5>
+                        <h5>02</h5>
                     </div>
 
                 </div>
             </div>
         </div>
 
-        <a href="{{ url('student/edit') }}/{{ $student->id }}">
+        <a href="{{ url('teacher/edit') }}/{{ $teacher->id }}">
           <div class="card info-box-2 hover-zoom-effect social-widget facebook-widget">
               <div class="icon"><i class="zmdi zmdi-edit"></i></div>
               <div class="content">
@@ -88,7 +88,16 @@
                         <code>fideltonn@gmail.com</code>
                         <small>1 months ago.</small>
                     </li>
-
+                    <li class="a_email">
+                        <h4>New Email</h4>
+                        <p>Contrary to popular belief, Lorem Ipsum is not simply</p>
+                        <small>3 months ago.</small>
+                    </li>
+                    <li class="a_contact">
+                        <h4>Add New Contact</h4>
+                        <code>maryamamiri@gmail.com</code>
+                        <small>1 months ago.</small>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -100,57 +109,58 @@
           <div class="body">
 
             <small class="text-muted">Name: </small>
-            <p>{{ $student->name }}</p>
+            <p>{{ $teacher->name }}</p>
             <hr>
 
 
             <small class="text-muted">Father's Name: </small>
-            <p>{{ $student->father_name }}</p>
+            <p>{{ $teacher->father_name }}</p>
             <hr>
 
             <small class="text-muted">Mother's Name: </small>
-            <p>{{ $student->mother_name }}</p>
+            <p>{{ $teacher->mother_name }}</p>
             <hr>
 
 
               <small class="text-muted">Email address: </small>
-              <p>{{ $student->email }}</p>
+              <p>{{ $teacher->email }}</p>
               <hr>
 
               <small class="text-muted">Gender: </small>
-              <p>{{ $student->gender }}</p>
+              <p>{{ $teacher->gender }}</p>
               <hr>
 
               <small class="text-muted">Natonality: </small>
-              <p>{{ $student->nationality }}</p>
+              <p>{{ $teacher->nationality }}</p>
               <hr>
 
               <small class="text-muted">Blood Group: </small>
-              <p>{{ $student->blood_group }}</p>
+              <p>{{ $teacher->blood_group }}</p>
               <hr>
 
               <small class="text-muted">Occupation: </small>
-              <p>{{ $student->occupation }}</p>
+              <p>{{ $teacher->occupation }}</p>
               <hr>
 
               <small class="text-muted">Date Of Birth: </small>
-              <p>{{ $student->dob }}</p>
+              <p>{{ $teacher->dob }}</p>
               <hr>
 
               <small class="text-muted">Present Address: </small>
-              <p>{{ $student->present_address }}</p>
+              <p>{{ $teacher->present_address }}</p>
               <hr>
 
               <small class="text-muted">Permanent Address: </small>
-              <p>{{ $student->permanent_address }}</p>
+              <p>{{ $teacher->permanent_address }}</p>
               <hr>
 
               <small class="text-muted">Contact Number: </small>
-              <p>{{ $student->phone }}</p>
+              <p>{{ $teacher->phone }}</p>
               <hr>
 
               <small class="text-muted">Marketplace Profile Links: </small>
-              <p>{{ $student->marketplace }}</p>
+              <p>{{ $teacher->marketplace }}</p>
+
               <hr>
 
               <div class="card">
@@ -185,39 +195,39 @@
                               <td><span class="list-name"></span>
                                   <span class="text-muted">SSC</span>
                               </td>
-                              <td>{{ $student->ssc_inst }}</td>
-                              <td>{{ $student->ssc_board }}</td>
-                              <td>{{ $student->ssc_subject }}</td>
-                              <td>{{ $student->ssc_passing}}</td>
+                              <td>{{ $teacher->ssc_inst }}</td>
+                              <td>{{ $teacher->ssc_board }}</td>
+                              <td>{{ $teacher->ssc_subject }}</td>
+                              <td>{{ $teacher->ssc_passing}}</td>
                           </tr>
                           <tr>
                               <td><span class="list-name"></span>
                                   <span class="text-muted">HSC</span>
                               </td>
-                              <td>{{ $student->hsc_inst }}</td>
-                              <td>{{ $student->hsc_board }}</td>
-                              <td>{{ $student->hsc_subject }}</td>
-                              <td>{{ $student->hsc_passing}}</td>
+                              <td>{{ $teacher->hsc_inst }}</td>
+                              <td>{{ $teacher->hsc_board }}</td>
+                              <td>{{ $teacher->hsc_subject }}</td>
+                              <td>{{ $teacher->hsc_passing}}</td>
 
                           </tr>
                           <tr>
                               <td><span class="list-name"></span>
                                   <span class="text-muted">Graduation</span>
                               </td>
-                              <td>{{ $student->grad_inst }}</td>
-                              <td>{{ $student->grad_board }}</td>
-                              <td>{{ $student->grad_subject }}</td>
-                              <td>{{ $student->grad_passing}}</td>
+                              <td>{{ $teacher->grad_inst }}</td>
+                              <td>{{ $teacher->grad_board }}</td>
+                              <td>{{ $teacher->grad_subject }}</td>
+                              <td>{{ $teacher->grad_passing}}</td>
 
                           </tr>
                           <tr>
                               <td><span class="list-name"></span>
                                   <span class="text-muted">Masters</span>
                               </td>
-                              <td>{{ $student->masters_inst }}</td>
-                              <td>{{ $student->masters_board }}</td>
-                              <td>{{ $student->masters_subject }}</td>
-                              <td>{{ $student->masters_passing}}</td>
+                              <td>{{ $teacher->masters_inst }}</td>
+                              <td>{{ $teacher->masters_board }}</td>
+                              <td>{{ $teacher->masters_subject }}</td>
+                              <td>{{ $teacher->masters_passing}}</td>
 
                           </tr>
 

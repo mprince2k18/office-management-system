@@ -159,7 +159,12 @@
               <hr>
 
               <small class="text-muted">Marketplace Profile Links: </small>
-              <p>{{ $teacher->marketplace }}</p>
+
+              <p>
+                @foreach($y as $ys)
+                <div>{{$ys}}</div>
+                @endforeach
+              </p>
 
               <hr>
 
