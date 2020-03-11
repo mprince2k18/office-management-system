@@ -97,18 +97,25 @@
                                   </div>
                                   <div class="bg-orange flex-fill bd-highlight">
                                       <h3 class="mt-3 mb-0">
-                                        @if($installments->secondInstallment === null)
-                                          {{ $installments->secondInstallmentDate }}
-                                        @endif
-                                          @if($installments->secondInstallment != null && $installments->thirdInstallment != null)
-                                            {{ $installments->thirdInstallmentDate }}
-                                        @endif
-                                          @if($installments->thirdInstallment != null && $installments->fourInstallment = null)
-                                            {{ $installments->fourInstallmentDate }}
-                                        @endif
-                                          @if($installments->fourInstallment != null)
-                                            {{ $installments->fiveInstallmentDate }}
-                                        @endif
+
+                                        @php
+                                          $check = null;
+                                        @endphp
+
+                                        @switch($check)
+                                          @case($installments->firstInstallment = $check)
+
+                                              <span> `E-mail` input is empty! </span>
+
+                                              @break
+
+
+
+                                          @default
+
+                                              <span>Something went wrong, please try again </span>
+
+                                        @endswitch
 
                                       </h3>
                                       <p>Next Payment</p>
