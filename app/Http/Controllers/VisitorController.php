@@ -7,6 +7,7 @@ use App\Batch;
 use App\Visitor;
 use App\Teacher;
 use App\Course;
+use App\ApiData;
 use Carbon\Carbon;
 use Image;
 
@@ -30,6 +31,13 @@ class VisitorController extends Controller
         'talked'=>$request->talked,
         'address'=>$request->address,
         'created_at'=>Carbon::now(),
+      ]);
+
+
+      ApiData::create([
+        'name'=>$request->name,
+        'email'=>$request->email,
+        'phone'=>$request->phone,
       ]);
 
 

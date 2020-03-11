@@ -14,9 +14,16 @@ class Batch extends Model
     'teacher',
   ];
 
+  // relationBetweenTeacher
   public function relationBetweenTeacher()
   {
     return $this->hasOne('App\Teacher','id','teacher');
+  }
+
+  // relationBetweenEnroll
+  public function relationBetweenEnroll()
+  {
+    return $this->hasOne('App\Enroll','batch_no','id');
   }
 
 

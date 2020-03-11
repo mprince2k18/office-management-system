@@ -65,7 +65,7 @@
                   <div class="img">
                       <img src="{{ asset('uploads/course') }}/{{ $batch->relationBetweenTeacher->relationBetweenCourse->course_thumb }}" class="rounded-circle" alt="profile-image">
                   </div>
-                  <a href="#">
+                  <a href="{{ url('batch/profile') }}/{{ $batch->id }}">
                     <div class="user">
                         <h5 class="mt-3 mb-1 title">{{ $batch->batch_no }}</h5>
                         <h6 class="mt-3 mb-1 fee_title">{{ $batch->relationBetweenTeacher->name }}</h6>

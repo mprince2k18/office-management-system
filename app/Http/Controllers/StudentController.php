@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Student;
+use App\ApiData;
 use Carbon\Carbon;
 use File;
 use Image;
@@ -66,6 +67,12 @@ class StudentController extends Controller
        'avatar'          => $photo_name,
            ]);
            }
+
+           ApiData::create([
+             'name'=>$request->name,
+             'email'=>$request->email,
+             'phone'=>$request->phone,
+           ]);
 
       activity()->withProperties(['name' => $request->name])->log('New student admitted named');
       notify()->success($request->name . ' ' . 'Admitted Successfully');

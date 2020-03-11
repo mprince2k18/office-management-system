@@ -36,7 +36,7 @@ Route::get('batch/all', 'BatchController@all')->name('batch.all');
 Route::get('visitor', 'VisitorController@index')->name('visitor.index');
 Route::post('visitor/create', 'VisitorController@create')->name('visitor.create');
 Route::get('visitor/all', 'VisitorController@all')->name('visitor.all');
-// Route::get('batch/profile/{course_id}', 'BatchController@profile')->name('batch.profile');
+Route::get('batch/profile/{batch_id}', 'BatchController@profile')->name('batch.profile');
 // Route::get('batch/edit/{course_id}', 'BatchController@edit')->name('batch.edit');
 // Route::post('batch/update/{course_id}', 'BatchController@update')->name('batch.update');
 
@@ -47,7 +47,7 @@ Route::get('enrollment', 'EnrollController@index')->name('enroll.index');
 Route::post('enroll/create', 'EnrollController@create')->name('enroll.create');
 Route::get('enroll/all', 'EnrollController@all')->name('enroll.all');
 Route::post('get/course/fee', 'EnrollController@courseFee')->name('courseFee');
-// Route::get('batch/profile/{course_id}', 'BatchController@profile')->name('batch.profile');
+Route::get('enroll/profile/{enroll_id}', 'EnrollController@profile')->name('enroll.profile');
 // Route::get('batch/edit/{course_id}', 'BatchController@edit')->name('batch.edit');
 // Route::post('batch/update/{course_id}', 'BatchController@update')->name('batch.update');
 

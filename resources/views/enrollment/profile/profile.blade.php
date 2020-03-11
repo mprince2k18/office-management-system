@@ -10,8 +10,8 @@
     <div class="col-lg-4 col-md-12">
         <div class="card mcard_3">
             <div class="body">
-                <a href="{{ url('teacher/profile') }}/{{ $teacher->id }}"><img src="{{ asset('uploads/teacher') }}/{{ $teacher->avatar }}" class="rounded-circle shadow " alt="profile-image"></a>
-                <h4 class="m-t-10">{{ $teacher->name }}</h4>
+                <a href="{{ url('enroll/profile') }}/{{ $enroll->id }}"><img src="{{ asset('uploads/student') }}/{{ $enroll->relationBetweenStudent->avatar }}" class="rounded-circle shadow " alt="profile-image"></a>
+                <h4 class="m-t-10">{{ $enroll->relationBetweenStudent->name }}</h4>
                 <div class="row">
 
                     <div class="col-12">
@@ -20,29 +20,29 @@
                             <li><a title="twitter" href="javascript:void(0);"><i class="zmdi zmdi-twitter"></i></a></li>
                             <li><a title="instagram" href="javascript:void(0);"><i class="zmdi zmdi-instagram"></i></a></li>
                         </ul>
-                        <p class="text-muted">Wordpress Development</p>
+                        <p class="text-muted">{{ $installments->relationBetweenEnroll->relationBetweenCourse->course_name }}</p>
                     </div>
 
                     <div class="col-4">
                         <small>Batch</small>
-                        <h5>STIT 2020</h5>
+                        <h6>{{ $enroll->relationBetweenBatch->batch_no }}</h6>
                     </div>
 
                     <div class="col-4">
                         <small>Roll No:</small>
-                        <h5>001</h5>
+                        <h6>{{ $enroll->student_roll }}</h6>
                     </div>
 
                     <div class="col-4">
                         <small>Course Enrolled</small>
-                        <h5>02</h5>
+                        <h6>{{ $enroll->created_at }}</h6>
                     </div>
 
                 </div>
             </div>
         </div>
 
-        <a href="{{ url('teacher/edit') }}/{{ $teacher->id }}">
+        <a href="{{ url('enroll/edit') }}/{{ $enroll->id }}">
           <div class="card info-box-2 hover-zoom-effect social-widget facebook-widget">
               <div class="icon"><i class="zmdi zmdi-edit"></i></div>
               <div class="content">
@@ -71,175 +71,119 @@
                 </ul>
             </div>
             <div class="body">
-                <ul class="list-unstyled activity">
-                    <li class="a_birthday">
-                        <h4>Admin Birthday</h4>
-                        <p>Lorem Ipsum is simply dummy text of the printing</p>
-                        <small>1 months ago.</small>
-                    </li>
-                    <li class="a_code">
-                        <h4>Code Change</h4>
-                        <p>It is a long established fact that a reader will be distracted</p>
-                        <small>1 week ago.</small>
-                    </li>
-                    <li class="a_contact">
-                        <h4>Add New Contact</h4>
-                        <code>maryamamiri@gmail.com</code>
-                        <code>fideltonn@gmail.com</code>
-                        <small>1 months ago.</small>
-                    </li>
-                    <li class="a_email">
-                        <h4>New Email</h4>
-                        <p>Contrary to popular belief, Lorem Ipsum is not simply</p>
-                        <small>3 months ago.</small>
-                    </li>
-                    <li class="a_contact">
-                        <h4>Add New Contact</h4>
-                        <code>maryamamiri@gmail.com</code>
-                        <small>1 months ago.</small>
-                    </li>
-                </ul>
+
             </div>
         </div>
 
     </div>
     <div class="col-lg-8 col-md-12">
 
+
       <div class="card">
           <div class="body">
 
-            <small class="text-muted">Name: </small>
-            <p>{{ $teacher->name }}</p>
-            <hr>
+              <div class="d-flex bd-highlight text-center mb-3">
+                                  <div class="bg-red flex-fill bd-highlight">
+                                      <h3 class="mt-3 mb-0">{{ $installments->relationBetweenEnroll->course_fee }}</h3>
+                                      <p>Fee</p>
+                                  </div>
+                                  <div class="bg-blue flex-fill bd-highlight">
+                                      <h3 class="mt-3 mb-0">{{ $installments->firstInstallment }}</h3>
+                                      <p>Paid</p>
+                                  </div>
+                                  <div class="bg-green flex-fill bd-highlight">
+                                      <h3 class="mt-3 mb-0">{{ $installments->relationBetweenEnroll->course_fee - $installments->firstInstallment }}</h3>
+                                      <p>Due </p>
+                                  </div>
+                                  <div class="bg-orange flex-fill bd-highlight">
+                                      <h3 class="mt-3 mb-0">
+                                        @if($installments->secondInstallment === null)
+                                          {{ $installments->secondInstallmentDate }}
+                                        @endif
+                                          @if($installments->secondInstallment != null && $installments->thirdInstallment != null)
+                                            {{ $installments->thirdInstallmentDate }}
+                                        @endif
+                                          @if($installments->thirdInstallment != null && $installments->fourInstallment = null)
+                                            {{ $installments->fourInstallmentDate }}
+                                        @endif
+                                          @if($installments->fourInstallment != null)
+                                            {{ $installments->fiveInstallmentDate }}
+                                        @endif
 
-
-            <small class="text-muted">Father's Name: </small>
-            <p>{{ $teacher->father_name }}</p>
-            <hr>
-
-            <small class="text-muted">Mother's Name: </small>
-            <p>{{ $teacher->mother_name }}</p>
-            <hr>
-
-
-              <small class="text-muted">Email address: </small>
-              <p>{{ $teacher->email }}</p>
-              <hr>
-
-              <small class="text-muted">Gender: </small>
-              <p>{{ $teacher->gender }}</p>
-              <hr>
-
-              <small class="text-muted">Natonality: </small>
-              <p>{{ $teacher->nationality }}</p>
-              <hr>
-
-              <small class="text-muted">Blood Group: </small>
-              <p>{{ $teacher->blood_group }}</p>
-              <hr>
-
-              <small class="text-muted">Occupation: </small>
-              <p>{{ $teacher->occupation }}</p>
-              <hr>
-
-              <small class="text-muted">Date Of Birth: </small>
-              <p>{{ $teacher->dob }}</p>
-              <hr>
-
-              <small class="text-muted">Present Address: </small>
-              <p>{{ $teacher->present_address }}</p>
-              <hr>
-
-              <small class="text-muted">Permanent Address: </small>
-              <p>{{ $teacher->permanent_address }}</p>
-              <hr>
-
-              <small class="text-muted">Contact Number: </small>
-              <p>{{ $teacher->phone }}</p>
-              <hr>
-
-              <small class="text-muted">Marketplace Profile Links: </small>
-              <p>{{ $teacher->marketplace }}</p>
-
-              <hr>
-
-              <div class="card">
-              <div class="header">
-                  <h2><strong>Education</strong> Background</h2>
-                  <ul class="header-dropdown">
-                      <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
-                          <ul class="dropdown-menu dropdown-menu-right">
-                              <li><a href="javascript:void(0);">Action</a></li>
-                              <li><a href="javascript:void(0);">Another action</a></li>
-                              <li><a href="javascript:void(0);">Something else</a></li>
-                          </ul>
-                      </li>
-                      <li class="remove">
-                          <a role="button" class="boxs-close"><i class="zmdi zmdi-close"></i></a>
-                      </li>
-                  </ul>
-              </div>
-              <div class="table-responsive social_media_table">
-                  <table class="table table-hover c_table">
-                      <thead>
-                          <tr>
-                              <th>Degree</th>
-                              <th>Institute</th>
-                              <th>Board</th>
-                              <!-- <th>Passing year</th> -->
-                              <th>Subject</th>
-                          </tr>
-                      </thead>
-                      <tbody>
-                          <tr>
-                              <td><span class="list-name"></span>
-                                  <span class="text-muted">SSC</span>
-                              </td>
-                              <td>{{ $teacher->ssc_inst }}</td>
-                              <td>{{ $teacher->ssc_board }}</td>
-                              <td>{{ $teacher->ssc_subject }}</td>
-                              <td>{{ $teacher->ssc_passing}}</td>
-                          </tr>
-                          <tr>
-                              <td><span class="list-name"></span>
-                                  <span class="text-muted">HSC</span>
-                              </td>
-                              <td>{{ $teacher->hsc_inst }}</td>
-                              <td>{{ $teacher->hsc_board }}</td>
-                              <td>{{ $teacher->hsc_subject }}</td>
-                              <td>{{ $teacher->hsc_passing}}</td>
-
-                          </tr>
-                          <tr>
-                              <td><span class="list-name"></span>
-                                  <span class="text-muted">Graduation</span>
-                              </td>
-                              <td>{{ $teacher->grad_inst }}</td>
-                              <td>{{ $teacher->grad_board }}</td>
-                              <td>{{ $teacher->grad_subject }}</td>
-                              <td>{{ $teacher->grad_passing}}</td>
-
-                          </tr>
-                          <tr>
-                              <td><span class="list-name"></span>
-                                  <span class="text-muted">Masters</span>
-                              </td>
-                              <td>{{ $teacher->masters_inst }}</td>
-                              <td>{{ $teacher->masters_board }}</td>
-                              <td>{{ $teacher->masters_subject }}</td>
-                              <td>{{ $teacher->masters_passing}}</td>
-
-                          </tr>
-
-
-
-
-                      </tbody>
-                  </table>
-              </div>
-          </div>
+                                      </h3>
+                                      <p>Next Payment</p>
+                                  </div>
+                              </div>
 
           </div>
+      </div>
+
+      <div class="card">
+
+        <div class="body {{ $installments->firstInstallment != null ? "bg-success" : " "}} ">
+
+          <h6>1st Installment Payment: {{ $installments->firstInstallmentDate }}</h6>
+          <p>{{ $installments->firstInstallment }}</p>
+          <hr>
+
+        </div>
+
+      </div>
+
+      <div class="card">
+
+
+
+                <div class="body {{ $installments->secondInstallment != null ? "bg-success" : " "}} ">
+
+                  <h6>2nd Installment Payment: {{ $installments->secondInstallmentDate }}</h6>
+                  <p>{{ $installments->secondInstallment }}</p>
+                  <hr>
+
+                </div>
+
+      </div>
+
+      <div class="card">
+
+
+
+                <div class="body {{ $installments->thirdInstallment != null ? "bg-success" : " "}} ">
+
+                  <h6>3rd Installment Payment: {{ $installments->thirdInstallmentDate }}</h6>
+                  <p>{{ $installments->thirdInstallment }}</p>
+                  <hr>
+
+                </div>
+
+      </div>
+
+      <div class="card">
+
+
+
+                <div class="body {{ $installments->fourInstallment != null ? "bg-success" : " "}} ">
+
+                  <h6>4th Installment Payment: {{ $installments->fourInstallmentDate }}</h6>
+                  <p>{{ $installments->fourInstallment }}</p>
+                  <hr>
+
+                </div>
+
+      </div>
+
+      <div class="card">
+
+
+
+                <div class="body {{ $installments->fiveInstallment != null ? "bg-success" : " "}} ">
+
+                  <h6>5th Installment Payment: {{ $installments->fiveInstallmentDate }}</h6>
+                  <p>{{ $installments->fiveInstallment }}</p>
+                  <hr>
+
+                </div>
+
       </div>
 
     </div>
@@ -250,4 +194,5 @@
 <script src="{{asset('assets/bundles/fullcalendarscripts.bundle.js')}}"></script>
 <script src="{{asset('assets/js/pages/medias/image-gallery.js')}}"></script>
 <script src="{{asset('assets/js/pages/calendar/calendar.js')}}"></script>
+
 @stop

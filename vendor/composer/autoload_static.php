@@ -457,6 +457,7 @@ class ComposerStaticInit383f128f9dbe38bdd67e68e8beaa3c14
     );
 
     public static $classMap = array (
+        'App\\ApiData' => __DIR__ . '/../..' . '/app/ApiData.php',
         'App\\Batch' => __DIR__ . '/../..' . '/app/Batch.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Course' => __DIR__ . '/../..' . '/app/Course.php',
@@ -483,6 +484,7 @@ class ComposerStaticInit383f128f9dbe38bdd67e68e8beaa3c14
         'App\\Http\\Controllers\\FileManagerController' => __DIR__ . '/../..' . '/app/Http/Controllers/FileManagerController.php',
         'App\\Http\\Controllers\\FormController' => __DIR__ . '/../..' . '/app/Http/Controllers/FormController.php',
         'App\\Http\\Controllers\\IconsController' => __DIR__ . '/../..' . '/app/Http/Controllers/IconsController.php',
+        'App\\Http\\Controllers\\InstallmentController' => __DIR__ . '/../..' . '/app/Http/Controllers/InstallmentController.php',
         'App\\Http\\Controllers\\MapController' => __DIR__ . '/../..' . '/app/Http/Controllers/MapController.php',
         'App\\Http\\Controllers\\PagesController' => __DIR__ . '/../..' . '/app/Http/Controllers/PagesController.php',
         'App\\Http\\Controllers\\ProfileController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProfileController.php',

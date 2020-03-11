@@ -30,37 +30,44 @@
                     <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                         <thead>
                             <tr>
-                                <th>Photo</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Phone</th>
-                                <th>Action</th>
+                              <th>Photo</th>
+                              <th>Name</th>
+                              <th>Roll No</th>
+                              <th>Batch No</th>
+                              <th>Course</th>
+                              <th>Enrolled On</th>
+                              <th>Next Payment</th>
+                              <th>Action</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
                               <th>Photo</th>
                               <th>Name</th>
-                              <th>Email</th>
-                              <th>Phone</th>
+                              <th>Roll No</th>
+                              <th>Batch No</th>
+                              <th>Course</th>
+                              <th>Enrolled On</th>
+                              <th>Next Payment</th>
                               <th>Action</th>
                             </tr>
                         </tfoot>
                         <tbody>
 
-                          @foreach ($teachers as $teacher)
+                          @foreach ($enrolls as $enroll)
 
                           <tr>
                               <td>
-                                <img src="{{ asset('uploads/teacher') }}/{{ $teacher->avatar }}" style="width: 25%;border-radius: 50%;" alt="">
+                                <img src="{{ asset('uploads/student') }}/{{ $enroll->relationBetweenStudent->avatar }}" style="width: 25%;border-radius: 50%;" alt="">
                               </td>
-                              <td>{{ $teacher->name }}</td>
-                              <td>{{ $teacher->email }}</td>
-                              <td>{{ $teacher->phone }}</td>
+                              <td>{{ $enroll->relationBetweenStudent->name }}</td>
+                              <td>{{ $enroll->student_roll }}</td>
+                              <td>{{ $enroll->relationBetweenBatch->batch_no }}</td>
+                              <td>{{ $enroll->relationBetweenCourse->course_name }}</td>
+                              <td>{{ $enroll->created_at }}</td>
+                              <td>20-03-2020</td>
                               <td>
-                                <a href="{{ url('teacher/edit') }}/{{ $teacher->id }}" class="btn-sm btn-primary">Edit</a>
-                                <a href="{{ url('teacher/profile') }}/{{ $teacher->id }}" class="btn-sm btn-success">View</a>
-                                <a href="#" class="btn-sm btn-danger">Delete</a>
+                                <a href="{{ url('enroll/profile') }}/{{ $enroll->id }}" class="btn-sm btn-primary">View</a>
                               </td>
                           </tr>
 

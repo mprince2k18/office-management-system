@@ -46,7 +46,7 @@
                             <option></option>
 
                             @foreach($students as $students)
-                              <option value="{{ $students->id }}">{{ $students->name }}</option>
+                              <option value="{{ $students->id }}">{{ $students->name }} ( {{ $students->phone }} )</option>
                             @endforeach
 
                         </select>

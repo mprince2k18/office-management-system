@@ -70,18 +70,19 @@ class EnrollController extends Controller
     notify()->success($request->student_name . ' ' . 'Enrolled Successfully Successfully');
     return back();
   }
-  // // all
-  // function all()
-  // {
-  //   $teachers = Teacher::all();
-  //   return view('teacher.allTeacher.all',compact('teachers'));
-  // }
-  // // profile
-  // function profile($teacher_id)
-  // {
-  //   $teacher = Teacher::findOrFail($teacher_id);
-  //   return view('teacher.profile.profile',compact('teacher'));
-  // }
+  // all
+  function all()
+  {
+    $enrolls = Enroll::all();
+    return view('enrollment.allenroll.all',compact('enrolls'));
+  }
+  // profile
+  function profile($enroll_id)
+  {
+    $enroll = Enroll::findOrFail($enroll_id);
+    $installments = Installment::findOrFail($enroll_id);
+    return view('enrollment.profile.profile',compact('enroll','installments'));
+  }
   // // edit
   // function edit($teacher_id)
   // {

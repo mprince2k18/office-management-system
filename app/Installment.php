@@ -24,5 +24,12 @@ class Installment extends Model
       'fiveInstallment',
       'fiveInstallmentDate',
     ];
+
+    function relationBetweenEnroll()
+    {
+      return $this->hasOne('App\Enroll','id','enroll_id');
+    }
+
+
     //END
 }

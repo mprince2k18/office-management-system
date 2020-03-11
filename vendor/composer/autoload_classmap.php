@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\ApiData' => $baseDir . '/app/ApiData.php',
     'App\\Batch' => $baseDir . '/app/Batch.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Course' => $baseDir . '/app/Course.php',
@@ -32,6 +33,7 @@ return array(
     'App\\Http\\Controllers\\FileManagerController' => $baseDir . '/app/Http/Controllers/FileManagerController.php',
     'App\\Http\\Controllers\\FormController' => $baseDir . '/app/Http/Controllers/FormController.php',
     'App\\Http\\Controllers\\IconsController' => $baseDir . '/app/Http/Controllers/IconsController.php',
+    'App\\Http\\Controllers\\InstallmentController' => $baseDir . '/app/Http/Controllers/InstallmentController.php',
     'App\\Http\\Controllers\\MapController' => $baseDir . '/app/Http/Controllers/MapController.php',
     'App\\Http\\Controllers\\PagesController' => $baseDir . '/app/Http/Controllers/PagesController.php',
     'App\\Http\\Controllers\\ProfileController' => $baseDir . '/app/Http/Controllers/ProfileController.php',

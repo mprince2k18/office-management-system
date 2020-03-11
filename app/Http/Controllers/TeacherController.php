@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Teacher;
 use App\Course;
+use App\ApiData;
 use Image;
 use Carbon\Carbon;
 
@@ -78,6 +79,12 @@ class TeacherController extends Controller
      'avatar'          => $photo_name,
          ]);
          }
+
+         ApiData::create([
+           'name'=>$request->name,
+           'email'=>$request->email,
+           'phone'=>$request->phone,
+         ]);
 
     activity()->withProperties(['name' => $request->name])->log('New trainer joined named');
     notify()->success($request->name . ' ' . 'Admitted Successfully');

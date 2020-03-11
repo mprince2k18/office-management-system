@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Batch;
 use App\Teacher;
+use App\Enroll;
+use App\ApiData;
 use Image;
+use Carbon\Carbon;
 
 class BatchController extends Controller
 {
@@ -41,12 +44,13 @@ class BatchController extends Controller
     $batches = Batch::all();
     return view('batch.allbatch.all',compact('batches'));
   }
-  // // profile
-  // function profile($student_id)
-  // {
-  //   $student = Student::findOrFail($student_id);
-  //   return view('student.profile.profile',compact('student'));
-  // }
+  // profile
+  function profile($batch_id)
+  {
+    $batch = Batch::findOrFail($batch_id);
+    $batch_enrolles = Enroll::where('batch_no',$batch_id)->get();
+    return view('batch.profile.profile',compact('batch','batch_enrolles'));
+  }
   // // edit
   // function edit($student_id)
   // {
