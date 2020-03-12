@@ -35,7 +35,7 @@
 
                     <div class="col-4">
                         <small>Course Enrolled</small>
-                        <h6>{{ $enroll->created_at }}</h6>
+                        <h6>{{ $enroll->created_at->format('d-M-Y') }}</h6>
                     </div>
 
                 </div>
@@ -87,33 +87,111 @@
                                       <h3 class="mt-3 mb-0">{{ $installments->relationBetweenEnroll->course_fee }}</h3>
                                       <p>Fee</p>
                                   </div>
+                                  @php
+                                  $course_fee = $installments->relationBetweenEnroll->course_fee;
+
+
+
+
+                                  $secondPayCheck    = $installments->secondInstallmentCheck;
+                                  $thirdPayCheck     = $installments->thirdInstallmentCheck;
+                                  $fourPayCheck      = $installments->fourInstallmentCheck;
+                                  $fivePayCheck      = $installments->fiveInstallmentCheck;
+
+                                  $secondPayCheck   === 'paid';
+                                  $thirdPayCheck    === 'paid';
+                                  $fourPayCheck     === 'paid';
+                                  $fivePayCheck     === 'paid';
+
+                                  $firstPay     = $installments->firstInstallment;
+                                  $secondPay    = $installments->secondInstallment;
+                                  $thirdPay     = $installments->thirdInstallment;
+                                  $fourPay      = $installments->fourInstallment;
+                                  $fivePay      = $installments->fiveInstallment;
+
+                                  $paid =  $installments->firstInstallment;
+
+
+                                  @endphp
+
+
+                                                                          @if ($installments->secondInstallmentCheck === 'paid' )
+
+                                                                            @php  $paid += $installments->secondInstallment  @endphp
+
+                                                                           @endif
+
+                                                                           @if ($installments->thirdInstallmentCheck === 'paid' )
+
+                                                                             @php  $paid += $installments->thirdInstallment  @endphp
+
+                                                                            @endif
+
+                                                                            @if ($installments->fourInstallmentCheck === 'paid' )
+
+                                                                              @php  $paid += $installments->fourInstallment  @endphp
+
+                                                                             @endif
+
+                                                                             @if ($installments->fiveInstallmentCheck === 'paid' )
+
+                                                                               @php  $paid += $installments->fiveInstallment  @endphp
+
+                                                                              @endif
+
                                   <div class="bg-blue flex-fill bd-highlight">
-                                      <h3 class="mt-3 mb-0">{{ $installments->firstInstallment }}</h3>
+                                      <h3 class="mt-3 mb-0">
+
+                                        {{ $paid }}
+
+
                                       <p>Paid</p>
                                   </div>
                                   <div class="bg-green flex-fill bd-highlight">
-                                      <h3 class="mt-3 mb-0">{{ $installments->relationBetweenEnroll->course_fee - $installments->firstInstallment }}</h3>
+
+
+
+
+
+
+                                      <h3 class="mt-3 mb-0">
+                                        @if( $installments->secondInstallmentCheck || $installments->thirdInstallmentCheck || $installments->fourInstallmentCheck || $installments->fiveInstallmentCheck  != 'paid' )
+                                            {{$course_fee - ($installments->firstInstallment + $installments->secondInstallment + $installments->thirdInstallment + $installments->fourInstallment + $installments->fiveInstallment) }}
+                                        @else
+                                        NOT OK
+                                        @endif
+                                      </h3>
                                       <p>Due </p>
                                   </div>
                                   <div class="bg-orange flex-fill bd-highlight">
                                       <h3 class="mt-3 mb-0">
 
                                         @php
-                                          $check = null;
+                                          $check = 'paid';
                                         @endphp
 
                                         @switch($check)
-                                          @case($installments->firstInstallment = $check)
 
-                                              <span> `E-mail` input is empty! </span>
 
+                                          @case($installments->secondInstallmentCheck != $check)
+                                                {{ $installments->secondInstallmentDate }}
                                               @break
 
+                                          @case($installments->thirdInstallmentCheck != $check)
+                                                {{ $installments->thirdInstallmentDate }}
+                                              @break
 
+                                          @case($installments->fourInstallmentCheck != $check)
+                                                {{ $installments->fourInstallmentDate }}
+                                              @break
+
+                                          @case($installments->fiveInstallmentCheck != $check)
+                                                {{ $installments->fiveInstallmentDate }}
+                                              @break
 
                                           @default
 
-                                              <span>Something went wrong, please try again </span>
+                                          Paid
 
                                         @endswitch
 
@@ -127,7 +205,7 @@
 
       <div class="card">
 
-        <div class="body {{ $installments->firstInstallment != null ? "bg-success" : " "}} ">
+        <div class="body {{ $installments->firstInstallmentCheck = 'paid' ? "bg-success" : " "}} ">
 
           <h6>1st Installment Payment: {{ $installments->firstInstallmentDate }}</h6>
           <p>{{ $installments->firstInstallment }}</p>
@@ -141,7 +219,7 @@
 
 
 
-                <div class="body {{ $installments->secondInstallment != null ? "bg-success" : " "}} ">
+                <div class="body {{ $installments->secondInstallmentCheck === 'paid' ? "bg-success" : " "}} ">
 
                   <h6>2nd Installment Payment: {{ $installments->secondInstallmentDate }}</h6>
                   <p>{{ $installments->secondInstallment }}</p>
@@ -155,7 +233,7 @@
 
 
 
-                <div class="body {{ $installments->thirdInstallment != null ? "bg-success" : " "}} ">
+                <div class="body {{ $installments->thirdInstallmentCheck === 'paid' ? "bg-success" : " "}} ">
 
                   <h6>3rd Installment Payment: {{ $installments->thirdInstallmentDate }}</h6>
                   <p>{{ $installments->thirdInstallment }}</p>
@@ -169,7 +247,7 @@
 
 
 
-                <div class="body {{ $installments->fourInstallment != null ? "bg-success" : " "}} ">
+                <div class="body {{ $installments->fourInstallmentCheck === 'paid' ? "bg-success" : " "}} ">
 
                   <h6>4th Installment Payment: {{ $installments->fourInstallmentDate }}</h6>
                   <p>{{ $installments->fourInstallment }}</p>
@@ -183,7 +261,7 @@
 
 
 
-                <div class="body {{ $installments->fiveInstallment != null ? "bg-success" : " "}} ">
+                <div class="body {{ $installments->fiveInstallmentCheck === 'paid' ? "bg-success" : " "}} ">
 
                   <h6>5th Installment Payment: {{ $installments->fiveInstallmentDate }}</h6>
                   <p>{{ $installments->fiveInstallment }}</p>

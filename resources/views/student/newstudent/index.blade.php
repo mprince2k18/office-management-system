@@ -71,11 +71,11 @@
                     <!-- Gender -->
                     <div class="form-group">
                         <div class="radio inlineblock m-r-20">
-                            <input type="radio" name="gender" id="male" class="with-gap" value="option1">
+                            <input type="radio" name="gender" id="male" class="with-gap" value="Male">
                             <label for="male">Male</label>
                         </div>
                         <div class="radio inlineblock">
-                            <input type="radio" name="gender" id="Female" class="with-gap" value="option2" checked="">
+                            <input type="radio" name="gender" id="Female" class="with-gap" value="Female" checked="">
                             <label for="Female">Female</label>
                         </div>
                     </div>

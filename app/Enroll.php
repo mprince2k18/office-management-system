@@ -34,5 +34,10 @@ class Enroll extends Model
       return $this->hasOne('App\Batch','id','batch_no');
     }
 
+    public function relationBetweenInstallment()
+    {
+      return $this->hasOne('App\Installment','student_id','student_name');
+    }
+
     //END
 }

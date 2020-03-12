@@ -1,6 +1,6 @@
 @extends('layout.master')
-@section('title', 'All teacher')
-@section('parentPageTitle', 'teacher Area')
+@section('title', 'All Enrolls')
+@section('parentPageTitle', 'Enrollment Area')
 @section('page-style')
 <link rel="stylesheet" href="{{asset('assets/plugins/jquery-datatable/dataTables.bootstrap4.min.css')}}"/>
 @stop
@@ -36,6 +36,7 @@
                               <th>Batch No</th>
                               <th>Course</th>
                               <th>Enrolled On</th>
+                              <th>Due</th>
                               <th>Next Payment</th>
                               <th>Action</th>
                             </tr>
@@ -48,6 +49,7 @@
                               <th>Batch No</th>
                               <th>Course</th>
                               <th>Enrolled On</th>
+                              <th>Due</th>
                               <th>Next Payment</th>
                               <th>Action</th>
                             </tr>
@@ -56,7 +58,20 @@
 
                           @foreach ($enrolls as $enroll)
 
-                          <tr>
+@php
+  $firstDate = $enroll->relationBetweenInstallment->firstInstallmentDate;
+  $secondDate = $enroll->relationBetweenInstallment->secondInstallmentDate;
+  $thirdDate = $enroll->relationBetweenInstallment->thirdInstallmentDate;
+  $fourDate = $enroll->relationBetweenInstallment->fourInstallmentDate;
+  $fiveDate = $enroll->relationBetweenInstallment->fiveInstallmentDate;
+
+  $today = Carbon\Carbon::now();
+@endphp
+
+
+
+                          <tr class="{{ $secondDate < $today && $thirdDate < $today ? "bg-danger text-white" : " "}}">
+                          <!-- <tr class="bg-danger"> -->
                               <td>
                                 <img src="{{ asset('uploads/student') }}/{{ $enroll->relationBetweenStudent->avatar }}" style="width: 25%;border-radius: 50%;" alt="">
                               </td>
@@ -65,11 +80,45 @@
                               <td>{{ $enroll->relationBetweenBatch->batch_no }}</td>
                               <td>{{ $enroll->relationBetweenCourse->course_name }}</td>
                               <td>{{ $enroll->created_at }}</td>
-                              <td>20-03-2020</td>
+                              <td>{{ $enroll->relationBetweenInstallment->relationBetweenEnroll->course_fee - $enroll->relationBetweenInstallment->firstInstallment}}</td>
+                              <td>
+                                @php
+                                  $check = null;
+                                @endphp
+
+                                @switch($check)
+
+                                  @case($enroll->relationBetweenInstallment->firstInstallment != $check)
+                                        {{ $enroll->relationBetweenInstallment->firstInstallmentDate }}
+
+                                      @break
+
+                                  @case($enroll->relationBetweenInstallment->secondInstallment != $check)
+                                        {{ $enroll->relationBetweenInstallment->secondInstallmentDate }}
+                                      @break
+
+                                  @case($enroll->relationBetweenInstallment->thirdInstallment != $check)
+                                        {{ $enroll->relationBetweenInstallment->thirdInstallmentDate }}
+                                      @break
+
+                                  @case($enroll->relationBetweenInstallment->fourInstallment != $check)
+                                        {{ $enroll->relationBetweenInstallment->fourInstallmentDate }}
+                                      @break
+
+                                  @case($enroll->relationBetweenInstallment->fiveInstallment != $check)
+                                        {{ $enroll->relationBetweenInstallment->fiveInstallmentDate }}
+                                      @break
+
+                                  @default
+
+                                      Paid
+
+                                @endswitch
+                              </td>
                               <td>
                                 <a href="{{ url('enroll/profile') }}/{{ $enroll->id }}" class="btn-sm btn-primary">View</a>
                               </td>
-                          </tr>
+                            </tr>
 
                           @endforeach
 

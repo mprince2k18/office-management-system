@@ -1,6 +1,6 @@
 @extends('layout.master')
-@section('title', 'teacher Profile')
-@section('parentPageTitle', 'Pages')
+@section('title', 'Student Installment Profile')
+@section('parentPageTitle', 'Enrollment Area')
 @section('page-style')
 <link rel="stylesheet" href="{{asset('assets/plugins/light-gallery/css/lightgallery.css')}}">
 <link rel="stylesheet" href="{{asset('assets/plugins/fullcalendar/fullcalendar.min.css')}}">
@@ -14,28 +14,26 @@
 
         <div class="card mcard_3">
             <div class="body">
-                <a href="{{ url('teacher/profile') }}/{{ $edit_teacher->id }}"><img src="{{asset('uploads/teacher')}}/{{ $edit_teacher->avatar }}" class="rounded-circle shadow " alt="profile-image"></a>
-                <h4 class="m-t-10">{{ $edit_teacher->name }}</h4>
+                <a href="{{ url('enroll/profile') }}/{{ $edit_installment->id }}">
+                  <img src="{{ asset('uploads/student') }}/{{ $enroll->relationBetweenStudent->avatar }}" class="rounded-circle shadow " alt="profile-image">
+                </a>
+                <h4 class="m-t-10">{{ $enroll->relationBetweenStudent->name }}</h4>
                 <div class="row">
                     <div class="col-12">
-                        <!-- <ul class="social-links list-unstyled">
-                            <li><a title="facebook" href="javascript:void(0);"><i class="zmdi zmdi-facebook"></i></a></li>
-                            <li><a title="twitter" href="javascript:void(0);"><i class="zmdi zmdi-twitter"></i></a></li>
-                            <li><a title="instagram" href="javascript:void(0);"><i class="zmdi zmdi-instagram"></i></a></li>
-                        </ul> -->
-                        <p class="text-muted">Wordpress Development</p>
+
+                        <p class="text-muted">{{ $edit_installment->relationBetweenEnroll->relationBetweenCourse->course_name }}</p>
                     </div>
                     <div class="col-4">
                         <small>Batch</small>
-                        <h5>STIT 2020</h5>
+                        <h6>{{ $enroll->relationBetweenBatch->batch_no }}</h6>
                     </div>
                     <div class="col-4">
                         <small>Roll No:</small>
-                        <h5>001</h5>
+                        <h6>{{ $enroll->student_roll }}</h6>
                     </div>
                     <div class="col-4">
                         <small>Course Enrolled</small>
-                        <h5>02</h5>
+                        <h6>{{ $enroll->created_at->format('d-M-Y') }}</h6>
                     </div>
                 </div>
             </div>
@@ -59,241 +57,181 @@
     </div>
     <div class="col-lg-8 col-md-12">
 
-      <form action="{{ url('teacher/update') }}/{{ $edit_teacher->id }}" id="updateForm" method="post" enctype="multipart/form-data">
+      <form action="{{ url('enroll/update') }}/{{ $edit_installment->id }}" id="updateForm" method="post" enctype="multipart/form-data">
 
 @csrf
 
       <div class="card">
           <div class="body">
 
-            <small class="text-muted">Name: </small>
-            <input type="text" class="form-control" name="name" value="{{ $edit_teacher->name }}">
-            <hr>
 
 
-            <small class="text-muted">Father's Name: </small>
-            <input type="text" class="form-control" name="father_name" value="{{ $edit_teacher->father_name }}">
 
-            <hr>
+            <div class="row clearfix">
 
-            <small class="text-muted">Mother's Name: </small>
-            <input type="text" class="form-control" name="mother_name" value="{{ $edit_teacher->mother_name }}">
-
-            <hr>
+              <div class="col-md-4">
 
 
-              <small class="text-muted">Email address: </small>
-              <input type="email" class="form-control" name="email" value="{{ $edit_teacher->email }}">
+                <div class="form-group">
+                  @if($edit_installment->firstInstallment != NULL)
+                    <div class="radio inlineblock m-r-20">
+                        <input type="radio" name="firstInstallmentCheck" id="male" class="with-gap" value="paid" checked="">
+                        <label for="firstInstallmentCheck">Paid</label>
+                    </div>
+                    @else
+                    <div class="radio inlineblock">
+                        <input type="radio" name="firstInstallmentCheck" id="firstInstallmentCheck2" class="with-gap" value="due">
+                        <label for="firstInstallmentCheck2">Due</label>
+                    </div>
+                    @endif
 
-              <hr>
+                </div>
 
-              <small class="text-muted">Gender: </small>
-              @if( $edit_teacher->gender === 'Male')
-              <div class="form-group">
-                  <div class="radio inlineblock m-r-20">
-                      <input type="radio" name="gender" id="male" class="with-gap" value="Male" checked="">
-                      <label for="male">Male</label>
-                  </div>
-                  <div class="radio inlineblock">
-                      <input type="radio" name="gender" id="Female" class="with-gap" value="Female">
-                      <label for="Female">Female</label>
-                  </div>
+
               </div>
 
-              @else
-              <div class="form-group">
-                  <div class="radio inlineblock m-r-20">
-                      <input type="radio" name="gender" id="male" class="with-gap" value="Male">
-                      <label for="male">Male</label>
-                  </div>
-                  <div class="radio inlineblock">
-                      <input type="radio" name="gender" id="Female" class="with-gap" value="Female" checked="">
-                      <label for="Female">Female</label>
-                  </div>
-              </div>
-              @endif
-              <hr>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input type="text" value="{{ $edit_installment->firstInstallment }}" name="firstInstallment" class="form-control" placeholder="First Installment Amount">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input type="date" value="{{ $edit_installment->firstInstallmentDate }}" name="firstInstallmentDate" class="form-control">
+                    </div>
+                </div>
+            </div>
 
-              <small class="text-muted">Natonality: </small>
-              <input type="text" class="form-control" name="nationality" value="{{ $edit_teacher->nationality }}">
 
-              <hr>
 
-              <small class="text-muted">Blood Group: </small>
-              <div class="form-group form-float">
-                <select name="blood_group" class="form-control show-tick ms select2" data-placeholder="Blood Group">
-                    <option value="{{ $edit_teacher->blood_group }}" class="bg-dark text-white">{{ $edit_teacher->blood_group }}</option>
-                    <option value="A+">A+</option>
-                    <option value="A-">A-</option>
-                    <option value="B+">B+</option>
-                    <option value="B-">B-</option>
-                    <option value="O+">O+</option>
-                    <option value="O-">O-</option>
-                    <option value="AB+">AB+</option>
-                    <option value="AB-">AB-</option>
-                </select>
-              </div>
-              <hr>
+            <div class="row clearfix">
 
-              <small class="text-muted">Occupation: </small>
-              <p>Software Developer</p>
-              <input type="email" class="form-control" name="occupation" value="{{ $edit_teacher->occupation }}">
+              <div class="col-md-4">
 
-              <hr>
+                <div class="form-group">
+                    <div class="radio inlineblock m-r-20">
+                        <input type="radio" name="secondInstallmentCheck" id="secondInstallmentCheck" class="with-gap" value="paid" @if( $edit_installment->secondInstallmentCheck === 'paid')  checked="" @endif>
+                        <label for="secondInstallmentCheck">Paid</label>
+                    </div>
+                    <div class="radio inlineblock">
+                        <input type="radio" name="secondInstallmentCheck" id="secondInstallmentCheck2" class="with-gap" value="due" @if( $edit_installment->secondInstallmentCheck === 'due')  checked="" @endif>
+                        <label for="secondInstallmentCheck2">Due</label>
+                    </div>
+                </div>
 
-              <small class="text-muted">Date Of Birth: </small>
-              <div class="input-group masked-input form-group form-float">
-                  <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="zmdi zmdi-calendar"></i></span>
-                  </div>
-                  <input type="text" value="{{ $edit_teacher->dob }}" name="dob" class="form-control date" placeholder="{{ $edit_teacher->dob }}">
-              </div>
-              <hr>
-
-              <small class="text-muted">Present Address: </small>
-
-              <div class="form-group form-float">
-                  <textarea name="present_address" cols="30" rows="5" placeholder="Present Address" class="form-control no-resize" required>{{ $edit_teacher->present_address }}</textarea>
-              </div>
-              <hr>
-
-              <small class="text-muted">Permanent Address: </small>
-              <div class="form-group form-float">
-                  <textarea name="permanent_address" cols="30" rows="5" placeholder="Present Address" class="form-control no-resize" required>{{ $edit_teacher->permanent_address }}</textarea>
-              </div>
-              <hr>
-
-              <small class="text-muted">Contact Number: </small>
-              <input type="number" class="form-control" name="phone" value="{{ $edit_teacher->phone }}">
-
-              <hr>
-
-              <small class="text-muted">Marketplace Profile Links: </small>
-              <input type="text" class="form-control" name="marketplace" value="{{ $edit_teacher->marketplace }}">
-              <hr>
-
-              <small class="text-muted">Profile Avatar: </small>
-              <div class="card">
-                  <div class="body">
-                      <p>teacher Photo</p>
-                      <input name="avatar" type="file" id="dropify-event" data-default-file="{{asset('uploads/teacher')}}/{{ $edit_teacher->avatar }}">
-                  </div>
               </div>
 
-              <hr>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input type="text" value="{{ $edit_installment->secondInstallment }}" name="secondInstallment" class="form-control" placeholder="Second Installment Amount">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input type="date" value="{{ $edit_installment->secondInstallmentDate }}" name="secondInstallmentDate" class="form-control">
+                    </div>
+                </div>
+            </div>
 
 
-                            <small class="text-muted">Password: </small>
-                            <input type="text" class="form-control" name="password" value="{{ $edit_teacher->password }}">
-                            <hr>
 
-              <div class="card">
-              <div class="header">
-                  <h2><strong>Education</strong> Background</h2>
-                  <ul class="header-dropdown">
-                      <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
-                          <ul class="dropdown-menu dropdown-menu-right">
-                              <li><a href="javascript:void(0);">Action</a></li>
-                              <li><a href="javascript:void(0);">Another action</a></li>
-                              <li><a href="javascript:void(0);">Something else</a></li>
-                          </ul>
-                      </li>
-                      <li class="remove">
-                          <a role="button" class="boxs-close"><i class="zmdi zmdi-close"></i></a>
-                      </li>
-                  </ul>
+            <div class="row clearfix">
+
+              <div class="col-md-4">
+
+                <div class="form-group">
+                    <div class="radio inlineblock m-r-20">
+                        <input type="radio" name="thirdInstallmentCheck" id="thirdInstallmentCheck" class="with-gap" value="paid" @if( $edit_installment->thirdInstallmentCheck === 'paid')  checked="" @endif>
+                        <label for="thirdInstallmentCheck">Paid</label>
+                    </div>
+                    <div class="radio inlineblock">
+                        <input type="radio" name="thirdInstallmentCheck" id="thirdInstallmentCheck2" class="with-gap" value="due" @if( $edit_installment->thirdInstallmentCheck === 'due')  checked="" @endif>
+                        <label for="thirdInstallmentCheck2">Due</label>
+                    </div>
+                </div>
+
               </div>
-              <div class="table-responsive social_media_table">
-                  <table class="table table-hover c_table">
-                      <thead>
-                          <tr>
-                              <th>Degree</th>
-                              <th>Institute</th>
-                              <th>Board</th>
-                              <th>Subject</th>
-                          </tr>
-                      </thead>
-                      <tbody>
-                          <tr>
-                              <td><span class="list-name"></span>
-                                  <span class="text-muted">SSC</span>
-                              </td>
-                              <td>
-                                <input type="text" class="form-control" name="ssc_inst" value="{{ $edit_teacher->ssc_inst }}">
-                              </td>
-                              <td>
-                                <input type="text" class="form-control" name="ssc_board" value="{{ $edit_teacher->ssc_board }}">
-                              </td>
-                              <td>
-                                <input type="text" class="form-control" name="ssc_subject" value="{{ $edit_teacher->ssc_subject }}">
-                              </td>
-                              <td>
-                                <input type="text" class="form-control" name="ssc_passing" value="{{ $edit_teacher->ssc_passing }}">
-                              </td>
 
-                          </tr>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input type="text" value="{{ $edit_installment->thirdInstallment }}" name="thirdInstallment" class="form-control" placeholder="Third Installment Amount">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input type="date" value="{{ $edit_installment->thirdInstallmentDate }}" name="thirdInstallmentDate" class="form-control">
+                    </div>
+                </div>
+            </div>
 
-                          <tr>
-                              <td><span class="list-name"></span>
-                                  <span class="text-muted">HSC</span>
-                              </td>
-                              <td>
-                                <input type="text" class="form-control" name="hsc_inst" value="{{ $edit_teacher->hsc_inst }}">
-                              </td>
-                              <td>
-                                <input type="text" class="form-control" name="hsc_board" value="{{ $edit_teacher->hsc_board }}">
-                              </td>
-                              <td>
-                                <input type="text" class="form-control" name="hsc_subject" value="{{ $edit_teacher->hsc_subject }}">
-                              </td>
-                              <td>
-                                <input type="text" class="form-control" name="hsc_passing" value="{{ $edit_teacher->hsc_passing }}">
-                              </td>
 
-                          </tr>
 
-                          <tr>
-                              <td><span class="list-name"></span>
-                                  <span class="text-muted">Graduation</span>
-                              </td>
-                              <td>
-                                <input type="text" class="form-control" name="grad_inst" value="{{ $edit_teacher->grad_inst }}">
-                              </td>
-                              <td>
-                                <input type="text" class="form-control" name="grad_board" value="{{ $edit_teacher->grad_board }}">
-                              </td>
-                              <td>
-                                <input type="text" class="form-control" name="grad_subject" value="{{ $edit_teacher->grad_subject }}">
-                              </td>
-                              <td>
-                                <input type="text" class="form-control" name="grad_passing" value="{{ $edit_teacher->grad_subject }}">
-                              </td>
+            <div class="row clearfix">
 
-                          </tr>
+              <div class="col-md-4">
 
-                          <tr>
-                              <td><span class="list-name"></span>
-                                  <span class="text-muted">Masters</span>
-                              </td>
-                              <td>
-                                <input type="text" class="form-control" name="masters_inst" value="{{ $edit_teacher->masters_inst }}">
-                              </td>
-                              <td>
-                                <input type="text" class="form-control" name="masters_board" value="{{ $edit_teacher->masters_board }}">
-                              </td>
-                              <td>
-                                <input type="text" class="form-control" name="masters_subject" value="{{ $edit_teacher->masters_subject }}">
-                              </td>
-                              <td>
-                                <input type="text" class="form-control" name="masters_passing" value="{{ $edit_teacher->masters_passing }}">
-                              </td>
+                <div class="form-group">
+                    <div class="radio inlineblock m-r-20">
+                        <input type="radio" name="fourInstallmentCheck" id="fourInstallmentCheck" class="with-gap" value="paid" @if( $edit_installment->fourInstallmentCheck === 'paid')  checked="" @endif>
+                        <label for="fourInstallmentCheck">Paid</label>
+                    </div>
+                    <div class="radio inlineblock">
+                        <input type="radio" name="fourInstallmentCheck" id="fourInstallmentCheck2" class="with-gap" value="due" @if( $edit_installment->fourInstallmentCheck === 'due')  checked="" @endif>
+                        <label for="fourInstallmentCheck2">Due</label>
+                    </div>
+                </div>
 
-                          </tr>
-
-                      </tbody>
-                  </table>
               </div>
-          </div>
+
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input type="text" value="{{ $edit_installment->fourInstallment }}" name="fourInstallment" class="form-control" placeholder="Four Installment Amount">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input type="date" value="{{ $edit_installment->fourInstallmentDate }}" name="fourInstallmentDate" class="form-control">
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row clearfix">
+
+              <div class="col-md-4">
+
+                <div class="form-group">
+                    <div class="radio inlineblock m-r-20">
+                        <input type="radio" name="fiveInstallmentCheck" id="fiveInstallmentCheck" class="with-gap" value="paid" @if( $edit_installment->fiveInstallmentCheck === 'paid')  checked="" @endif>
+                        <label for="fiveInstallmentCheck">Paid</label>
+                    </div>
+                    <div class="radio inlineblock">
+                        <input type="radio" name="fiveInstallmentCheck" id="fiveInstallmentCheck2" class="with-gap" value="due"  @if( $edit_installment->fiveInstallmentCheck === 'due')  checked="" @endif>
+                        <label for="fiveInstallmentCheck2">Due</label>
+                    </div>
+                </div>
+
+              </div>
+
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input type="text" value="{{ $edit_installment->fiveInstallment }}" name="fiveInstallment" class="form-control" placeholder="Five Installment Amount">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input type="date" value="{{ $edit_installment->fiveInstallmentDate }}" name="fiveInstallmentDate" class="form-control">
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
 
           </div>
       </div>

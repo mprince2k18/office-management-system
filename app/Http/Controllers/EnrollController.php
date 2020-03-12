@@ -54,12 +54,16 @@ class EnrollController extends Controller
       'firstInstallment'=>$request->firstInstallment,
       'firstInstallmentDate'=>$request->firstInstallmentDate,
       'secondInstallment'=>$request->secondInstallment,
+      'secondInstallmentCheck'=>'due',
       'secondInstallmentDate'=>$request->secondInstallmentDate,
       'thirdInstallment'=>$request->thirdInstallment,
+      'thirdInstallmentCheck'=>'due',
       'thirdInstallmentDate'=>$request->thirdInstallmentDate,
       'fourInstallment'=>$request->fourInstallment,
+      'fourInstallmentCheck'=>'due',
       'fourInstallmentDate'=>$request->fourInstallmentDate,
       'fiveInstallment'=>$request->fiveInstallment,
+      'fiveInstallmentCheck'=>'due',
       'fiveInstallmentDate'=>$request->fiveInstallmentDate,
       'created_at'=>Carbon::now(),
     ]);
@@ -81,83 +85,45 @@ class EnrollController extends Controller
   {
     $enroll = Enroll::findOrFail($enroll_id);
     $installments = Installment::findOrFail($enroll_id);
+
     return view('enrollment.profile.profile',compact('enroll','installments'));
   }
-  // // edit
-  // function edit($teacher_id)
-  // {
-  //   $edit_teacher = Teacher::findOrFail($teacher_id);
-  //   return view('teacher.editTeacher.edit',compact('edit_teacher'));
-  // }
-  // // update
-  // function update(Request $request,$teacher_id)
-  // {
-  //
-  //   if($request->hasFile('avatar')){
-  //     if(Teacher::find($teacher_id)->avatar =='default.png'){
-  //      $photo_upload     = $request->avatar;
-  //      $photo_extension  =  $photo_upload->getClientOriginalExtension();
-  //      $photo_name       =  $request->avatar . "." . $photo_extension;
-  //      Image::make($photo_upload)->save(base_path('public/uploads/teacher/'.$photo_name),100);
-  //      Teacher::find($teacher_id)->update([
-  //      'avatar'          => $photo_name,
-  //     ]);
-  //     }
-  //     else {
-  //      //delete
-  //      $delete_photo=Teacher::find($teacher_id)->avatar;
-  //      unlink(base_path('public/uploads/teacher/'.$delete_photo));
-  //      //update
-  //      $photo_upload     = $request->avatar;
-  //      $photo_extension  =  $photo_upload->getClientOriginalExtension();
-  //      $photo_name       =  $teacher_id . "." . $photo_extension;
-  //      Image::make($photo_upload)->save(base_path('public/uploads/teacher/'.$photo_name),100);
-  //      Teacher::find($teacher_id)->update([
-  //      'avatar'          => $photo_name,
-  //     ]);
-  //     }
-  //  }
-  //
-  //
-  //   Teacher::findOrFail($teacher_id)->update([
-  //     'name'=>$request->name,
-  //     'father_name'=>$request->father_name,
-  //     'mother_name'=>$request->mother_name,
-  //     'email'=>$request->email,
-  //     'gender'=>$request->gender,
-  //     'nationality'=>$request->nationality,
-  //     'blood_group'=>$request->blood_group,
-  //     'occupation'=>$request->occupation,
-  //     'dob'=>$request->dob,
-  //     'present_address'=>$request->present_address,
-  //     'permanent_address'=>$request->permanent_address,
-  //     'marketplace'=>$request->marketplace,
-  //     'phone'=>$request->phone,
-  //     'password'=>$request->password,
-  //     'ssc_inst'=>$request->ssc_inst,
-  //     'ssc_board'=>$request->ssc_board,
-  //     'ssc_subject'=>$request->ssc_subject,
-  //     'ssc_passing'=>$request->ssc_passing,
-  //     'hsc_inst'=>$request->hsc_inst,
-  //     'hsc_board'=>$request->hsc_board,
-  //     'hsc_subject'=>$request->hsc_subject,
-  //     'hsc_passing'=>$request->hsc_passing,
-  //     'grad_inst'=>$request->grad_inst,
-  //     'grad_board'=>$request->grad_board,
-  //     'grad_subject'=>$request->grad_subject,
-  //     'grad_passing'=>$request->grad_passing,
-  //     'masters_inst'=>$request->masters_inst,
-  //     'masters_board'=>$request->masters_board,
-  //     'masters_subject'=>$request->masters_subject,
-  //     'masters_passing'=>$request->masters_passing,
-  //     'assigned_course'=>$request->assigned_course,
-  //     'updated_at'=>Carbon::now(),
-  //   ]);
-  //
-  //   activity()->withProperties(['name' => $request->name])->log('trainer profile updated');
-  //   notify()->success($request->name . ' ' . 'Updated Successfully');
-  //   return back();
-  // }
+  // edit
+  function edit($enroll_id)
+  {
+    $edit_installment = Installment::findOrFail($enroll_id);
+    $enroll = Enroll::findOrFail($enroll_id);
+
+
+
+    return view('enrollment.editenroll.edit',compact('edit_installment','enroll'));
+  }
+  // update
+  function update(Request $request,$enroll_id)
+  {
+
+    $last_inserted_id = Installment::findOrFail($enroll_id)->update([
+      'firstInstallment'=>$request->firstInstallment,
+      'firstInstallmentDate'=>$request->firstInstallmentDate,
+      'secondInstallment'=>$request->secondInstallment,
+      'secondInstallmentCheck'=>$request->secondInstallmentCheck,
+      'secondInstallmentDate'=>$request->secondInstallmentDate,
+      'thirdInstallment'=>$request->thirdInstallment,
+      'thirdInstallmentCheck'=>$request->thirdInstallmentCheck,
+      'thirdInstallmentDate'=>$request->thirdInstallmentDate,
+      'fourInstallment'=>$request->fourInstallment,
+      'fourInstallmentCheck'=>$request->fourInstallmentCheck,
+      'fourInstallmentDate'=>$request->fourInstallmentDate,
+      'fiveInstallment'=>$request->fiveInstallment,
+      'fiveInstallmentCheck'=>$request->fiveInstallmentCheck,
+      'fiveInstallmentDate'=>$request->fiveInstallmentDate,
+      'updated_at'=>Carbon::now(),
+    ]);
+
+    activity()->withProperties(['name' => $request->name])->log('Student Installment updated');
+    notify()->success($request->name . ' ' . 'Updated Successfully');
+    return back();
+  }
 
   //END
 }

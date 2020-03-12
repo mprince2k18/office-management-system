@@ -23,6 +23,10 @@ class Installment extends Model
       'fourInstallmentDate',
       'fiveInstallment',
       'fiveInstallmentDate',
+      'secondInstallmentCheck',
+      'thirdInstallmentCheck',
+      'fourInstallmentCheck',
+      'fiveInstallmentCheck',
     ];
 
     function relationBetweenEnroll()

@@ -20,12 +20,16 @@ class CreateInstallmentsTable extends Migration
             $table->string('firstInstallment');
             $table->string('firstInstallmentDate');
             $table->string('secondInstallment')->nullable();
+            $table->string('secondInstallmentCheck')->nullable();
             $table->string('secondInstallmentDate')->nullable();
             $table->string('thirdInstallment')->nullable();
+            $table->string('thirdInstallmentCheck')->nullable();
             $table->string('thirdInstallmentDate')->nullable();
             $table->string('fourInstallment')->nullable();
+            $table->string('fourInstallmentCheck')->nullable();
             $table->string('fourInstallmentDate')->nullable();
             $table->string('fiveInstallment')->nullable();
+            $table->string('fiveInstallmentCheck')->nullable();
             $table->string('fiveInstallmentDate')->nullable();
             $table->timestamps();
         });

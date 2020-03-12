@@ -48,8 +48,8 @@ Route::post('enroll/create', 'EnrollController@create')->name('enroll.create');
 Route::get('enroll/all', 'EnrollController@all')->name('enroll.all');
 Route::post('get/course/fee', 'EnrollController@courseFee')->name('courseFee');
 Route::get('enroll/profile/{enroll_id}', 'EnrollController@profile')->name('enroll.profile');
-// Route::get('batch/edit/{course_id}', 'BatchController@edit')->name('batch.edit');
-// Route::post('batch/update/{course_id}', 'BatchController@update')->name('batch.update');
+Route::get('enroll/edit/{enroll_id}', 'EnrollController@edit')->name('enroll.edit');
+Route::post('enroll/update/{enroll_id}', 'EnrollController@update')->name('enroll.update');
 
 
 // ActivityController
