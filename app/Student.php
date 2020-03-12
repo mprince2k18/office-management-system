@@ -48,5 +48,6 @@ class Student extends Model
     {
       return $this->hasOne('App\Enroll','student_name','id');
     }
+
     //END
 }

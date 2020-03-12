@@ -65,12 +65,19 @@
   $fourDate = $enroll->relationBetweenInstallment->fourInstallmentDate;
   $fiveDate = $enroll->relationBetweenInstallment->fiveInstallmentDate;
 
+
+  $firstPay = $enroll->relationBetweenInstallment->firstInstallment;
+  $secondPay = $enroll->relationBetweenInstallment->secondInstallment;
+  $thirdPay = $enroll->relationBetweenInstallment->thirdInstallment;
+  $fourPay = $enroll->relationBetweenInstallment->fourInstallment;
+  $fivePay = $enroll->relationBetweenInstallment->fiveInstallment;
+
   $today = Carbon\Carbon::now();
 @endphp
 
 
 
-                          <tr class="{{ $secondDate < $today && $thirdDate < $today ? "bg-danger text-white" : " "}}">
+                          <tr class="{{ $secondDate < $today && $thirdDate < $today  ? "bg-danger text-white" : " "}}">
                           <!-- <tr class="bg-danger"> -->
                               <td>
                                 <img src="{{ asset('uploads/student') }}/{{ $enroll->relationBetweenStudent->avatar }}" style="width: 25%;border-radius: 50%;" alt="">
@@ -83,29 +90,25 @@
                               <td>{{ $enroll->relationBetweenInstallment->relationBetweenEnroll->course_fee - $enroll->relationBetweenInstallment->firstInstallment}}</td>
                               <td>
                                 @php
-                                  $check = null;
+                                  $check = 'paid';
                                 @endphp
 
                                 @switch($check)
 
-                                  @case($enroll->relationBetweenInstallment->firstInstallment != $check)
-                                        {{ $enroll->relationBetweenInstallment->firstInstallmentDate }}
 
-                                      @break
-
-                                  @case($enroll->relationBetweenInstallment->secondInstallment != $check)
+                                  @case($enroll->relationBetweenInstallment->secondInstallmentCheck != $check)
                                         {{ $enroll->relationBetweenInstallment->secondInstallmentDate }}
                                       @break
 
-                                  @case($enroll->relationBetweenInstallment->thirdInstallment != $check)
+                                  @case($enroll->relationBetweenInstallment->thirdInstallmentCheck != $check)
                                         {{ $enroll->relationBetweenInstallment->thirdInstallmentDate }}
                                       @break
 
-                                  @case($enroll->relationBetweenInstallment->fourInstallment != $check)
+                                  @case($enroll->relationBetweenInstallment->fourInstallmentCheck != $check)
                                         {{ $enroll->relationBetweenInstallment->fourInstallmentDate }}
                                       @break
 
-                                  @case($enroll->relationBetweenInstallment->fiveInstallment != $check)
+                                  @case($enroll->relationBetweenInstallment->fiveInstallmentCheck != $check)
                                         {{ $enroll->relationBetweenInstallment->fiveInstallmentDate }}
                                       @break
 
@@ -114,6 +117,19 @@
                                       Paid
 
                                 @endswitch
+
+
+
+
+
+
+
+
+
+
+
+
+
                               </td>
                               <td>
                                 <a href="{{ url('enroll/profile') }}/{{ $enroll->id }}" class="btn-sm btn-primary">View</a>

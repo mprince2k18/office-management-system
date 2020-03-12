@@ -29,10 +29,17 @@
                         <h6>{{ $batch->created_at->format('d-M-Y') }}</h6>
                     </div>
 
-                    <div class="col-4">
+                    <!-- <div class="col-4">
                         <small>Students</small>
-                        <h5>{{ $batch->relationBetweenEnroll->where('batch_no',$batch->id)->count() }}</h5>
-                    </div>
+
+                        @if($batch->find($batch->id)->where('batch_no', $batch->id)->get())
+                          No Enroll
+                        @else
+                          <h5>{{ $batch->relationBetweenEnroll->where('batch_no', $batch->id)->count() }}</h5>
+                        @endif
+
+
+                    </div> -->
 
                     <!-- <div class="col-4">
                         <small>Course Enrolled</small>

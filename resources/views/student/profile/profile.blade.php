@@ -32,18 +32,18 @@
                     <div class="col-4">
                         <small>Batch</small>
                         @if (!isset( $student->relationBetweenEnroll->relationBetweenCourse->batch_no) ===  NULL)
-                          <h5>{{ $student->relationBetweenEnroll->relationBetweenBatch->batch_no }}</h5>
+                        <p class="text-muted">No Batch</p>
                         @else
-                          <p class="text-muted">No Batch</p>
+                        <h5>{{ $student->relationBetweenEnroll->relationBetweenBatch->batch_no }}</h5>
                         @endif
                     </div>
 
                     <div class="col-4">
                         <small>Roll No:</small>
                         @if (!isset( $student->relationBetweenEnroll->student_roll) ===  NULL)
-                          <h5>{{ $student->relationBetweenEnroll->student_roll }}</h5>
-                        @else
                           <p class="text-muted">No Roll</p>
+                        @else
+                        <h5>{{ $student->relationBetweenEnroll->student_roll }}</h5>
                         @endif
                     </div>
 

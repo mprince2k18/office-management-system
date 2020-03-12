@@ -3,6 +3,13 @@
 @section('parentPageTitle', 'logs')
 @section('page-style')
 <link rel="stylesheet" href="{{asset('assets/plugins/summernote/dist/summernote.css')}}"/>
+
+<style media="screen">
+  .cbp_tmtimeline>li .cbp_tmtime span{
+    font-size: 22px !important;
+  }
+</style>
+
 @stop
 @section('content')
 

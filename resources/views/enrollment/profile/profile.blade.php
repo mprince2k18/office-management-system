@@ -10,17 +10,22 @@
     <div class="col-lg-4 col-md-12">
         <div class="card mcard_3">
             <div class="body">
-                <a href="{{ url('enroll/profile') }}/{{ $enroll->id }}"><img src="{{ asset('uploads/student') }}/{{ $enroll->relationBetweenStudent->avatar }}" class="rounded-circle shadow " alt="profile-image"></a>
+                <a href="{{ url('enroll/profile') }}/{{ $enroll->id }}"><img
+                        src="{{ asset('uploads/student') }}/{{ $enroll->relationBetweenStudent->avatar }}"
+                        class="rounded-circle shadow " alt="profile-image"></a>
                 <h4 class="m-t-10">{{ $enroll->relationBetweenStudent->name }}</h4>
                 <div class="row">
 
                     <div class="col-12">
                         <ul class="social-links list-unstyled">
-                            <li><a title="facebook" href="javascript:void(0);"><i class="zmdi zmdi-facebook"></i></a></li>
+                            <li><a title="facebook" href="javascript:void(0);"><i class="zmdi zmdi-facebook"></i></a>
+                            </li>
                             <li><a title="twitter" href="javascript:void(0);"><i class="zmdi zmdi-twitter"></i></a></li>
-                            <li><a title="instagram" href="javascript:void(0);"><i class="zmdi zmdi-instagram"></i></a></li>
+                            <li><a title="instagram" href="javascript:void(0);"><i class="zmdi zmdi-instagram"></i></a>
+                            </li>
                         </ul>
-                        <p class="text-muted">{{ $installments->relationBetweenEnroll->relationBetweenCourse->course_name }}</p>
+                        <p class="text-muted">
+                            {{ $installments->relationBetweenEnroll->relationBetweenCourse->course_name }}</p>
                     </div>
 
                     <div class="col-4">
@@ -43,12 +48,12 @@
         </div>
 
         <a href="{{ url('enroll/edit') }}/{{ $enroll->id }}">
-          <div class="card info-box-2 hover-zoom-effect social-widget facebook-widget">
-              <div class="icon"><i class="zmdi zmdi-edit"></i></div>
-              <div class="content">
-                  <div class="text">Edit Profile</div>
-              </div>
-          </div>
+            <div class="card info-box-2 hover-zoom-effect social-widget facebook-widget">
+                <div class="icon"><i class="zmdi zmdi-edit"></i></div>
+                <div class="content">
+                    <div class="text">Edit Profile</div>
+                </div>
+            </div>
         </a>
 
 
@@ -58,7 +63,9 @@
                 <h2><strong>Activities</strong></h2>
                 <ul class="header-dropdown">
                     <li><a href="javascript:void(0);" title="add new"><i class="zmdi zmdi-plus"></i></a></li>
-                    <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
+                    <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"
+                            role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i>
+                        </a>
                         <ul class="dropdown-menu dropdown-menu-right slideUp">
                             <li><a href="javascript:void(0);">Edit</a></li>
                             <li><a href="javascript:void(0);">Delete</a></li>
@@ -79,197 +86,197 @@
     <div class="col-lg-8 col-md-12">
 
 
-      <div class="card">
-          <div class="body">
+        <div class="card">
+            <div class="body">
 
-              <div class="d-flex bd-highlight text-center mb-3">
-                                  <div class="bg-red flex-fill bd-highlight">
-                                      <h3 class="mt-3 mb-0">{{ $installments->relationBetweenEnroll->course_fee }}</h3>
-                                      <p>Fee</p>
-                                  </div>
-                                  @php
-                                  $course_fee = $installments->relationBetweenEnroll->course_fee;
-
-
-
-
-                                  $secondPayCheck    = $installments->secondInstallmentCheck;
-                                  $thirdPayCheck     = $installments->thirdInstallmentCheck;
-                                  $fourPayCheck      = $installments->fourInstallmentCheck;
-                                  $fivePayCheck      = $installments->fiveInstallmentCheck;
-
-                                  $secondPayCheck   === 'paid';
-                                  $thirdPayCheck    === 'paid';
-                                  $fourPayCheck     === 'paid';
-                                  $fivePayCheck     === 'paid';
-
-                                  $firstPay     = $installments->firstInstallment;
-                                  $secondPay    = $installments->secondInstallment;
-                                  $thirdPay     = $installments->thirdInstallment;
-                                  $fourPay      = $installments->fourInstallment;
-                                  $fivePay      = $installments->fiveInstallment;
-
-                                  $paid =  $installments->firstInstallment;
-
-
-                                  @endphp
-
-
-                                                                          @if ($installments->secondInstallmentCheck === 'paid' )
-
-                                                                            @php  $paid += $installments->secondInstallment  @endphp
-
-                                                                           @endif
-
-                                                                           @if ($installments->thirdInstallmentCheck === 'paid' )
-
-                                                                             @php  $paid += $installments->thirdInstallment  @endphp
-
-                                                                            @endif
-
-                                                                            @if ($installments->fourInstallmentCheck === 'paid' )
-
-                                                                              @php  $paid += $installments->fourInstallment  @endphp
-
-                                                                             @endif
-
-                                                                             @if ($installments->fiveInstallmentCheck === 'paid' )
-
-                                                                               @php  $paid += $installments->fiveInstallment  @endphp
-
-                                                                              @endif
-
-                                  <div class="bg-blue flex-fill bd-highlight">
-                                      <h3 class="mt-3 mb-0">
-
-                                        {{ $paid }}
-
-
-                                      <p>Paid</p>
-                                  </div>
-                                  <div class="bg-green flex-fill bd-highlight">
+                <div class="d-flex bd-highlight text-center mb-3">
+                    <div class="bg-red flex-fill bd-highlight">
+                        <h3 class="mt-3 mb-0">{{ $installments->relationBetweenEnroll->course_fee }}</h3>
+                        <p>Fee</p>
+                    </div>
+                    @php
+                    $course_fee = $installments->relationBetweenEnroll->course_fee;
 
 
 
 
+                    $secondPayCheck = $installments->secondInstallmentCheck;
+                    $thirdPayCheck = $installments->thirdInstallmentCheck;
+                    $fourPayCheck = $installments->fourInstallmentCheck;
+                    $fivePayCheck = $installments->fiveInstallmentCheck;
+
+                    $secondPayCheck === 'paid';
+                    $thirdPayCheck === 'paid';
+                    $fourPayCheck === 'paid';
+                    $fivePayCheck === 'paid';
+
+                    $firstPay = $installments->firstInstallment;
+                    $secondPay = $installments->secondInstallment;
+                    $thirdPay = $installments->thirdInstallment;
+                    $fourPay = $installments->fourInstallment;
+                    $fivePay = $installments->fiveInstallment;
+
+                    $paid = $installments->firstInstallment;
+
+                    $due  = $course_fee - ($paid + $secondPay + $thirdPay + $fourPay + $fivePay);
 
 
-                                      <h3 class="mt-3 mb-0">
-                                        @if( $installments->secondInstallmentCheck || $installments->thirdInstallmentCheck || $installments->fourInstallmentCheck || $installments->fiveInstallmentCheck  != 'paid' )
-                                            {{$course_fee - ($installments->firstInstallment + $installments->secondInstallment + $installments->thirdInstallment + $installments->fourInstallment + $installments->fiveInstallment) }}
-                                        @else
-                                        NOT OK
-                                        @endif
-                                      </h3>
-                                      <p>Due </p>
-                                  </div>
-                                  <div class="bg-orange flex-fill bd-highlight">
-                                      <h3 class="mt-3 mb-0">
-
-                                        @php
-                                          $check = 'paid';
-                                        @endphp
-
-                                        @switch($check)
+                    @endphp
 
 
-                                          @case($installments->secondInstallmentCheck != $check)
-                                                {{ $installments->secondInstallmentDate }}
-                                              @break
+                    @if ($installments->secondInstallmentCheck === 'paid' )
 
-                                          @case($installments->thirdInstallmentCheck != $check)
-                                                {{ $installments->thirdInstallmentDate }}
-                                              @break
+                    @php $paid += $installments->secondInstallment @endphp
 
-                                          @case($installments->fourInstallmentCheck != $check)
-                                                {{ $installments->fourInstallmentDate }}
-                                              @break
+                    @endif
 
-                                          @case($installments->fiveInstallmentCheck != $check)
-                                                {{ $installments->fiveInstallmentDate }}
-                                              @break
+                    @if ($installments->thirdInstallmentCheck === 'paid' )
 
-                                          @default
+                    @php $paid += $installments->thirdInstallment @endphp
 
-                                          Paid
+                    @endif
 
-                                        @endswitch
+                    @if ($installments->fourInstallmentCheck === 'paid' )
 
-                                      </h3>
-                                      <p>Next Payment</p>
-                                  </div>
-                              </div>
+                    @php $paid += $installments->fourInstallment @endphp
 
-          </div>
-      </div>
+                    @endif
 
-      <div class="card">
+                    @if ($installments->fiveInstallmentCheck === 'paid' )
 
-        <div class="body {{ $installments->firstInstallmentCheck = 'paid' ? "bg-success" : " "}} ">
+                    @php $paid += $installments->fiveInstallment @endphp
 
-          <h6>1st Installment Payment: {{ $installments->firstInstallmentDate }}</h6>
-          <p>{{ $installments->firstInstallment }}</p>
-          <hr>
+                    @endif
+
+                    <div class="bg-blue flex-fill bd-highlight">
+                        <h3 class="mt-3 mb-0">
+
+                            {{ $paid }}
+
+
+                            <p>Paid</p>
+                    </div>
+                    <div class="bg-green flex-fill bd-highlight">
+
+
+
+
+
+
+                        <h3 class="mt-3 mb-0">
+                            {{ $due }}
+                        </h3>
+                        <p>Due </p>
+                    </div>
+                    <div class="bg-orange flex-fill bd-highlight">
+                        <h3 class="mt-3 mb-0">
+
+                            @php
+                            $check = 'paid';
+                            @endphp
+
+                            @switch($check)
+
+
+                            @case($installments->secondInstallmentCheck != $check)
+                            {{ $installments->secondInstallmentDate }}
+                            @break
+
+                            @case($installments->thirdInstallmentCheck != $check)
+                            {{ $installments->thirdInstallmentDate }}
+                            @break
+
+                            @case($installments->fourInstallmentCheck != $check)
+                            {{ $installments->fourInstallmentDate }}
+                            @break
+
+                            @case($installments->fiveInstallmentCheck != $check)
+                            {{ $installments->fiveInstallmentDate }}
+                            @break
+
+                            @default
+
+                            Paid
+
+                            @endswitch
+
+                        </h3>
+                        <p>Next Payment</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="card">
+
+            <div class="body {{ $installments->firstInstallmentCheck = 'paid' ? "bg-success" : " "}} ">
+
+                <h6>1st Installment Payment: {{ $installments->firstInstallmentDate }}</h6>
+                <p>{{ $installments->firstInstallment }}</p>
+                <hr>
+
+            </div>
 
         </div>
 
-      </div>
-
-      <div class="card">
+        <div class="card">
 
 
 
-                <div class="body {{ $installments->secondInstallmentCheck === 'paid' ? "bg-success" : " "}} ">
+            <div class="body {{ $installments->secondInstallmentCheck === 'paid' ? "bg-success" : " "}} ">
 
-                  <h6>2nd Installment Payment: {{ $installments->secondInstallmentDate }}</h6>
-                  <p>{{ $installments->secondInstallment }}</p>
-                  <hr>
+                <h6>2nd Installment Payment: {{ $installments->secondInstallmentDate }}</h6>
+                <p>{{ $installments->secondInstallment }}</p>
+                <hr>
 
-                </div>
+            </div>
 
-      </div>
+        </div>
 
-      <div class="card">
-
-
-
-                <div class="body {{ $installments->thirdInstallmentCheck === 'paid' ? "bg-success" : " "}} ">
-
-                  <h6>3rd Installment Payment: {{ $installments->thirdInstallmentDate }}</h6>
-                  <p>{{ $installments->thirdInstallment }}</p>
-                  <hr>
-
-                </div>
-
-      </div>
-
-      <div class="card">
+        <div class="card">
 
 
 
-                <div class="body {{ $installments->fourInstallmentCheck === 'paid' ? "bg-success" : " "}} ">
-
-                  <h6>4th Installment Payment: {{ $installments->fourInstallmentDate }}</h6>
-                  <p>{{ $installments->fourInstallment }}</p>
-                  <hr>
-
-                </div>
-
-      </div>
-
-      <div class="card">
 
 
+          <div class="body {{ $installments->thirdInstallmentCheck === 'paid' ? "bg-success" : " "}}">
 
-                <div class="body {{ $installments->fiveInstallmentCheck === 'paid' ? "bg-success" : " "}} ">
+              <h6>3rd Installment Payment: {{ $installments->thirdInstallmentDate }}</h6>
+              <p>{{ $installments->thirdInstallment }}</p>
+              <hr>
 
-                  <h6>5th Installment Payment: {{ $installments->fiveInstallmentDate }}</h6>
-                  <p>{{ $installments->fiveInstallment }}</p>
-                  <hr>
+          </div>
 
-                </div>
 
-      </div>
+        </div>
+
+        <div class="card">
+
+
+            <div class="body {{ $installments->fourInstallmentCheck === 'paid' ? "bg-success" : " "}} ">
+
+                <h6>4th Installment Payment: {{ $installments->fourInstallmentDate }}</h6>
+                <p>{{ $installments->fourInstallment }}</p>
+                <hr>
+
+            </div>
+
+        </div>
+
+        <div class="card">
+
+
+
+            <div class="body {{ $installments->fiveInstallmentCheck === 'paid' ? "bg-success" : " "}} ">
+
+                <h6>5th Installment Payment: {{ $installments->fiveInstallmentDate }}</h6>
+                <p>{{ $installments->fiveInstallment }}</p>
+                <hr>
+
+            </div>
+
+        </div>
 
     </div>
 </div>

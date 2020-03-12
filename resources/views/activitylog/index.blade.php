@@ -7,6 +7,12 @@
 <link rel="stylesheet" href="{{ asset('assets/plugins/charts-c3/plugin.css') }}"/>
 <link rel="stylesheet" href="{{ asset('assets/plugins/morrisjs/morris.min.css') }}" />
 
+<style media="screen">
+  .cbp_tmtimeline>li .cbp_tmtime span{
+    font-size: 22px !important;
+  }
+</style>
+
 @stop
 @section('content')
 
