@@ -21,7 +21,7 @@
                 <div class="card">
 
                         <p>Search</p>
-                        <form id="searchForm" action="{{ route('activity.search') }}" method="post">
+                        <form id="searchForm" action="{{ route('activity.search') }}" method="GET">
                         <div class="row clearfix">
 
                           @csrf

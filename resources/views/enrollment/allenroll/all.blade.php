@@ -36,7 +36,7 @@
                               <th>Batch No</th>
                               <th>Course</th>
                               <th>Enrolled On</th>
-                              <th>Due</th>
+                              <!-- <th>Due</th> -->
                               <th>Next Payment</th>
                               <th>Action</th>
                             </tr>
@@ -49,7 +49,7 @@
                               <th>Batch No</th>
                               <th>Course</th>
                               <th>Enrolled On</th>
-                              <th>Due</th>
+                              <!-- <th>Due</th> -->
                               <th>Next Payment</th>
                               <th>Action</th>
                             </tr>
@@ -58,78 +58,65 @@
 
                           @foreach ($enrolls as $enroll)
 
-@php
-  $firstDate = $enroll->relationBetweenInstallment->firstInstallmentDate;
-  $secondDate = $enroll->relationBetweenInstallment->secondInstallmentDate;
-  $thirdDate = $enroll->relationBetweenInstallment->thirdInstallmentDate;
-  $fourDate = $enroll->relationBetweenInstallment->fourInstallmentDate;
-  $fiveDate = $enroll->relationBetweenInstallment->fiveInstallmentDate;
+                            @php
+                              $firstDate = $enroll->relationBetweenInstallment->firstInstallmentDate;
+                              $secondDate = $enroll->relationBetweenInstallment->secondInstallmentDate;
+                              $thirdDate = $enroll->relationBetweenInstallment->thirdInstallmentDate;
+                              $fourDate = $enroll->relationBetweenInstallment->fourInstallmentDate;
+                              $fiveDate = $enroll->relationBetweenInstallment->fiveInstallmentDate;
 
 
-  $firstPay = $enroll->relationBetweenInstallment->firstInstallment;
-  $secondPay = $enroll->relationBetweenInstallment->secondInstallment;
-  $thirdPay = $enroll->relationBetweenInstallment->thirdInstallment;
-  $fourPay = $enroll->relationBetweenInstallment->fourInstallment;
-  $fivePay = $enroll->relationBetweenInstallment->fiveInstallment;
+                              $firstPay = $enroll->relationBetweenInstallment->firstInstallment;
+                              $secondPay = $enroll->relationBetweenInstallment->secondInstallment;
+                              $thirdPay = $enroll->relationBetweenInstallment->thirdInstallment;
+                              $fourPay = $enroll->relationBetweenInstallment->fourInstallment;
+                              $fivePay = $enroll->relationBetweenInstallment->fiveInstallment;
 
-  $today = Carbon\Carbon::now();
-@endphp
+                              $today = Carbon\Carbon::now();
+                              $nextPaymentDate = null;
+
+                              if($enroll->relationBetweenInstallment->secondInstallmentCheck != 'paid'){
+                                  $nextPaymentDate = $enroll->relationBetweenInstallment->secondInstallmentDate;
+                              }
+                              elseif($enroll->relationBetweenInstallment->thirdInstallmentCheck != 'paid'){
+                                  $nextPaymentDate = $enroll->relationBetweenInstallment->thirdInstallmentDate;
+                              }
+                              elseif($enroll->relationBetweenInstallment->fourInstallment != 'paid'){
+                                  $nextPaymentDate = $enroll->relationBetweenInstallment->fourInstallmentDate;
+                              }
+                              elseif($enroll->relationBetweenInstallment->fiveInstallmentCheck != 'paid'){
+                                  $nextPaymentDate = $enroll->relationBetweenInstallment->fiveInstallmentDate;
+                              }
+
+                            @endphp
 
 
 
-                          <tr class="{{ $secondDate < $today && $thirdDate < $today  ? "bg-danger text-white" : " "}}">
+
+                          <tr class="@if($nextPaymentDate != null && $nextPaymentDate <= $today) bg-danger text-white @endif">
                           <!-- <tr class="bg-danger"> -->
                               <td>
-                                <img src="{{ asset('uploads/student') }}/{{ $enroll->relationBetweenStudent->avatar }}" style="width: 25%;border-radius: 50%;" alt="">
+                                <img src="{{ asset('uploads/student') }}/{{ $enroll->relationBetweenStudent->avatar }}" style="width: 13%;border-radius: 50%;" alt="">
                               </td>
                               <td>{{ $enroll->relationBetweenStudent->name }}</td>
                               <td>{{ $enroll->student_roll }}</td>
                               <td>{{ $enroll->relationBetweenBatch->batch_no }}</td>
                               <td>{{ $enroll->relationBetweenCourse->course_name }}</td>
                               <td>{{ $enroll->created_at }}</td>
-                              <td>{{ $enroll->relationBetweenInstallment->relationBetweenEnroll->course_fee - $enroll->relationBetweenInstallment->firstInstallment}}</td>
+
+                              @php
+                              $discount = $enroll->relationBetweenInstallment->course_discount;
+                              $course_fee = $enroll->course_fee;
+                              $paid = $enroll->relationBetweenInstallment->firstInstallment;
+
+
+                              @endphp
+
+
+                              <!-- <td>{{ $discount }}</td> -->
+                              <!-- <td>{{ $course_fee - $discount }}</td> -->
                               <td>
-                                @php
-                                  $check = 'paid';
-                                @endphp
-
-                                @switch($check)
-
-
-                                  @case($enroll->relationBetweenInstallment->secondInstallmentCheck != $check)
-                                        {{ $enroll->relationBetweenInstallment->secondInstallmentDate }}
-
-
-                                  @case($enroll->relationBetweenInstallment->thirdInstallmentCheck != $check)
-                                        {{ $enroll->relationBetweenInstallment->thirdInstallmentDate }}
-
-
-                                  @case($enroll->relationBetweenInstallment->fourInstallmentCheck != $check)
-                                        {{ $enroll->relationBetweenInstallment->fourInstallmentDate }}
-
-
-                                  @case($enroll->relationBetweenInstallment->fiveInstallmentCheck != $check)
-                                        {{ $enroll->relationBetweenInstallment->fiveInstallmentDate }}
-                                      @break
-
-                                  @default
-
-                                      Paid
-
-                                @endswitch
-
-
-
-
-
-
-
-
-
-
-
-
-
+                                  {{ $nextPaymentDate }}
                               </td>
                               <td>
                                 <a href="{{ url('enroll/profile') }}/{{ $enroll->id }}" class="btn-sm btn-primary">View</a>

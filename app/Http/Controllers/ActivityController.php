@@ -18,7 +18,7 @@ class ActivityController extends Controller
       $this->middleware('auth');
   }
 
-  
+
   // index
   function index()
   {
@@ -119,6 +119,8 @@ class ActivityController extends Controller
         $afterSearch = '';
               if($request->from == '' && $request->to ==''){
 
+                  $from = date($request->from); //cant empy
+                  $to = date($request->to);  //cant empy
                   $userName = $request->userName; //
                   // $transactionId = $request->transactionId;
 

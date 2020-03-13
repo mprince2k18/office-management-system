@@ -18,7 +18,7 @@
                 <div class="card">
 
                         <p>Search</p>
-                        <form id="searchForm" action="{{ route('activity.search') }}" method="post">
+                        <form id="searchForm" action="{{ route('activity.search') }}" method="get">
                         <div class="row clearfix">
 
                           @csrf
@@ -29,7 +29,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="zmdi zmdi-calendar-note"></i></span>
                                     </div>
-                                    <input id="from" name="from" type="date" class="form-control datetime" placeholder="Ex: 30/07/2016 23:59">
+                                    <input id="from" value="{{ Request::get('from') }}" name="from" type="date" class="form-control datetime" placeholder="Ex: 30/07/2016 23:59">
                                 </div>
                               </div>
                           </div>
@@ -40,7 +40,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="zmdi zmdi-calendar-note"></i></span>
                                     </div>
-                                    <input id="to" name="to" type="date" class="form-control datetime" placeholder="Ex: 30/07/2016 23:59">
+                                    <input id="to" name="to" value="{{ Request::get('to') }}" type="date" class="form-control datetime" placeholder="Ex: 30/07/2016 23:59">
                                 </div>
                               </div>
                           </div>
@@ -48,7 +48,7 @@
                                 <div class="mb-3">
                                     <label>Name</label>
                                     <div class="input-group colorpicker colorpicker-element">
-                                        <input id="userName" name="userName" type="text" class="form-control" placeholder="Ex: Name">
+                                        <input id="userName" name="userName" value="{{ Request::get('userName') }}" type="text" class="form-control" placeholder="Ex: Name">
                                     </div>
                                 </div>
                             </div>

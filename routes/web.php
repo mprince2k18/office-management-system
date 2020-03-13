@@ -62,7 +62,12 @@ Route::post('enroll/update/{enroll_id}', 'EnrollController@update')->name('enrol
 
 // ActivityController
 Route::get('activity/log', 'ActivityController@index')->name('activity.index');
-Route::post('activity/log/search', 'ActivityController@searchLog')->name('activity.search');
+Route::get('activity/log/search', 'ActivityController@searchLog')->name('activity.search');
+
+
+// ReportController
+Route::get('report', 'ReportController@index')->name('report.index');
+
 
 
 /*

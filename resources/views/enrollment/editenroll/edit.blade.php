@@ -123,12 +123,12 @@
 
                 <div class="col-md-4">
                     <div class="form-group">
-                        <input type="text" value="{{ $edit_installment->secondInstallment }}" name="secondInstallment" class="form-control" placeholder="Second Installment Amount">
+                        <input type="text" value="{{ $edit_installment->secondInstallment }}" readonly name="secondInstallment" class="form-control" placeholder="Second Installment Amount">
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
-                        <input type="date" value="{{ $edit_installment->secondInstallmentDate }}" name="secondInstallmentDate" class="form-control">
+                        <input type="date" value="{{ $edit_installment->secondInstallmentDate }}" readonly name="secondInstallmentDate" class="form-control">
                     </div>
                 </div>
             </div>
@@ -154,12 +154,12 @@
 
                 <div class="col-md-4">
                     <div class="form-group">
-                        <input type="text" value="{{ $edit_installment->thirdInstallment }}" name="thirdInstallment" class="form-control" placeholder="Third Installment Amount">
+                        <input type="text" value="{{ $edit_installment->thirdInstallment }}" readonly name="thirdInstallment" class="form-control" placeholder="Third Installment Amount">
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
-                        <input type="date" value="{{ $edit_installment->thirdInstallmentDate }}" name="thirdInstallmentDate" class="form-control">
+                        <input type="date" value="{{ $edit_installment->thirdInstallmentDate }}" readonly name="thirdInstallmentDate" class="form-control">
                     </div>
                 </div>
             </div>
@@ -186,12 +186,12 @@
 
                 <div class="col-md-4">
                     <div class="form-group">
-                        <input type="text" value="{{ $edit_installment->fourInstallment }}" name="fourInstallment" class="form-control" placeholder="Four Installment Amount">
+                        <input type="text" value="{{ $edit_installment->fourInstallment }}" readonly name="fourInstallment" class="form-control" placeholder="Four Installment Amount">
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
-                        <input type="date" value="{{ $edit_installment->fourInstallmentDate }}" name="fourInstallmentDate" class="form-control">
+                        <input type="date" value="{{ $edit_installment->fourInstallmentDate }}" readonly name="fourInstallmentDate" class="form-control">
                     </div>
                 </div>
             </div>
@@ -218,12 +218,12 @@
 
                 <div class="col-md-4">
                     <div class="form-group">
-                        <input type="text" value="{{ $edit_installment->fiveInstallment }}" name="fiveInstallment" class="form-control" placeholder="Five Installment Amount">
+                        <input type="text" value="{{ $edit_installment->fiveInstallment }}" readonly name="fiveInstallment" class="form-control" placeholder="Five Installment Amount">
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
-                        <input type="date" value="{{ $edit_installment->fiveInstallmentDate }}" name="fiveInstallmentDate" class="form-control">
+                        <input type="date" value="{{ $edit_installment->fiveInstallmentDate }}" readonly name="fiveInstallmentDate" class="form-control">
                     </div>
                 </div>
             </div>

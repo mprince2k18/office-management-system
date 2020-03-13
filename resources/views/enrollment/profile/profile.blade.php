@@ -95,20 +95,14 @@
                         <p>Fee</p>
                     </div>
                     @php
+
                     $course_fee = $installments->relationBetweenEnroll->course_fee;
-
-
 
                     $discount = $installments->course_discount;
                     $secondPayCheck = $installments->secondInstallmentCheck;
                     $thirdPayCheck = $installments->thirdInstallmentCheck;
                     $fourPayCheck = $installments->fourInstallmentCheck;
                     $fivePayCheck = $installments->fiveInstallmentCheck;
-
-                    $secondPayCheck === 'paid';
-                    $thirdPayCheck === 'paid';
-                    $fourPayCheck === 'paid';
-                    $fivePayCheck === 'paid';
 
                     $firstPay = $installments->firstInstallment;
                     $secondPay = $installments->secondInstallment;
@@ -118,8 +112,7 @@
 
                     $paid = $installments->firstInstallment;
 
-                      $due  = $course_fee - $paid - $discount;
-
+                    $due  = $course_fee - $paid - $discount;
 
                     @endphp
 

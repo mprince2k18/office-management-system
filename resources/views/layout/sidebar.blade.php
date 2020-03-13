@@ -83,6 +83,13 @@
                 </ul>
             </li>
 
+            <li class="{{ Request::segment(1) === 'app' ? 'active open' : null }}">
+                <a href="#App" class="menu-toggle"><i class="zmdi zmdi-apps"></i> <span>Report Area</span></a>
+                <ul class="ml-menu">
+                    <li class="{{ Request::segment(2) === 'inbox' ? 'active' : null }}"><a href="{{route('report.index')}}">Report</a></li>
+                </ul>
+            </li>
+
             <!-- END::My sidebar -->
             <!-- END::My sidebar -->
             <!-- END::My sidebar -->
