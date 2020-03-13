@@ -6,7 +6,7 @@
 @stop
 @section('content')
 <div class="row clearfix">
-    <div class="col-lg-6 col-md-12">
+    <div class="col-lg-12 col-md-12">
         <div class="card">
             <div class="header">
                 <h2><strong>STUDENT ADMISSION</strong> REPORT</h2>
@@ -26,8 +26,56 @@
 
 
 
-            <div class="body">
+            <!-- <div class="body">
                 <canvas id="line_chart" class="chartjs_graph"></canvas>
+            </div> -->
+
+
+
+
+
+
+            <div class="body">
+
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs p-0 mb-3">
+                    <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#year">YEAR</a></li>
+                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#month">MONTH</a></li>
+                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#week">WEEK</a></li>
+                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#day">DAY</a></li>
+                </ul>
+                <!-- Tab panes -->
+                <div class="tab-content">
+
+
+
+                    <div role="tabpanel" class="tab-pane in active" id="year">
+                        <canvas id="line_chart_year" class="chartjs_graph"></canvas>
+                    </div>
+
+
+
+
+                    <div role="tabpanel" class="tab-pane" id="month">
+                        <canvas id="line_chart_month" class="chartjs_graph"></canvas>
+                    </div>
+
+
+
+                    <div role="tabpanel" class="tab-pane" id="week">
+                        <canvas id="line_chart_week" class="chartjs_graph"></canvas>
+                    </div>
+
+
+
+                    <div role="tabpanel" class="tab-pane" id="day">
+                        <canvas id="line_chart_day" class="chartjs_graph"></canvas>
+                    </div>
+
+
+
+
+                </div>
             </div>
 
 
@@ -194,13 +242,29 @@ $(function () {
     // var pc = document.getElementById("pie_chart").getContext("2d");
     // new Chart(pc, getChartJs(pc, 'pie'));
 
-    var lc = document.getElementById("line_chart").getContext("2d");
-    new Chart(lc, getChartJs(lc, 'line'));
+
+
+// Student Admission Chart
+    var lc = document.getElementById("line_chart_year").getContext("2d");
+    new Chart(lc, getChartJs(lc, 'a'));
+
+    var lc = document.getElementById("line_chart_month").getContext("2d");
+    new Chart(lc, getChartJs(lc, 'b'));
+
+    var lc = document.getElementById("line_chart_week").getContext("2d");
+    new Chart(lc, getChartJs(lc, 'c'));
+
+    var lc = document.getElementById("line_chart_day").getContext("2d");
+    new Chart(lc, getChartJs(lc, 'd'));
+
 });
+
+
+
 
 function getChartJs(obj, type) {
     var config = null;
-    if (type === 'line') {
+    if (type === 'a') {
 
         var gradientData1 = obj.createLinearGradient(500, 0, 100, 0);
 
@@ -209,10 +273,12 @@ function getChartJs(obj, type) {
         gradientData1.addColorStop(0.5, "#fad874");
         gradientData1.addColorStop(1, "#f49080");
 
+
+
         config = {
             type: 'line',
             data: {
-                labels: ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL"],
+                labels: [{{ $year }}],
                 datasets: [{
                     label: "STUDENT REPORT",
                     borderColor: gradientData1,
@@ -226,7 +292,7 @@ function getChartJs(obj, type) {
                     pointRadius: 3,
                     fill: false,
                     borderWidth: 4,
-                    data: [{{ $students_jan }}, {{ $students_feb }}, {{ $students_mar }}, {{ $students_apr }}, {{ $students_may }}, {{ $students_june }}, {{ $students_july }}]
+                    data: [ {{ $students_year }} ]
                 }]
             },
             options: {
@@ -262,6 +328,201 @@ function getChartJs(obj, type) {
             }
         }
     }
+
+    else if (type === 'b') {
+
+      var gradientData1 = obj.createLinearGradient(500, 0, 100, 0);
+
+      gradientData1.addColorStop(0, "#80b6f4");
+      gradientData1.addColorStop(0.2, "#94d973");
+      gradientData1.addColorStop(0.5, "#fad874");
+      gradientData1.addColorStop(1, "#f49080");
+
+      config = {
+          type: 'line',
+          data: {
+              labels: ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL"],
+              datasets: [{
+                  label: "STUDENT REPORT",
+                  borderColor: gradientData1,
+                  pointBorderColor: gradientData1,
+                  pointBackgroundColor: gradientData1,
+                  pointHoverBackgroundColor: gradientData1,
+                  pointHoverBorderColor: gradientData1,
+                  pointBorderWidth: 10,
+                  pointHoverRadius: 10,
+                  pointHoverBorderWidth: 1,
+                  pointRadius: 3,
+                  fill: false,
+                  borderWidth: 4,
+                  data: [{{ $students_jan }}, {{ $students_feb }}, {{ $students_mar }}, {{ $students_apr }}, {{ $students_may }}, {{ $students_june }}, {{ $students_july }}]
+              }]
+          },
+          options: {
+              legend: {
+                  position: "bottom"
+              },
+              scales: {
+                  yAxes: [{
+                      ticks: {
+                          fontColor: "rgba(0,0,0,0.5)",
+                          fontStyle: "bold",
+                          beginAtZero: true,
+                          maxTicksLimit: 5,
+                          padding: 20
+                      },
+                      gridLines: {
+                          drawTicks: false,
+                          display: false
+                      }
+
+                  }],
+                  xAxes: [{
+                      gridLines: {
+                          zeroLineColor: "transparent"
+                      },
+                      ticks: {
+                          padding: 20,
+                          fontColor: "rgba(0,0,0,0.5)",
+                          fontStyle: "bold"
+                      }
+                  }]
+              }
+          }
+      }
+
+    }
+
+    else if (type === 'c') {
+
+      var gradientData1 = obj.createLinearGradient(500, 0, 100, 0);
+
+      gradientData1.addColorStop(0, "#80b6f4");
+      gradientData1.addColorStop(0.2, "#94d973");
+      gradientData1.addColorStop(0.5, "#fad874");
+      gradientData1.addColorStop(1, "#f49080");
+
+      config = {
+          type: 'line',
+          data: {
+              labels: ["Start Of The Week"],
+              datasets: [{
+                  label: "STUDENT REPORT",
+                  borderColor: gradientData1,
+                  pointBorderColor: gradientData1,
+                  pointBackgroundColor: gradientData1,
+                  pointHoverBackgroundColor: gradientData1,
+                  pointHoverBorderColor: gradientData1,
+                  pointBorderWidth: 10,
+                  pointHoverRadius: 10,
+                  pointHoverBorderWidth: 1,
+                  pointRadius: 3,
+                  fill: false,
+                  borderWidth: 4,
+                  data: [{{ $students_week }}]
+              }]
+          },
+          options: {
+              legend: {
+                  position: "bottom"
+              },
+              scales: {
+                  yAxes: [{
+                      ticks: {
+                          fontColor: "rgba(0,0,0,0.5)",
+                          fontStyle: "bold",
+                          beginAtZero: true,
+                          maxTicksLimit: 5,
+                          padding: 20
+                      },
+                      gridLines: {
+                          drawTicks: false,
+                          display: false
+                      }
+
+                  }],
+                  xAxes: [{
+                      gridLines: {
+                          zeroLineColor: "transparent"
+                      },
+                      ticks: {
+                          padding: 20,
+                          fontColor: "rgba(0,0,0,0.5)",
+                          fontStyle: "bold"
+                      }
+                  }]
+              }
+          }
+      }
+
+    }
+
+    else if (type === 'd') {
+
+      var gradientData1 = obj.createLinearGradient(500, 0, 100, 0);
+
+      gradientData1.addColorStop(0, "#80b6f4");
+      gradientData1.addColorStop(0.2, "#94d973");
+      gradientData1.addColorStop(0.5, "#fad874");
+      gradientData1.addColorStop(1, "#f49080");
+
+
+      config = {
+          type: 'line',
+          data: {
+              labels: ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL"],
+              datasets: [{
+                  label: "STUDENT REPORT",
+                  borderColor: gradientData1,
+                  pointBorderColor: gradientData1,
+                  pointBackgroundColor: gradientData1,
+                  pointHoverBackgroundColor: gradientData1,
+                  pointHoverBorderColor: gradientData1,
+                  pointBorderWidth: 10,
+                  pointHoverRadius: 10,
+                  pointHoverBorderWidth: 1,
+                  pointRadius: 3,
+                  fill: false,
+                  borderWidth: 4,
+                  data: [{{ $students_jan }}, {{ $students_feb }}, {{ $students_mar }}, {{ $students_apr }}, {{ $students_may }}, {{ $students_june }}, {{ $students_july }}]
+              }]
+          },
+          options: {
+              legend: {
+                  position: "bottom"
+              },
+              scales: {
+                  yAxes: [{
+                      ticks: {
+                          fontColor: "rgba(0,0,0,0.5)",
+                          fontStyle: "bold",
+                          beginAtZero: true,
+                          maxTicksLimit: 5,
+                          padding: 20
+                      },
+                      gridLines: {
+                          drawTicks: false,
+                          display: false
+                      }
+
+                  }],
+                  xAxes: [{
+                      gridLines: {
+                          zeroLineColor: "transparent"
+                      },
+                      ticks: {
+                          padding: 20,
+                          fontColor: "rgba(0,0,0,0.5)",
+                          fontStyle: "bold"
+                      }
+                  }]
+              }
+          }
+      }
+
+    }
+
+
     // else if (type === 'filled_line') {
     //     config = {
     //         type: 'line',
