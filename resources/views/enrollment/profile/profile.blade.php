@@ -118,7 +118,7 @@
 
                     $paid = $installments->firstInstallment;
 
-                      $due  = 0;
+                      $due  = $course_fee - $paid - $discount;
 
 
                     @endphp
