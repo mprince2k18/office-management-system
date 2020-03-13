@@ -13,7 +13,6 @@ class Enroll extends Model
       'student_name',
       'course_name',
       'course_fee',
-      'course_discount',
       'student_roll',
       'batch_no',
       'sum',

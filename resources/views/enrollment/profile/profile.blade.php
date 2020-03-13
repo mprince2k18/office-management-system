@@ -99,7 +99,7 @@
 
 
 
-
+                    $discount = $installments->course_discount;
                     $secondPayCheck = $installments->secondInstallmentCheck;
                     $thirdPayCheck = $installments->thirdInstallmentCheck;
                     $fourPayCheck = $installments->fourInstallmentCheck;
@@ -118,7 +118,7 @@
 
                     $paid = $installments->firstInstallment;
 
-                    $due  = $course_fee - ($paid + $secondPay + $thirdPay + $fourPay + $fivePay);
+                      $due  = 0;
 
 
                     @endphp
@@ -126,25 +126,25 @@
 
                     @if ($installments->secondInstallmentCheck === 'paid' )
 
-                    @php $paid += $installments->secondInstallment @endphp
+                    @php $paid += $installments->secondInstallment;   $due  = $course_fee - $paid - $discount; @endphp
 
                     @endif
 
                     @if ($installments->thirdInstallmentCheck === 'paid' )
 
-                    @php $paid += $installments->thirdInstallment @endphp
+                    @php $paid += $installments->thirdInstallment;   $due  = $course_fee - $paid - $discount; @endphp
 
                     @endif
 
                     @if ($installments->fourInstallmentCheck === 'paid' )
 
-                    @php $paid += $installments->fourInstallment @endphp
+                    @php $paid += $installments->fourInstallment;   $due  = $course_fee - $paid - $discount; @endphp
 
                     @endif
 
                     @if ($installments->fiveInstallmentCheck === 'paid' )
 
-                    @php $paid += $installments->fiveInstallment @endphp
+                    @php $paid += $installments->fiveInstallment; $due  = $course_fee - $paid - $discount; @endphp
 
                     @endif
 
@@ -158,15 +158,17 @@
                     </div>
                     <div class="bg-green flex-fill bd-highlight">
 
-
-
-
-
-
                         <h3 class="mt-3 mb-0">
                             {{ $due }}
                         </h3>
                         <p>Due </p>
+                    </div>
+                    <div class="bg-info flex-fill bd-highlight">
+
+                        <h3 class="mt-3 mb-0">
+                            {{ $installments->course_discount }}
+                        </h3>
+                        <p>Discount </p>
                     </div>
                     <div class="bg-orange flex-fill bd-highlight">
                         <h3 class="mt-3 mb-0">

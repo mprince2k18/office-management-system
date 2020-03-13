@@ -8,6 +8,13 @@ use App\ApiData;
 class ApiDataController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    
+
     function index()
     {
       $datas = ApiData::all();

@@ -11,6 +11,14 @@ use Carbon\Carbon;
 
 class TeacherController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
+
   // index
   function index()
   {

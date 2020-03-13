@@ -98,15 +98,15 @@
 
                                   @case($enroll->relationBetweenInstallment->secondInstallmentCheck != $check)
                                         {{ $enroll->relationBetweenInstallment->secondInstallmentDate }}
-                                      @break
+
 
                                   @case($enroll->relationBetweenInstallment->thirdInstallmentCheck != $check)
                                         {{ $enroll->relationBetweenInstallment->thirdInstallmentDate }}
-                                      @break
+
 
                                   @case($enroll->relationBetweenInstallment->fourInstallmentCheck != $check)
                                         {{ $enroll->relationBetweenInstallment->fourInstallmentDate }}
-                                      @break
+
 
                                   @case($enroll->relationBetweenInstallment->fiveInstallmentCheck != $check)
                                         {{ $enroll->relationBetweenInstallment->fiveInstallmentDate }}

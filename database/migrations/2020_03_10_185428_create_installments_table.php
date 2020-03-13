@@ -17,6 +17,7 @@ class CreateInstallmentsTable extends Migration
             $table->bigIncrements('id');
             $table->string('enroll_id');
             $table->string('student_id');
+            $table->string('course_discount');
             $table->string('firstInstallment');
             $table->string('firstInstallmentDate');
             $table->string('secondInstallment')->nullable();

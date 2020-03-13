@@ -1029,17 +1029,17 @@
     },
     {
         "name": "laravel/framework",
-        "version": "v6.18.0",
-        "version_normalized": "6.18.0.0",
+        "version": "v6.18.1",
+        "version_normalized": "6.18.1.0",
         "source": {
             "type": "git",
             "url": "https://github.com/laravel/framework.git",
-            "reference": "077b895d935b7fbcfb1d1eb34217fa4f80a130d8"
+            "reference": "367c2c8dfdfe83cb2ddbc029c0222174098d093a"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/laravel/framework/zipball/077b895d935b7fbcfb1d1eb34217fa4f80a130d8",
-            "reference": "077b895d935b7fbcfb1d1eb34217fa4f80a130d8",
+            "url": "https://api.github.com/repos/laravel/framework/zipball/367c2c8dfdfe83cb2ddbc029c0222174098d093a",
+            "reference": "367c2c8dfdfe83cb2ddbc029c0222174098d093a",
             "shasum": ""
         },
         "require": {
@@ -1141,7 +1141,7 @@
             "symfony/psr-http-message-bridge": "Required to use PSR-7 bridging features (^1.2).",
             "wildbit/swiftmailer-postmark": "Required to use Postmark mail driver (^3.0)."
         },
-        "time": "2020-03-03T13:14:27+00:00",
+        "time": "2020-03-10T14:11:04+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1241,6 +1241,62 @@
         ]
     },
     {
+        "name": "laravel/ui",
+        "version": "v1.2.0",
+        "version_normalized": "1.2.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/laravel/ui.git",
+            "reference": "bb64fca681566ca94457d490a00f899516e75664"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/laravel/ui/zipball/bb64fca681566ca94457d490a00f899516e75664",
+            "reference": "bb64fca681566ca94457d490a00f899516e75664",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/console": "~5.8|^6.0",
+            "illuminate/filesystem": "~5.8|^6.0",
+            "illuminate/support": "~5.8|^6.0",
+            "php": "^7.1.3"
+        },
+        "require-dev": {
+            "mockery/mockery": "^1.0",
+            "phpunit/phpunit": "^8.0"
+        },
+        "time": "2020-02-13T21:12:28+00:00",
+        "type": "library",
+        "extra": {
+            "laravel": {
+                "providers": [
+                    "Laravel\\Ui\\UiServiceProvider"
+                ]
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Laravel\\Ui\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Taylor Otwell",
+                "email": "taylor@laravel.com"
+            }
+        ],
+        "description": "Laravel UI utilities and presets.",
+        "keywords": [
+            "laravel",
+            "ui"
+        ]
+    },
+    {
         "name": "league/commonmark",
         "version": "1.3.1",
         "version_normalized": "1.3.1.0",
@@ -1318,17 +1374,17 @@
     },
     {
         "name": "league/flysystem",
-        "version": "1.0.64",
-        "version_normalized": "1.0.64.0",
+        "version": "1.0.65",
+        "version_normalized": "1.0.65.0",
         "source": {
             "type": "git",
             "url": "https://github.com/thephpleague/flysystem.git",
-            "reference": "d13c43dbd4b791f815215959105a008515d1a2e0"
+            "reference": "8f17b3ba67097aafb8318cd5c553b1acf7c891c8"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/d13c43dbd4b791f815215959105a008515d1a2e0",
-            "reference": "d13c43dbd4b791f815215959105a008515d1a2e0",
+            "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/8f17b3ba67097aafb8318cd5c553b1acf7c891c8",
+            "reference": "8f17b3ba67097aafb8318cd5c553b1acf7c891c8",
             "shasum": ""
         },
         "require": {
@@ -1358,7 +1414,7 @@
             "spatie/flysystem-dropbox": "Allows you to use Dropbox storage",
             "srmklive/flysystem-dropbox-v2": "Allows you to use Dropbox storage for PHP 5 applications"
         },
-        "time": "2020-02-05T18:14:17+00:00",
+        "time": "2020-03-08T18:53:20+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -3884,17 +3940,17 @@
     },
     {
         "name": "spatie/laravel-activitylog",
-        "version": "3.11.1",
-        "version_normalized": "3.11.1.0",
+        "version": "3.11.3",
+        "version_normalized": "3.11.3.0",
         "source": {
             "type": "git",
             "url": "https://github.com/spatie/laravel-activitylog.git",
-            "reference": "d12fa93fbd0376a1385cd94a2348553afe12ce54"
+            "reference": "5ca26d62da6d3ce07d6bf438dcbdc45cb91f2007"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/spatie/laravel-activitylog/zipball/d12fa93fbd0376a1385cd94a2348553afe12ce54",
-            "reference": "d12fa93fbd0376a1385cd94a2348553afe12ce54",
+            "url": "https://api.github.com/repos/spatie/laravel-activitylog/zipball/5ca26d62da6d3ce07d6bf438dcbdc45cb91f2007",
+            "reference": "5ca26d62da6d3ce07d6bf438dcbdc45cb91f2007",
             "shasum": ""
         },
         "require": {
@@ -3906,9 +3962,10 @@
         },
         "require-dev": {
             "ext-json": "*",
+            "orchestra/testbench": "^4.0|^5.0",
             "phpunit/phpunit": "^8.0|^9.0"
         },
-        "time": "2020-03-03T15:18:59+00:00",
+        "time": "2020-03-10T11:51:23+00:00",
         "type": "library",
         "extra": {
             "laravel": {
@@ -5586,17 +5643,17 @@
     },
     {
         "name": "vlucas/phpdotenv",
-        "version": "v3.6.0",
-        "version_normalized": "3.6.0.0",
+        "version": "v3.6.1",
+        "version_normalized": "3.6.1.0",
         "source": {
             "type": "git",
             "url": "https://github.com/vlucas/phpdotenv.git",
-            "reference": "1bdf24f065975594f6a117f0f1f6cabf1333b156"
+            "reference": "8f7961f7b9deb3b432452c18093cf16f88205902"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/1bdf24f065975594f6a117f0f1f6cabf1333b156",
-            "reference": "1bdf24f065975594f6a117f0f1f6cabf1333b156",
+            "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/8f7961f7b9deb3b432452c18093cf16f88205902",
+            "reference": "8f7961f7b9deb3b432452c18093cf16f88205902",
             "shasum": ""
         },
         "require": {
@@ -5605,9 +5662,13 @@
             "symfony/polyfill-ctype": "^1.9"
         },
         "require-dev": {
+            "ext-filter": "*",
             "phpunit/phpunit": "^4.8.35 || ^5.0 || ^6.0 || ^7.0"
         },
-        "time": "2019-09-10T21:37:39+00:00",
+        "suggest": {
+            "ext-filter": "Required to use the boolean validator."
+        },
+        "time": "2020-03-12T13:44:00+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {

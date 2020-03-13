@@ -12,6 +12,13 @@ use Carbon\Carbon;
 
 class EnrollController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
   // index
   function index()
   {
@@ -43,7 +50,6 @@ class EnrollController extends Controller
       'course_fee'=>$request->course_fee,
       'student_roll'=>$request->student_roll,
       'batch_no'=>$request->batch_no,
-      'course_discount'=>$request->course_discount,
       'sum'=>$request->sum,
       'created_at'=>Carbon::now(),
     ]);
@@ -51,6 +57,7 @@ class EnrollController extends Controller
       Installment::insert([
       'enroll_id'=>$last_inserted_id,
       'student_id'=>$request->student_name,
+      'course_discount'=>$request->course_discount,
       'firstInstallment'=>$request->firstInstallment,
       'firstInstallmentDate'=>$request->firstInstallmentDate,
       'secondInstallment'=>$request->secondInstallment,

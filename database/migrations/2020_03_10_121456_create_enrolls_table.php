@@ -20,13 +20,12 @@ class CreateEnrollsTable extends Migration
             $table->string('batch_no');
             $table->string('course_name');
             $table->string('course_fee');
-            $table->string('course_discount');
             $table->string('sum');
             $table->timestamps();
         });
     }
 
-  
+
 
 
 

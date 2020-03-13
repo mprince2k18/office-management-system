@@ -61,6 +61,14 @@
             </li>
 
             <li class="{{ Request::segment(1) === 'app' ? 'active open' : null }}">
+                <a href="#App" class="menu-toggle"><i class="zmdi zmdi-apps"></i> <span>Seminar Area</span></a>
+                <ul class="ml-menu">
+                    <li class="{{ Request::segment(2) === 'inbox' ? 'active' : null }}"><a href="{{route('seminar.index')}}">New Seminar</a></li>
+                    <li class="{{ Request::segment(2) === 'chat' ? 'active' : null }}"><a href="{{route('seminar.all')}}">All Seminar</a></li>
+                </ul>
+            </li>
+
+            <li class="{{ Request::segment(1) === 'app' ? 'active open' : null }}">
                 <a href="#App" class="menu-toggle"><i class="zmdi zmdi-apps"></i> <span>Enrollment Area</span></a>
                 <ul class="ml-menu">
                     <li class="{{ Request::segment(2) === 'inbox' ? 'active' : null }}"><a href="{{route('enroll.index')}}">New Enrollment</a></li>

@@ -13,6 +13,7 @@ class Installment extends Model
     protected $fillable = [
       'enroll_id',
       'student_id',
+      'course_discount',
       'firstInstallment',
       'firstInstallmentDate',
       'secondInstallment',

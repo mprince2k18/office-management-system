@@ -13,6 +13,14 @@ use Image;
 
 class VisitorController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
+    
   // index
   function index()
   {

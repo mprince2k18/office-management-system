@@ -40,6 +40,14 @@ Route::get('batch/profile/{batch_id}', 'BatchController@profile')->name('batch.p
 // Route::get('batch/edit/{course_id}', 'BatchController@edit')->name('batch.edit');
 // Route::post('batch/update/{course_id}', 'BatchController@update')->name('batch.update');
 
+// SeminarController
+Route::get('seminar', 'SeminarController@index')->name('seminar.index');
+Route::post('seminar/create', 'SeminarController@create')->name('seminar.create');
+Route::get('seminar/all', 'SeminarController@all')->name('seminar.all');
+Route::get('seminar/profile/{batch_id}', 'SeminarController@profile')->name('seminar.profile');
+// Route::get('batch/edit/{course_id}', 'BatchController@edit')->name('batch.edit');
+// Route::post('batch/update/{course_id}', 'BatchController@update')->name('batch.update');
+
 
 
 // VisitorController
@@ -200,3 +208,7 @@ Route::get('pages/timeline', 'PagesController@timeline')->name('pages.timeline')
 Route::get('map', function () { return redirect('map/google'); });
 Route::get('map/yandex', 'MapController@yandex')->name('map.yandex');
 Route::get('map/jvector', 'MapController@jvector')->name('map.jvector');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
