@@ -19,19 +19,19 @@ class CreateInstallmentsTable extends Migration
             $table->string('student_id');
             $table->string('course_discount');
             $table->string('firstInstallment');
-            $table->string('firstInstallmentDate');
+            $table->timestamp('firstInstallmentDate');
             $table->string('secondInstallment')->nullable();
             $table->string('secondInstallmentCheck')->nullable();
-            $table->string('secondInstallmentDate')->nullable();
+            $table->timestamp('secondInstallmentDate')->nullable();
             $table->string('thirdInstallment')->nullable();
             $table->string('thirdInstallmentCheck')->nullable();
-            $table->string('thirdInstallmentDate')->nullable();
+            $table->timestamp('thirdInstallmentDate')->nullable();
             $table->string('fourInstallment')->nullable();
             $table->string('fourInstallmentCheck')->nullable();
-            $table->string('fourInstallmentDate')->nullable();
+            $table->timestamp('fourInstallmentDate')->nullable();
             $table->string('fiveInstallment')->nullable();
             $table->string('fiveInstallmentCheck')->nullable();
-            $table->string('fiveInstallmentDate')->nullable();
+            $table->timestamp('fiveInstallmentDate')->nullable();
             $table->timestamps();
         });
     }

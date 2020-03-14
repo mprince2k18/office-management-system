@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Student;
 use App\Visitor;
 use App\Enroll;
+use App\Installment;
 use Carbon\Carbon;
 
 class ReportController extends Controller
@@ -13,10 +14,13 @@ class ReportController extends Controller
     function index()
     {
 
+
+
+
       //BEGIN:YEAR
 
       $year       = Carbon::now()->year;
-      $month       = Carbon::now()->month;
+      $month      = Carbon::now()->month;
       $lastyear   = Carbon::now()->subYear(1);
       $last2year  = Carbon::now()->subYear(2);
       $last3year  = Carbon::now()->subYear(3);
@@ -60,6 +64,8 @@ class ReportController extends Controller
       $students_year  = Student::whereBetween('created_at', [$startOfTheYear, $endOfTheYear])->count();
       $visitors_year  = Visitor::whereBetween('created_at', [$startOfTheYear, $endOfTheYear])->count();
       $enrolls_year   = Enroll::whereBetween('created_at', [$startOfTheYear, $endOfTheYear])->count();
+      $enrolls_year   = Enroll::whereBetween('created_at', [$startOfTheYear, $endOfTheYear])->count();
+      // $payment_year   = Installment::whereBetween('created_at', [$startOfTheYear, $endOfTheYear])->$x->get();
       //END:YEAR
 
       // BEGIN:MONTH
@@ -107,6 +113,21 @@ class ReportController extends Controller
       $enrolls_dec   = Enroll::whereBetween('created_at',['2020-12-01 00:00:00','2020-12-31 00:00:00'])->count();
       // END:MONTH
 
+      // BEGIN:MONTH
+      // $payment_jan   = Installment::whereBetween('created_at',['2020-01-01 00:00:00','2020-01-31 00:00:00'])->count();
+      // $payment_feb   = Installment::whereBetween('created_at',['2020-02-01 00:00:00','2020-02-31 00:00:00'])->count();
+      // $payment_mar   = Installment::whereBetween('created_at',['2020-03-01 00:00:00','2020-03-31 00:00:00'])->count();
+      // $payment_apr   = Installment::whereBetween('created_at',['2020-04-01 00:00:00','2020-04-31 00:00:00'])->count();
+      // $payment_may   = Installment::whereBetween('created_at',['2020-05-01 00:00:00','2020-05-31 00:00:00'])->count();
+      // $payment_june  = Installment::whereBetween('created_at',['2020-06-01 00:00:00','2020-06-31 00:00:00'])->count();
+      // $payment_july  = Installment::whereBetween('created_at',['2020-07-01 00:00:00','2020-07-31 00:00:00'])->count();
+      // $payment_aug   = Installment::whereBetween('created_at',['2020-08-01 00:00:00','2020-08-31 00:00:00'])->count();
+      // $payment_sep   = Installment::whereBetween('created_at',['2020-09-01 00:00:00','2020-09-31 00:00:00'])->count();
+      // $payment_oct   = Installment::whereBetween('created_at',['2020-10-01 00:00:00','2020-10-31 00:00:00'])->count();
+      // $payment_nov   = Installment::whereBetween('created_at',['2020-11-01 00:00:00','2020-11-31 00:00:00'])->count();
+      // $payment_dec   = Installment::whereBetween('created_at',['2020-12-01 00:00:00','2020-12-31 00:00:00'])->count();
+      // END:MONTH
+
       // BEGIN:Day
       $students_today          = Student::whereDate('created_at',$today)->count();
       $students_lastday        = Student::whereDate('created_at',$lastday)->count();
@@ -149,6 +170,20 @@ class ReportController extends Controller
       $enrolls_nov_last10day  = Enroll::whereDate('created_at',$last10day)->count();
       // END:Day
 
+      // BEGIN:Day
+      // $payment_today          = Installment::whereDate('created_at',$today)->count();
+      // $payment_lastday        = Installment::whereDate('created_at',$lastday)->count();
+      // $payment_last2day       = Installment::whereDate('created_at',$last2day)->count();
+      // $payment_apr_last3day   = Installment::whereDate('created_at',$last3day)->count();
+      // $payment_may_last4day   = Installment::whereDate('created_at',$last4day)->count();
+      // $payment_june_last5day  = Installment::whereDate('created_at',$last5day)->count();
+      // $payment_july_last6day  = Installment::whereDate('created_at',$last6day)->count();
+      // $payment_aug_last7day   = Installment::whereDate('created_at',$last7day)->count();
+      // $payment_sep_last8day   = Installment::whereDate('created_at',$last8day)->count();
+      // $payment_oct_last9day   = Installment::whereDate('created_at',$last9day)->count();
+      // $payment_nov_last10day  = Installment::whereDate('created_at',$last10day)->count();
+      // END:Day
+
 
 
       // BEGIN:WEEK
@@ -175,11 +210,51 @@ class ReportController extends Controller
       // END:WEEK
 
 
+      // BEGIN:WEEK
+      // $payment_1st_week   = Installment::whereBetween('created_at',[$year . '-0'.$month . '-01 00:00:00', $year . '-0'.$month . '-07 00:00:00'])->count();
+      // $payment_2nd_week   = Installment::whereBetween('created_at',[$year . '-0'.$month . '-08 00:00:00', $year . '-0'.$month . '-14 00:00:00'])->count();
+      // $payment_3rd_week   = Installment::whereBetween('created_at',[$year . '-0'.$month . '-15 00:00:00', $year . '-0'.$month . '-21 00:00:00'])->count();
+      // $payment_4th_week   = Installment::whereBetween('created_at',[$year . '-0'.$month . '-22 00:00:00', $year . '-0'.$month . '-31 00:00:00'])->count();
+      // END:WEEK
+
+
 
 
       $students_week  = Student::whereBetween('created_at', [$startOfWeek, $endOfWeek])->count();
       $visitors_week  = Visitor::whereBetween('created_at', [$startOfWeek, $endOfWeek])->count();
       $enrolls_week   = Enroll::whereBetween('created_at', [$startOfWeek, $endOfWeek])->count();
+      // $payment_week   = Enroll::whereBetween('created_at', [$startOfWeek, $endOfWeek])->count();
+
+
+      // PAYMENT REPORT
+
+      $installments = Installment::all();
+      $paymentMonth = 0;
+      $startDate = $year . '-0'.$month . '-01 00:00:00';
+      $endDate = $year . '-0'.$month . '-01 00:00:00';
+
+      foreach ($installments as  $installment) {
+        if($installment->firstInstallmentDate >= $startDate && $installment->firstInstallmentDate <= $endDate){
+          $paymentMonth += $installment->firstInstallment;
+        }
+
+        if($installment->secondInstallmentCheck === 'paid' && $installment->secondInstallmentDate >= $startDate && $installment->secondInstallmentDate <= $endDate){
+          $paymentMonth += $installment->secondInstallment;
+        }
+
+        if($installment->thirdInstallmentCheck === 'paid' && $installment->thirdInstallmentDate >= $startDate && $installment->thirdInstallmentDate <= $endDate){
+            $paymentMonth += $installment->thirdInstallment;
+        }
+        if($installment->fourInstallment === 'paid' && $installment->fourInstallmentDate >= $startDate && $installment->thirdInstallmentDate <= $endDate){
+            $paymentMonth += $installment->fourInstallment;
+        }
+        if($installment->fiveInstallmentCheck === 'paid' && $installment->fiveInstallmentDate >= $startDate && $installment->fiveInstallmentDate <= $endDate){
+            $paymentMonth += $installment->fiveInstallment;
+        }
+      }
+
+
+
 
 
       return view('report.chartjs',compact('students',
@@ -287,10 +362,12 @@ class ReportController extends Controller
       'enrolls_1st_week',
       'enrolls_2nd_week',
       'enrolls_3rd_week',
-      'enrolls_4th_week'
+      'enrolls_4th_week',
+      'paymentMonth'
+
     ));
 
-      // echo $students_3rd_week;
+      // return $paymentMonth;
 
     }
     //END

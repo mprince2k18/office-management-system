@@ -216,6 +216,70 @@
        </div>
    </div>
 
+
+   <div class="col-lg-6 col-md-12">
+      <div class="card">
+          <div class="header">
+              <h2><strong>Payment</strong> Report</h2>
+              <ul class="header-dropdown">
+                  <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
+                      <ul class="dropdown-menu dropdown-menu-right">
+                          <li><a href="javascript:void(0);">Action</a></li>
+                          <li><a href="javascript:void(0);">Another action</a></li>
+                          <li><a href="javascript:void(0);">Something else</a></li>
+                      </ul>
+                  </li>
+                  <li class="remove">
+                      <a role="button" class="boxs-close"><i class="zmdi zmdi-close"></i></a>
+                  </li>
+              </ul>
+          </div>
+          <div class="body">
+
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs p-0 mb-3">
+                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#paymentYear">YEAR</a></li>
+                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#paymentMonth">MONTH</a></li>
+                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#paymentWeek">WEEK</a></li>
+                <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#paymentDay">DAY</a></li>
+            </ul>
+            <!-- Tab panes -->
+            <div class="tab-content">
+
+
+
+                <div role="tabpanel" class="tab-pane in" id="paymentYear">
+                    <canvas id="payment_gradient_area_year" class="chartjs_graph"></canvas>
+
+                </div>
+
+
+                <div role="tabpanel" class="tab-pane" id="paymentMonth">
+                    <canvas id="payment_gradient_area_month" class="chartjs_graph"></canvas>
+
+                </div>
+
+
+                <div role="tabpanel" class="tab-pane" id="paymentWeek">
+                    <canvas id="payment_gradient_area_week" class="chartjs_graph"></canvas>
+
+                </div>
+
+
+                <div role="tabpanel" class="tab-pane active" id="paymentDay">
+                    <canvas id="payment_gradient_area_day" class="chartjs_graph"></canvas>
+
+                </div>
+
+
+
+
+            </div>
+
+          </div>
+      </div>
+  </div>
+
     <!-- <div class="col-lg-6 col-md-12">
         <div class="card">
             <div class="header">
@@ -414,6 +478,19 @@ $(function () {
 
     var ac = document.getElementById('enroll_gradient_area_day').getContext('2d');
     new Chart(ac, getChartJs(ac, 'l'));
+
+    // Payment  Chart
+    var ac = document.getElementById('payment_gradient_area_year').getContext('2d');
+    new Chart(ac, getChartJs(ac, 'm'));
+
+    var ac = document.getElementById('payment_gradient_area_month').getContext('2d');
+    new Chart(ac, getChartJs(ac, 'n'));
+
+    var ac = document.getElementById('payment_gradient_area_week').getContext('2d');
+    new Chart(ac, getChartJs(ac, 'o'));
+
+    var ac = document.getElementById('payment_gradient_area_day').getContext('2d');
+    new Chart(ac, getChartJs(ac, 'p'));
 
 });
 
@@ -1235,6 +1312,286 @@ function getChartJs(obj, type) {
             }
         }
     }
+
+    // Payment
+
+
+        else if (type === 'm') {
+            //var obj    = document.getElementById('gradient_area').getContext('2d'),
+            var gradient = obj.createLinearGradient(0, 0, 0, 450);
+
+            gradient.addColorStop(0, '#5CC5CD');
+            gradient.addColorStop(0.5, '#46b6fe');
+            gradient.addColorStop(1, '#3866a6');
+
+            config = {
+                type: 'line',
+                data: {
+                    labels: [ {{ $year }} ],
+                    datasets: [{
+                            label: 'PAYMENT REPORT YEAR',
+                            backgroundColor: gradient,
+                            pointBackgroundColor: 'white',
+                            borderWidth: 1,
+                            borderColor: '#3866a6',
+                            data: [{{ $paymentMonth }}]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    animation: {
+                        easing: 'easeInOutQuad',
+                        duration: 520
+                    },
+                    scales: {
+                        xAxes: [{
+                            gridLines: {
+                                color: 'rgba(200, 200, 200, 0.05)',
+                                lineWidth: 1
+                            }
+                        }],
+                        yAxes: [{
+                            gridLines: {
+                                color: 'rgba(200, 200, 200, 0.08)',
+                                lineWidth: 1
+                            }
+                        }]
+                    },
+                    elements: {
+                        line: {
+                            tension: 0.4
+                        }
+                    },
+                    legend: {
+                        display: false
+                    },
+                    point: {
+                        backgroundColor: 'white'
+                    },
+                    tooltips: {
+                        titleFontFamily: 'Open Sans',
+                        backgroundColor: '#5CC5CD',
+                        titleFontColor: 'red',
+                        caretSize: 5,
+                        cornerRadius: 2,
+                        xPadding: 10,
+                        yPadding: 10
+                    }
+                }
+            }
+        }
+
+        else if (type === 'n') {
+            //var obj    = document.getElementById('gradient_area').getContext('2d'),
+            var gradient = obj.createLinearGradient(0, 0, 0, 450);
+
+            gradient.addColorStop(0, '#5CC5CD');
+            gradient.addColorStop(0.5, '#46b6fe');
+            gradient.addColorStop(1, '#3866a6');
+
+            config = {
+                type: 'line',
+                data: {
+                    labels: [ "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL" ],
+                    datasets: [{
+                            label: 'ENROLL REPORT MONTH',
+                            backgroundColor: gradient,
+                            pointBackgroundColor: 'white',
+                            borderWidth: 1,
+                            borderColor: '#3866a6',
+                            data: [{{ $enrolls_jan }}, {{ $enrolls_feb }}, {{ $enrolls_mar }}, {{ $enrolls_apr }}, {{ $enrolls_may }}, {{ $enrolls_june }}, {{ $enrolls_july }}]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    animation: {
+                        easing: 'easeInOutQuad',
+                        duration: 520
+                    },
+                    scales: {
+                        xAxes: [{
+                            gridLines: {
+                                color: 'rgba(200, 200, 200, 0.05)',
+                                lineWidth: 1
+                            }
+                        }],
+                        yAxes: [{
+                            gridLines: {
+                                color: 'rgba(200, 200, 200, 0.08)',
+                                lineWidth: 1
+                            }
+                        }]
+                    },
+                    elements: {
+                        line: {
+                            tension: 0.4
+                        }
+                    },
+                    legend: {
+                        display: false
+                    },
+                    point: {
+                        backgroundColor: 'white'
+                    },
+                    tooltips: {
+                        titleFontFamily: 'Open Sans',
+                        backgroundColor: '#5CC5CD',
+                        titleFontColor: 'red',
+                        caretSize: 5,
+                        cornerRadius: 2,
+                        xPadding: 10,
+                        yPadding: 10
+                    }
+                }
+            }
+        }
+
+        else if (type === 'o') {
+            //var obj    = document.getElementById('gradient_area').getContext('2d'),
+            var gradient = obj.createLinearGradient(0, 0, 0, 450);
+
+            gradient.addColorStop(0, '#5CC5CD');
+            gradient.addColorStop(0.5, '#46b6fe');
+            gradient.addColorStop(1, '#3866a6');
+
+            config = {
+                type: 'line',
+                data: {
+                    labels: [ "First Week","Second Week","Third Week","Fourth Week" ],
+                    datasets: [{
+                            label: 'ENROLL REPORT WEEK',
+                            backgroundColor: gradient,
+                            pointBackgroundColor: 'white',
+                            borderWidth: 1,
+                            borderColor: '#3866a6',
+                            data: [{{ $enrolls_1st_week }},{{ $enrolls_2nd_week }},{{ $enrolls_3rd_week }},{{ $enrolls_4th_week }}]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    animation: {
+                        easing: 'easeInOutQuad',
+                        duration: 520
+                    },
+                    scales: {
+                        xAxes: [{
+                            gridLines: {
+                                color: 'rgba(200, 200, 200, 0.05)',
+                                lineWidth: 1
+                            }
+                        }],
+                        yAxes: [{
+                            gridLines: {
+                                color: 'rgba(200, 200, 200, 0.08)',
+                                lineWidth: 1
+                            }
+                        }]
+                    },
+                    elements: {
+                        line: {
+                            tension: 0.4
+                        }
+                    },
+                    legend: {
+                        display: false
+                    },
+                    point: {
+                        backgroundColor: 'white'
+                    },
+                    tooltips: {
+                        titleFontFamily: 'Open Sans',
+                        backgroundColor: '#5CC5CD',
+                        titleFontColor: 'red',
+                        caretSize: 5,
+                        cornerRadius: 2,
+                        xPadding: 10,
+                        yPadding: 10
+                    }
+                }
+            }
+        }
+
+        else if (type === 'p') {
+            //var obj    = document.getElementById('gradient_area').getContext('2d'),
+            var gradient = obj.createLinearGradient(0, 0, 0, 450);
+
+            gradient.addColorStop(0, '#5CC5CD');
+            gradient.addColorStop(0.5, '#46b6fe');
+            gradient.addColorStop(1, '#3866a6');
+
+            config = {
+                type: 'line',
+                data: {
+                    labels: [ {{ $last10day->format('d') }}, {{ $last9day->format('d') }},{{ $last8day->format('d') }},{{ $last7day->format('d') }},{{ $last6day->format('d') }},{{ $last5day->format('d') }},{{ $last4day->format('d') }},{{ $last3day->format('d') }},{{ $last2day->format('d') }},{{ $lastday->format('d') }},{{ $today->format('d') }} ],
+                    datasets: [{
+                            label: 'Custom Label Name',
+                            backgroundColor: gradient,
+                            pointBackgroundColor: 'white',
+                            borderWidth: 1,
+                            borderColor: '#3866a6',
+                            data: [
+                              {{ $enrolls_nov_last10day }},
+                                {{ $enrolls_oct_last9day }},
+                                {{ $enrolls_sep_last8day }},
+                                {{ $enrolls_aug_last7day }},
+                                {{ $enrolls_july_last6day }},
+                                {{ $enrolls_june_last5day }},
+                                {{ $enrolls_may_last4day }},
+                                {{ $enrolls_apr_last3day }},
+                                {{ $enrolls_last2day }},
+                                {{ $enrolls_lastday }},
+                                {{ $enrolls_today }}
+                            ]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    animation: {
+                        easing: 'easeInOutQuad',
+                        duration: 520
+                    },
+                    scales: {
+                        xAxes: [{
+                            gridLines: {
+                                color: 'rgba(200, 200, 200, 0.05)',
+                                lineWidth: 1
+                            }
+                        }],
+                        yAxes: [{
+                            gridLines: {
+                                color: 'rgba(200, 200, 200, 0.08)',
+                                lineWidth: 1
+                            }
+                        }]
+                    },
+                    elements: {
+                        line: {
+                            tension: 0.4
+                        }
+                    },
+                    legend: {
+                        display: false
+                    },
+                    point: {
+                        backgroundColor: 'white'
+                    },
+                    tooltips: {
+                        titleFontFamily: 'Open Sans',
+                        backgroundColor: '#5CC5CD',
+                        titleFontColor: 'red',
+                        caretSize: 5,
+                        cornerRadius: 2,
+                        xPadding: 10,
+                        yPadding: 10
+                    }
+                }
+            }
+        }
+
 
 
 
