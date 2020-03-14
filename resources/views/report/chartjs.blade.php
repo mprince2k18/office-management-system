@@ -6,7 +6,7 @@
 @stop
 @section('content')
 <div class="row clearfix">
-    <div class="col-lg-12 col-md-12">
+    <div class="col-lg-6 col-md-12">
         <div class="card">
             <div class="header">
                 <h2><strong>STUDENT ADMISSION</strong> REPORT</h2>
@@ -39,37 +39,37 @@
 
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs p-0 mb-3">
-                    <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#year">YEAR</a></li>
-                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#month">MONTH</a></li>
-                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#week">WEEK</a></li>
-                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#day">DAY</a></li>
+                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#studentYear">YEAR</a></li>
+                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#studentMonth">MONTH</a></li>
+                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#studentWeek">WEEK</a></li>
+                    <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#studentDay">DAY</a></li>
                 </ul>
                 <!-- Tab panes -->
                 <div class="tab-content">
 
 
 
-                    <div role="tabpanel" class="tab-pane in active" id="year">
-                        <canvas id="line_chart_year" class="chartjs_graph"></canvas>
+                    <div role="tabpanel" class="tab-pane in" id="studentYear">
+                        <canvas id="student_line_chart_year" class="chartjs_graph"></canvas>
                     </div>
 
 
 
 
-                    <div role="tabpanel" class="tab-pane" id="month">
-                        <canvas id="line_chart_month" class="chartjs_graph"></canvas>
+                    <div role="tabpanel" class="tab-pane" id="studentMonth">
+                        <canvas id="student_line_chart_month" class="chartjs_graph"></canvas>
                     </div>
 
 
 
-                    <div role="tabpanel" class="tab-pane" id="week">
-                        <canvas id="line_chart_week" class="chartjs_graph"></canvas>
+                    <div role="tabpanel" class="tab-pane" id="studentWeek">
+                        <canvas id="student_line_chart_week" class="chartjs_graph"></canvas>
                     </div>
 
 
 
-                    <div role="tabpanel" class="tab-pane" id="day">
-                        <canvas id="line_chart_day" class="chartjs_graph"></canvas>
+                    <div role="tabpanel" class="tab-pane active" id="studentDay">
+                        <canvas id="student_line_chart_day" class="chartjs_graph"></canvas>
                     </div>
 
 
@@ -83,6 +83,138 @@
 
         </div>
     </div>
+
+
+    <div class="col-lg-6 col-md-12">
+        <div class="card">
+            <div class="header">
+                <h2><strong>VISITOR</strong> REPORT</h2>
+                <ul class="header-dropdown">
+                    <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li><a href="javascript:void(0);">Action</a></li>
+                            <li><a href="javascript:void(0);">Another action</a></li>
+                            <li><a href="javascript:void(0);">Something else</a></li>
+                        </ul>
+                    </li>
+                    <li class="remove">
+                        <a role="button" class="boxs-close"><i class="zmdi zmdi-close"></i></a>
+                    </li>
+                </ul>
+            </div>
+
+
+            <div class="body">
+
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs p-0 mb-3">
+                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#visitorYear">YEAR</a></li>
+                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#visitorMonth">MONTH</a></li>
+                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#visitorWeek">WEEK</a></li>
+                    <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#visitorDay">DAY</a></li>
+                </ul>
+                <!-- Tab panes -->
+                <div class="tab-content">
+
+
+
+                    <div role="tabpanel" class="tab-pane in" id="visitorYear">
+                        <canvas id="visitor_line_chart_year" class="chartjs_graph"></canvas>
+                    </div>
+
+
+
+
+                    <div role="tabpanel" class="tab-pane" id="visitorMonth">
+                        <canvas id="visitor_line_chart_month" class="chartjs_graph"></canvas>
+                    </div>
+
+
+
+                    <div role="tabpanel" class="tab-pane" id="visitorWeek">
+                        <canvas id="visitor_line_chart_week" class="chartjs_graph"></canvas>
+                    </div>
+
+
+
+                    <div role="tabpanel" class="tab-pane active" id="visitorDay">
+                        <canvas id="visitor_line_chart_day" class="chartjs_graph"></canvas>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </div>
+
+    <div class="col-lg-6 col-md-12">
+       <div class="card">
+           <div class="header">
+               <h2><strong>Enroll</strong> Report</h2>
+               <ul class="header-dropdown">
+                   <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
+                       <ul class="dropdown-menu dropdown-menu-right">
+                           <li><a href="javascript:void(0);">Action</a></li>
+                           <li><a href="javascript:void(0);">Another action</a></li>
+                           <li><a href="javascript:void(0);">Something else</a></li>
+                       </ul>
+                   </li>
+                   <li class="remove">
+                       <a role="button" class="boxs-close"><i class="zmdi zmdi-close"></i></a>
+                   </li>
+               </ul>
+           </div>
+           <div class="body">
+
+             <!-- Nav tabs -->
+             <ul class="nav nav-tabs p-0 mb-3">
+                 <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#enrollYear">YEAR</a></li>
+                 <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#enrollMonth">MONTH</a></li>
+                 <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#enrollWeek">WEEK</a></li>
+                 <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#enrollDay">DAY</a></li>
+             </ul>
+             <!-- Tab panes -->
+             <div class="tab-content">
+
+
+
+                 <div role="tabpanel" class="tab-pane in" id="enrollYear">
+                     <canvas id="enroll_gradient_area_year" class="chartjs_graph"></canvas>
+
+                 </div>
+
+
+                 <div role="tabpanel" class="tab-pane" id="enrollMonth">
+                     <canvas id="enroll_gradient_area_month" class="chartjs_graph"></canvas>
+
+                 </div>
+
+
+                 <div role="tabpanel" class="tab-pane" id="enrollWeek">
+                     <canvas id="enroll_gradient_area_week" class="chartjs_graph"></canvas>
+
+                 </div>
+
+
+                 <div role="tabpanel" class="tab-pane active" id="enrollDay">
+                     <canvas id="enroll_gradient_area_day" class="chartjs_graph"></canvas>
+
+                 </div>
+
+
+
+
+             </div>
+
+           </div>
+       </div>
+   </div>
 
     <!-- <div class="col-lg-6 col-md-12">
         <div class="card">
@@ -105,8 +237,8 @@
                 <canvas id="filled_line_chart" class="chartjs_graph"></canvas>
             </div>
         </div>
-    </div>
-    <div class="col-lg-6 col-md-12">
+    </div> -->
+   <!-- <div class="col-lg-6 col-md-12">
         <div class="card">
             <div class="header">
                 <h2><strong>Bar</strong> Chart</h2>
@@ -127,8 +259,8 @@
                 <canvas id="bar_chart" class="chartjs_graph"></canvas>
             </div>
         </div>
-    </div>
-    <div class="col-lg-6 col-md-12">
+    </div> -->
+     <!-- <div class="col-lg-6 col-md-12">
         <div class="card">
             <div class="header">
                 <h2><strong>Area</strong> Chart</h2>
@@ -149,8 +281,8 @@
                 <canvas id="gradient_area" class="chartjs_graph"></canvas>
             </div>
         </div>
-    </div>
-    <div class="col-lg-6 col-md-12">
+    </div> -->
+  <!--   <div class="col-lg-6 col-md-12">
         <div class="card">
             <div class="header">
                 <h2><strong>Radar</strong> Chart</h2>
@@ -244,18 +376,44 @@ $(function () {
 
 
 
-// Student Admission Chart
-    var lc = document.getElementById("line_chart_year").getContext("2d");
+    // Student Admission Chart
+    var lc = document.getElementById("student_line_chart_year").getContext("2d");
     new Chart(lc, getChartJs(lc, 'a'));
 
-    var lc = document.getElementById("line_chart_month").getContext("2d");
+    var lc = document.getElementById("student_line_chart_month").getContext("2d");
     new Chart(lc, getChartJs(lc, 'b'));
 
-    var lc = document.getElementById("line_chart_week").getContext("2d");
+    var lc = document.getElementById("student_line_chart_week").getContext("2d");
     new Chart(lc, getChartJs(lc, 'c'));
 
-    var lc = document.getElementById("line_chart_day").getContext("2d");
+    var lc = document.getElementById("student_line_chart_day").getContext("2d");
     new Chart(lc, getChartJs(lc, 'd'));
+
+    // Visitor Admission Chart
+    var lc = document.getElementById("visitor_line_chart_year").getContext("2d");
+    new Chart(lc, getChartJs(lc, 'e'));
+
+    var lc = document.getElementById("visitor_line_chart_month").getContext("2d");
+    new Chart(lc, getChartJs(lc, 'f'));
+
+    var lc = document.getElementById("visitor_line_chart_week").getContext("2d");
+    new Chart(lc, getChartJs(lc, 'g'));
+
+    var lc = document.getElementById("visitor_line_chart_day").getContext("2d");
+    new Chart(lc, getChartJs(lc, 'h'));
+
+    // Enroll Admission Chart
+    var ac = document.getElementById('enroll_gradient_area_year').getContext('2d');
+    new Chart(ac, getChartJs(ac, 'i'));
+
+    var ac = document.getElementById('enroll_gradient_area_month').getContext('2d');
+    new Chart(ac, getChartJs(ac, 'j'));
+
+    var ac = document.getElementById('enroll_gradient_area_week').getContext('2d');
+    new Chart(ac, getChartJs(ac, 'k'));
+
+    var ac = document.getElementById('enroll_gradient_area_day').getContext('2d');
+    new Chart(ac, getChartJs(ac, 'l'));
 
 });
 
@@ -280,7 +438,7 @@ function getChartJs(obj, type) {
             data: {
                 labels: [{{ $year }}],
                 datasets: [{
-                    label: "STUDENT REPORT",
+                    label: "STUDENT REPORT YEAR",
                     borderColor: gradientData1,
                     pointBorderColor: gradientData1,
                     pointBackgroundColor: gradientData1,
@@ -343,7 +501,7 @@ function getChartJs(obj, type) {
           data: {
               labels: ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL"],
               datasets: [{
-                  label: "STUDENT REPORT",
+                  label: "STUDENT REPORT MONTH",
                   borderColor: gradientData1,
                   pointBorderColor: gradientData1,
                   pointBackgroundColor: gradientData1,
@@ -405,9 +563,9 @@ function getChartJs(obj, type) {
       config = {
           type: 'line',
           data: {
-              labels: ["Start Of The Week"],
+              labels: ["First Week","Second Week","Third Week","Fourth Week"],
               datasets: [{
-                  label: "STUDENT REPORT",
+                  label: "STUDENT REPORT WEEK",
                   borderColor: gradientData1,
                   pointBorderColor: gradientData1,
                   pointBackgroundColor: gradientData1,
@@ -419,7 +577,7 @@ function getChartJs(obj, type) {
                   pointRadius: 3,
                   fill: false,
                   borderWidth: 4,
-                  data: [{{ $students_week }}]
+                  data: [{{ $students_1st_week }},{{ $students_2nd_week }},{{ $students_3rd_week }},{{ $students_4th_week }}]
               }]
           },
           options: {
@@ -466,13 +624,12 @@ function getChartJs(obj, type) {
       gradientData1.addColorStop(0.5, "#fad874");
       gradientData1.addColorStop(1, "#f49080");
 
-
       config = {
           type: 'line',
           data: {
-              labels: ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL"],
+              labels: [{{ $last10day->format('d') }}, {{ $last9day->format('d') }},{{ $last8day->format('d') }},{{ $last7day->format('d') }},{{ $last6day->format('d') }},{{ $last5day->format('d') }},{{ $last4day->format('d') }},{{ $last3day->format('d') }},{{ $last2day->format('d') }},{{ $lastday->format('d') }},{{ $today->format('d') }}],
               datasets: [{
-                  label: "STUDENT REPORT",
+                  label: "STUDENT REPORT LAST 10 DAYS",
                   borderColor: gradientData1,
                   pointBorderColor: gradientData1,
                   pointBackgroundColor: gradientData1,
@@ -484,7 +641,18 @@ function getChartJs(obj, type) {
                   pointRadius: 3,
                   fill: false,
                   borderWidth: 4,
-                  data: [{{ $students_jan }}, {{ $students_feb }}, {{ $students_mar }}, {{ $students_apr }}, {{ $students_may }}, {{ $students_june }}, {{ $students_july }}]
+                  data: [{{ $students_nov_last10day }},
+                    {{ $students_oct_last9day }},
+                    {{ $students_sep_last8day }},
+                    {{ $students_aug_last7day }},
+                    {{ $students_july_last6day }},
+                    {{ $students_june_last5day }},
+                    {{ $students_may_last4day }},
+                    {{ $students_apr_last3day }},
+                    {{ $students_last2day }},
+                    {{ $students_lastday }},
+                    {{ $students_today }}
+                  ]
               }]
           },
           options: {
@@ -521,6 +689,555 @@ function getChartJs(obj, type) {
       }
 
     }
+
+    // VISITOR REPORT
+
+    else if (type === 'e') {
+
+        var gradientData1 = obj.createLinearGradient(500, 0, 100, 0);
+
+        gradientData1.addColorStop(0, "#80b6f4");
+        gradientData1.addColorStop(0.2, "#94d973");
+        gradientData1.addColorStop(0.5, "#fad874");
+        gradientData1.addColorStop(1, "#f49080");
+
+
+
+        config = {
+            type: 'line',
+            data: {
+                labels: [{{ $year }}],
+                datasets: [{
+                    label: "VISITOR REPORT YEAR",
+                    borderColor: gradientData1,
+                    pointBorderColor: gradientData1,
+                    pointBackgroundColor: gradientData1,
+                    pointHoverBackgroundColor: gradientData1,
+                    pointHoverBorderColor: gradientData1,
+                    pointBorderWidth: 10,
+                    pointHoverRadius: 10,
+                    pointHoverBorderWidth: 1,
+                    pointRadius: 3,
+                    fill: false,
+                    borderWidth: 4,
+                    data: [ {{ $visitors_year }} ]
+                }]
+            },
+            options: {
+                legend: {
+                    position: "bottom"
+                },
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            fontColor: "rgba(0,0,0,0.5)",
+                            fontStyle: "bold",
+                            beginAtZero: true,
+                            maxTicksLimit: 5,
+                            padding: 20
+                        },
+                        gridLines: {
+                            drawTicks: false,
+                            display: false
+                        }
+
+                    }],
+                    xAxes: [{
+                        gridLines: {
+                            zeroLineColor: "transparent"
+                        },
+                        ticks: {
+                            padding: 20,
+                            fontColor: "rgba(0,0,0,0.5)",
+                            fontStyle: "bold"
+                        }
+                    }]
+                }
+            }
+        }
+    }
+
+    else if (type === 'f') {
+
+      var gradientData1 = obj.createLinearGradient(500, 0, 100, 0);
+
+      gradientData1.addColorStop(0, "#80b6f4");
+      gradientData1.addColorStop(0.2, "#94d973");
+      gradientData1.addColorStop(0.5, "#fad874");
+      gradientData1.addColorStop(1, "#f49080");
+
+      config = {
+          type: 'line',
+          data: {
+              labels: ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL"],
+              datasets: [{
+                  label: "VISITOR REPORT MONTH",
+                  borderColor: gradientData1,
+                  pointBorderColor: gradientData1,
+                  pointBackgroundColor: gradientData1,
+                  pointHoverBackgroundColor: gradientData1,
+                  pointHoverBorderColor: gradientData1,
+                  pointBorderWidth: 10,
+                  pointHoverRadius: 10,
+                  pointHoverBorderWidth: 1,
+                  pointRadius: 3,
+                  fill: false,
+                  borderWidth: 4,
+                  data: [{{ $visitors_jan }}, {{ $visitors_feb }}, {{ $visitors_mar }}, {{ $visitors_apr }}, {{ $visitors_may }}, {{ $visitors_june }}, {{ $visitors_july }}]
+              }]
+          },
+          options: {
+              legend: {
+                  position: "bottom"
+              },
+              scales: {
+                  yAxes: [{
+                      ticks: {
+                          fontColor: "rgba(0,0,0,0.5)",
+                          fontStyle: "bold",
+                          beginAtZero: true,
+                          maxTicksLimit: 5,
+                          padding: 20
+                      },
+                      gridLines: {
+                          drawTicks: false,
+                          display: false
+                      }
+
+                  }],
+                  xAxes: [{
+                      gridLines: {
+                          zeroLineColor: "transparent"
+                      },
+                      ticks: {
+                          padding: 20,
+                          fontColor: "rgba(0,0,0,0.5)",
+                          fontStyle: "bold"
+                      }
+                  }]
+              }
+          }
+      }
+
+    }
+
+    else if (type === 'g') {
+
+      var gradientData1 = obj.createLinearGradient(500, 0, 100, 0);
+
+      gradientData1.addColorStop(0, "#80b6f4");
+      gradientData1.addColorStop(0.2, "#94d973");
+      gradientData1.addColorStop(0.5, "#fad874");
+      gradientData1.addColorStop(1, "#f49080");
+
+      config = {
+          type: 'line',
+          data: {
+              labels: ["First Week","Second Week","Third Week","Fourth Week"],
+              datasets: [{
+                  label: "VISITOR REPORT WEEK",
+                  borderColor: gradientData1,
+                  pointBorderColor: gradientData1,
+                  pointBackgroundColor: gradientData1,
+                  pointHoverBackgroundColor: gradientData1,
+                  pointHoverBorderColor: gradientData1,
+                  pointBorderWidth: 10,
+                  pointHoverRadius: 10,
+                  pointHoverBorderWidth: 1,
+                  pointRadius: 3,
+                  fill: false,
+                  borderWidth: 4,
+                  data: [{{ $visitors_1st_week }},{{ $visitors_2nd_week }},{{ $visitors_3rd_week }},{{ $visitors_4th_week }}]
+              }]
+          },
+          options: {
+              legend: {
+                  position: "bottom"
+              },
+              scales: {
+                  yAxes: [{
+                      ticks: {
+                          fontColor: "rgba(0,0,0,0.5)",
+                          fontStyle: "bold",
+                          beginAtZero: true,
+                          maxTicksLimit: 5,
+                          padding: 20
+                      },
+                      gridLines: {
+                          drawTicks: false,
+                          display: false
+                      }
+
+                  }],
+                  xAxes: [{
+                      gridLines: {
+                          zeroLineColor: "transparent"
+                      },
+                      ticks: {
+                          padding: 20,
+                          fontColor: "rgba(0,0,0,0.5)",
+                          fontStyle: "bold"
+                      }
+                  }]
+              }
+          }
+      }
+
+    }
+
+    else if (type === 'h') {
+
+      var gradientData1 = obj.createLinearGradient(500, 0, 100, 0);
+
+      gradientData1.addColorStop(0, "#80b6f4");
+      gradientData1.addColorStop(0.2, "#94d973");
+      gradientData1.addColorStop(0.5, "#fad874");
+      gradientData1.addColorStop(1, "#f49080");
+
+      config = {
+          type: 'line',
+          data: {
+              labels: [{{ $last10day->format('d') }}, {{ $last9day->format('d') }},{{ $last8day->format('d') }},{{ $last7day->format('d') }},{{ $last6day->format('d') }},{{ $last5day->format('d') }},{{ $last4day->format('d') }},{{ $last3day->format('d') }},{{ $last2day->format('d') }},{{ $lastday->format('d') }},{{ $today->format('d') }}],
+              datasets: [{
+                  label: "VISITOR REPORT LAST 10 DAYS",
+                  borderColor: gradientData1,
+                  pointBorderColor: gradientData1,
+                  pointBackgroundColor: gradientData1,
+                  pointHoverBackgroundColor: gradientData1,
+                  pointHoverBorderColor: gradientData1,
+                  pointBorderWidth: 10,
+                  pointHoverRadius: 10,
+                  pointHoverBorderWidth: 1,
+                  pointRadius: 3,
+                  fill: false,
+                  borderWidth: 4,
+                  data: [{{ $visitors_nov_last10day }},
+                    {{ $visitors_oct_last9day }},
+                    {{ $visitors_sep_last8day }},
+                    {{ $visitors_aug_last7day }},
+                    {{ $visitors_july_last6day }},
+                    {{ $visitors_june_last5day }},
+                    {{ $visitors_may_last4day }},
+                    {{ $visitors_apr_last3day }},
+                    {{ $visitors_last2day }},
+                    {{ $visitors_lastday }},
+                    {{ $visitors_today }}
+                  ]
+              }]
+          },
+          options: {
+              legend: {
+                  position: "bottom"
+              },
+              scales: {
+                  yAxes: [{
+                      ticks: {
+                          fontColor: "rgba(0,0,0,0.5)",
+                          fontStyle: "bold",
+                          beginAtZero: true,
+                          maxTicksLimit: 5,
+                          padding: 20
+                      },
+                      gridLines: {
+                          drawTicks: false,
+                          display: false
+                      }
+
+                  }],
+                  xAxes: [{
+                      gridLines: {
+                          zeroLineColor: "transparent"
+                      },
+                      ticks: {
+                          padding: 20,
+                          fontColor: "rgba(0,0,0,0.5)",
+                          fontStyle: "bold"
+                      }
+                  }]
+              }
+          }
+      }
+
+    }
+
+    else if (type === 'i') {
+        //var obj    = document.getElementById('gradient_area').getContext('2d'),
+        var gradient = obj.createLinearGradient(0, 0, 0, 450);
+
+        gradient.addColorStop(0, '#5CC5CD');
+        gradient.addColorStop(0.5, '#46b6fe');
+        gradient.addColorStop(1, '#3866a6');
+
+        config = {
+            type: 'line',
+            data: {
+                labels: [ {{ $year }} ],
+                datasets: [{
+                        label: 'ENROLL REPORT YEAR',
+                        backgroundColor: gradient,
+                        pointBackgroundColor: 'white',
+                        borderWidth: 1,
+                        borderColor: '#3866a6',
+                        data: [{{ $enrolls_year }}]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                animation: {
+                    easing: 'easeInOutQuad',
+                    duration: 520
+                },
+                scales: {
+                    xAxes: [{
+                        gridLines: {
+                            color: 'rgba(200, 200, 200, 0.05)',
+                            lineWidth: 1
+                        }
+                    }],
+                    yAxes: [{
+                        gridLines: {
+                            color: 'rgba(200, 200, 200, 0.08)',
+                            lineWidth: 1
+                        }
+                    }]
+                },
+                elements: {
+                    line: {
+                        tension: 0.4
+                    }
+                },
+                legend: {
+                    display: false
+                },
+                point: {
+                    backgroundColor: 'white'
+                },
+                tooltips: {
+                    titleFontFamily: 'Open Sans',
+                    backgroundColor: '#5CC5CD',
+                    titleFontColor: 'red',
+                    caretSize: 5,
+                    cornerRadius: 2,
+                    xPadding: 10,
+                    yPadding: 10
+                }
+            }
+        }
+    }
+
+    else if (type === 'j') {
+        //var obj    = document.getElementById('gradient_area').getContext('2d'),
+        var gradient = obj.createLinearGradient(0, 0, 0, 450);
+
+        gradient.addColorStop(0, '#5CC5CD');
+        gradient.addColorStop(0.5, '#46b6fe');
+        gradient.addColorStop(1, '#3866a6');
+
+        config = {
+            type: 'line',
+            data: {
+                labels: [ "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL" ],
+                datasets: [{
+                        label: 'ENROLL REPORT MONTH',
+                        backgroundColor: gradient,
+                        pointBackgroundColor: 'white',
+                        borderWidth: 1,
+                        borderColor: '#3866a6',
+                        data: [{{ $enrolls_jan }}, {{ $enrolls_feb }}, {{ $enrolls_mar }}, {{ $enrolls_apr }}, {{ $enrolls_may }}, {{ $enrolls_june }}, {{ $enrolls_july }}]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                animation: {
+                    easing: 'easeInOutQuad',
+                    duration: 520
+                },
+                scales: {
+                    xAxes: [{
+                        gridLines: {
+                            color: 'rgba(200, 200, 200, 0.05)',
+                            lineWidth: 1
+                        }
+                    }],
+                    yAxes: [{
+                        gridLines: {
+                            color: 'rgba(200, 200, 200, 0.08)',
+                            lineWidth: 1
+                        }
+                    }]
+                },
+                elements: {
+                    line: {
+                        tension: 0.4
+                    }
+                },
+                legend: {
+                    display: false
+                },
+                point: {
+                    backgroundColor: 'white'
+                },
+                tooltips: {
+                    titleFontFamily: 'Open Sans',
+                    backgroundColor: '#5CC5CD',
+                    titleFontColor: 'red',
+                    caretSize: 5,
+                    cornerRadius: 2,
+                    xPadding: 10,
+                    yPadding: 10
+                }
+            }
+        }
+    }
+
+    else if (type === 'k') {
+        //var obj    = document.getElementById('gradient_area').getContext('2d'),
+        var gradient = obj.createLinearGradient(0, 0, 0, 450);
+
+        gradient.addColorStop(0, '#5CC5CD');
+        gradient.addColorStop(0.5, '#46b6fe');
+        gradient.addColorStop(1, '#3866a6');
+
+        config = {
+            type: 'line',
+            data: {
+                labels: [ "First Week","Second Week","Third Week","Fourth Week" ],
+                datasets: [{
+                        label: 'ENROLL REPORT WEEK',
+                        backgroundColor: gradient,
+                        pointBackgroundColor: 'white',
+                        borderWidth: 1,
+                        borderColor: '#3866a6',
+                        data: [{{ $enrolls_1st_week }},{{ $enrolls_2nd_week }},{{ $enrolls_3rd_week }},{{ $enrolls_4th_week }}]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                animation: {
+                    easing: 'easeInOutQuad',
+                    duration: 520
+                },
+                scales: {
+                    xAxes: [{
+                        gridLines: {
+                            color: 'rgba(200, 200, 200, 0.05)',
+                            lineWidth: 1
+                        }
+                    }],
+                    yAxes: [{
+                        gridLines: {
+                            color: 'rgba(200, 200, 200, 0.08)',
+                            lineWidth: 1
+                        }
+                    }]
+                },
+                elements: {
+                    line: {
+                        tension: 0.4
+                    }
+                },
+                legend: {
+                    display: false
+                },
+                point: {
+                    backgroundColor: 'white'
+                },
+                tooltips: {
+                    titleFontFamily: 'Open Sans',
+                    backgroundColor: '#5CC5CD',
+                    titleFontColor: 'red',
+                    caretSize: 5,
+                    cornerRadius: 2,
+                    xPadding: 10,
+                    yPadding: 10
+                }
+            }
+        }
+    }
+
+    else if (type === 'l') {
+        //var obj    = document.getElementById('gradient_area').getContext('2d'),
+        var gradient = obj.createLinearGradient(0, 0, 0, 450);
+
+        gradient.addColorStop(0, '#5CC5CD');
+        gradient.addColorStop(0.5, '#46b6fe');
+        gradient.addColorStop(1, '#3866a6');
+
+        config = {
+            type: 'line',
+            data: {
+                labels: [ {{ $last10day->format('d') }}, {{ $last9day->format('d') }},{{ $last8day->format('d') }},{{ $last7day->format('d') }},{{ $last6day->format('d') }},{{ $last5day->format('d') }},{{ $last4day->format('d') }},{{ $last3day->format('d') }},{{ $last2day->format('d') }},{{ $lastday->format('d') }},{{ $today->format('d') }} ],
+                datasets: [{
+                        label: 'Custom Label Name',
+                        backgroundColor: gradient,
+                        pointBackgroundColor: 'white',
+                        borderWidth: 1,
+                        borderColor: '#3866a6',
+                        data: [
+                          {{ $enrolls_nov_last10day }},
+                            {{ $enrolls_oct_last9day }},
+                            {{ $enrolls_sep_last8day }},
+                            {{ $enrolls_aug_last7day }},
+                            {{ $enrolls_july_last6day }},
+                            {{ $enrolls_june_last5day }},
+                            {{ $enrolls_may_last4day }},
+                            {{ $enrolls_apr_last3day }},
+                            {{ $enrolls_last2day }},
+                            {{ $enrolls_lastday }},
+                            {{ $enrolls_today }}
+                        ]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                animation: {
+                    easing: 'easeInOutQuad',
+                    duration: 520
+                },
+                scales: {
+                    xAxes: [{
+                        gridLines: {
+                            color: 'rgba(200, 200, 200, 0.05)',
+                            lineWidth: 1
+                        }
+                    }],
+                    yAxes: [{
+                        gridLines: {
+                            color: 'rgba(200, 200, 200, 0.08)',
+                            lineWidth: 1
+                        }
+                    }]
+                },
+                elements: {
+                    line: {
+                        tension: 0.4
+                    }
+                },
+                legend: {
+                    display: false
+                },
+                point: {
+                    backgroundColor: 'white'
+                },
+                tooltips: {
+                    titleFontFamily: 'Open Sans',
+                    backgroundColor: '#5CC5CD',
+                    titleFontColor: 'red',
+                    caretSize: 5,
+                    cornerRadius: 2,
+                    xPadding: 10,
+                    yPadding: 10
+                }
+            }
+        }
+    }
+
+
+
 
 
     // else if (type === 'filled_line') {
