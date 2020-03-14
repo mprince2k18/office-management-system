@@ -18,7 +18,7 @@ class StudentController extends Controller
         $this->middleware('auth');
     }
 
-    
+
     // index
     function index()
     {

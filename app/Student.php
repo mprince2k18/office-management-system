@@ -8,7 +8,7 @@ use Spatie\Activitylog\Traits\LogsActivity;
 class Student extends Model
 {
 
-  use LogsActivity;
+    use LogsActivity;
 
     protected $fillable = [
       'name',

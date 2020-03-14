@@ -60,6 +60,15 @@ Route::get('enroll/edit/{enroll_id}', 'EnrollController@edit')->name('enroll.edi
 Route::post('enroll/update/{enroll_id}', 'EnrollController@update')->name('enroll.update');
 
 
+
+// StudentController
+Route::get('employee', 'EmployeeController@index')->name('employee.index');
+Route::post('employee/create', 'EmployeeController@create')->name('employee.create');
+// Route::get('employee/all', 'EmployeeController@all')->name('employee.all');
+// Route::get('employee/profile/{student_id}', 'EmployeeController@profile')->name('employee.profile');
+// Route::get('employee/edit/{student_id}', 'EmployeeController@edit')->name('employee.edit');
+// Route::post('employee/update/{student_id}', 'EmployeeController@update')->name('employee.update');
+
 // ActivityController
 Route::get('activity/log', 'ActivityController@index')->name('activity.index');
 Route::get('activity/log/search', 'ActivityController@searchLog')->name('activity.search');
