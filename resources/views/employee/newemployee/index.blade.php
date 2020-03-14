@@ -81,10 +81,6 @@
                       </div>
 
 
-
-
-
-
                     <div class="card">
                         <div class="body">
                             <p>Student Photo</p>
