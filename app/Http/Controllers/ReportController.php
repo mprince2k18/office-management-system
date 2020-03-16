@@ -66,6 +66,7 @@ class ReportController extends Controller
       $visitors_year  = Visitor::whereBetween('created_at', [$startOfTheYear, $endOfTheYear])->count();
       $enrolls_year   = Enroll::whereBetween('created_at', [$startOfTheYear, $endOfTheYear])->count();
       $enrolls_year   = Enroll::whereBetween('created_at', [$startOfTheYear, $endOfTheYear])->count();
+      $expense_year   = Requisition::select('cost')->whereBetween('created_at', [$startOfTheYear, $endOfTheYear])->pluck('cost')->sum();
       // $payment_year   = Installment::whereBetween('created_at', [$startOfTheYear, $endOfTheYear])->$x->get();
       //END:YEAR
 
@@ -172,6 +173,20 @@ class ReportController extends Controller
       // END:Day
 
       // BEGIN:Day
+      $expense_today          = Requisition::select('cost')->whereDate('created_at',$today)->pluck('cost')->sum();
+      $expense_lastday        = Requisition::select('cost')->whereDate('created_at',$lastday)->pluck('cost')->sum();
+      $expense_last2day       = Requisition::select('cost')->whereDate('created_at',$last2day)->pluck('cost')->sum();
+      $expense_apr_last3day   = Requisition::select('cost')->whereDate('created_at',$last3day)->pluck('cost')->sum();
+      $expense_may_last4day   = Requisition::select('cost')->whereDate('created_at',$last4day)->pluck('cost')->sum();
+      $expense_june_last5day  = Requisition::select('cost')->whereDate('created_at',$last5day)->pluck('cost')->sum();
+      $expense_july_last6day  = Requisition::select('cost')->whereDate('created_at',$last6day)->pluck('cost')->sum();
+      $expense_aug_last7day   = Requisition::select('cost')->whereDate('created_at',$last7day)->pluck('cost')->sum();
+      $expense_sep_last8day   = Requisition::select('cost')->whereDate('created_at',$last8day)->pluck('cost')->sum();
+      $expense_oct_last9day   = Requisition::select('cost')->whereDate('created_at',$last9day)->pluck('cost')->sum();
+      $expense_nov_last10day  = Requisition::select('cost')->whereDate('created_at',$last10day)->pluck('cost')->sum();
+      // END:Day
+
+      // BEGIN:Day
       // $payment_today          = Installment::whereDate('created_at',$today)->count();
       // $payment_lastday        = Installment::whereDate('created_at',$lastday)->count();
       // $payment_last2day       = Installment::whereDate('created_at',$last2day)->count();
@@ -208,6 +223,14 @@ class ReportController extends Controller
       $enrolls_2nd_week   = Enroll::whereBetween('created_at',[$year . '-0'.$month . '-08 00:00:00', $year . '-0'.$month . '-14 00:00:00'])->count();
       $enrolls_3rd_week   = Enroll::whereBetween('created_at',[$year . '-0'.$month . '-15 00:00:00', $year . '-0'.$month . '-21 00:00:00'])->count();
       $enrolls_4th_week   = Enroll::whereBetween('created_at',[$year . '-0'.$month . '-22 00:00:00', $year . '-0'.$month . '-31 00:00:00'])->count();
+      // END:WEEK
+
+
+      // BEGIN:WEEK
+      $expense_1st_week   = Requisition::select('cost')->whereBetween('created_at',[$year . '-0'.$month . '-01 00:00:00', $year . '-0'.$month . '-07 00:00:00'])->pluck('cost')->sum();
+      $expense_2nd_week   = Requisition::select('cost')->whereBetween('created_at',[$year . '-0'.$month . '-08 00:00:00', $year . '-0'.$month . '-14 00:00:00'])->pluck('cost')->sum();
+      $expense_3rd_week   = Requisition::select('cost')->whereBetween('created_at',[$year . '-0'.$month . '-15 00:00:00', $year . '-0'.$month . '-21 00:00:00'])->pluck('cost')->sum();
+      $expense_4th_week   = Requisition::select('cost')->whereBetween('created_at',[$year . '-0'.$month . '-22 00:00:00', $year . '-0'.$month . '-31 00:00:00'])->pluck('cost')->sum();
       // END:WEEK
 
 
@@ -262,117 +285,133 @@ class ReportController extends Controller
 
 
 
-    //   return view('report.chartjs',compact('students',
-    //   'students_jan',
-    //   'students_feb',
-    //   'students_mar',
-    //   'students_apr',
-    //   'students_may',
-    //   'students_june',
-    //   'students_july',
-    //   'students_year',
-    //   'year',
-    //   'lastyear',
-    //   'last2year',
-    //   'last3year',
-    //   'last4year',
-    //   'last5year',
-    //   'last6year',
-    //   'last7year',
-    //   'last8year',
-    //   'last9year',
-    //   'last10year',
-    //   'startOfWeek',
-    //   'endOfWeek',
-    //   'students_week',
-    //   'today',
-    //   'lastday',
-    //   'last2day',
-    //   'last3day',
-    //   'last4day',
-    //   'last5day',
-    //   'last6day',
-    //   'last7day',
-    //   'last8day',
-    //   'last9day',
-    //   'last10day',
-    //   'students_today',
-    //   'students_lastday',
-    //   'students_last2day',
-    //   'students_apr_last3day',
-    //   'students_may_last4day',
-    //   'students_june_last5day',
-    //   'students_july_last6day',
-    //   'students_aug_last7day',
-    //   'students_sep_last8day',
-    //   'students_oct_last9day',
-    //   'students_nov_last10day',
-    //   'students_1st_week',
-    //   'students_2nd_week',
-    //   'students_3rd_week',
-    //   'students_4th_week',
-    //   'visitors_year',
-    //   'visitors_jan',
-    //   'visitors_feb',
-    //   'visitors_mar',
-    //   'visitors_apr',
-    //   'visitors_may',
-    //   'visitors_june',
-    //   'visitors_july',
-    //   'visitors_aug',
-    //   'visitors_sep',
-    //   'visitors_oct',
-    //   'visitors_nov',
-    //   'visitors_dec',
-    //   'visitors_today',
-    //   'visitors_lastday',
-    //   'visitors_last2day',
-    //   'visitors_apr_last3day',
-    //   'visitors_may_last4day',
-    //   'visitors_june_last5day',
-    //   'visitors_july_last6day',
-    //   'visitors_aug_last7day',
-    //   'visitors_sep_last8day',
-    //   'visitors_oct_last9day',
-    //   'visitors_nov_last10day',
-    //   'visitors_1st_week',
-    //   'visitors_2nd_week',
-    //   'visitors_3rd_week',
-    //   'visitors_4th_week',
-    //   'visitors_week',
-    //   'enrolls_year',
-    //   'enrolls_jan',
-    //   'enrolls_feb',
-    //   'enrolls_mar',
-    //   'enrolls_apr',
-    //   'enrolls_may',
-    //   'enrolls_june',
-    //   'enrolls_july',
-    //   'enrolls_aug',
-    //   'enrolls_sep',
-    //   'enrolls_oct',
-    //   'enrolls_nov',
-    //   'enrolls_dec',
-    //   'enrolls_today',
-    //   'enrolls_lastday',
-    //   'enrolls_last2day',
-    //   'enrolls_apr_last3day',
-    //   'enrolls_may_last4day',
-    //   'enrolls_june_last5day',
-    //   'enrolls_july_last6day',
-    //   'enrolls_aug_last7day',
-    //   'enrolls_sep_last8day',
-    //   'enrolls_oct_last9day',
-    //   'enrolls_nov_last10day',
-    //   'enrolls_1st_week',
-    //   'enrolls_2nd_week',
-    //   'enrolls_3rd_week',
-    //   'enrolls_4th_week',
-    //   'paymentMonth',
-    //   'requisition_costs'
-    // ));
+      return view('report.chartjs',compact('students',
+      'students_jan',
+      'students_feb',
+      'students_mar',
+      'students_apr',
+      'students_may',
+      'students_june',
+      'students_july',
+      'students_year',
+      'year',
+      'lastyear',
+      'last2year',
+      'last3year',
+      'last4year',
+      'last5year',
+      'last6year',
+      'last7year',
+      'last8year',
+      'last9year',
+      'last10year',
+      'startOfWeek',
+      'endOfWeek',
+      'students_week',
+      'today',
+      'lastday',
+      'last2day',
+      'last3day',
+      'last4day',
+      'last5day',
+      'last6day',
+      'last7day',
+      'last8day',
+      'last9day',
+      'last10day',
+      'students_today',
+      'students_lastday',
+      'students_last2day',
+      'students_apr_last3day',
+      'students_may_last4day',
+      'students_june_last5day',
+      'students_july_last6day',
+      'students_aug_last7day',
+      'students_sep_last8day',
+      'students_oct_last9day',
+      'students_nov_last10day',
+      'students_1st_week',
+      'students_2nd_week',
+      'students_3rd_week',
+      'students_4th_week',
+      'visitors_year',
+      'visitors_jan',
+      'visitors_feb',
+      'visitors_mar',
+      'visitors_apr',
+      'visitors_may',
+      'visitors_june',
+      'visitors_july',
+      'visitors_aug',
+      'visitors_sep',
+      'visitors_oct',
+      'visitors_nov',
+      'visitors_dec',
+      'visitors_today',
+      'visitors_lastday',
+      'visitors_last2day',
+      'visitors_apr_last3day',
+      'visitors_may_last4day',
+      'visitors_june_last5day',
+      'visitors_july_last6day',
+      'visitors_aug_last7day',
+      'visitors_sep_last8day',
+      'visitors_oct_last9day',
+      'visitors_nov_last10day',
+      'visitors_1st_week',
+      'visitors_2nd_week',
+      'visitors_3rd_week',
+      'visitors_4th_week',
+      'visitors_week',
+      'enrolls_year',
+      'enrolls_jan',
+      'enrolls_feb',
+      'enrolls_mar',
+      'enrolls_apr',
+      'enrolls_may',
+      'enrolls_june',
+      'enrolls_july',
+      'enrolls_aug',
+      'enrolls_sep',
+      'enrolls_oct',
+      'enrolls_nov',
+      'enrolls_dec',
+      'enrolls_today',
+      'enrolls_lastday',
+      'enrolls_last2day',
+      'enrolls_apr_last3day',
+      'enrolls_may_last4day',
+      'enrolls_june_last5day',
+      'enrolls_july_last6day',
+      'enrolls_aug_last7day',
+      'enrolls_sep_last8day',
+      'enrolls_oct_last9day',
+      'enrolls_nov_last10day',
+      'enrolls_1st_week',
+      'enrolls_2nd_week',
+      'enrolls_3rd_week',
+      'enrolls_4th_week',
+      'paymentMonth',
+      'requisition_costs',
+      'expense_today',
+      'expense_lastday',
+      'expense_last2day',
+      'expense_apr_last3day',
+      'expense_may_last4day',
+      'expense_june_last5day',
+      'expense_july_last6day',
+      'expense_aug_last7day',
+      'expense_sep_last8day',
+      'expense_oct_last9day',
+      'expense_nov_last10day',
+      'expense_1st_week',
+      'expense_2nd_week',
+      'expense_3rd_week',
+      'expense_4th_week',
+      'expense_year'
+    ));
 
-      return $requisition_costs;
+      // return $requisition_costs;
 
     }
     //END

@@ -1682,7 +1682,7 @@ function getChartJs(obj, type) {
                                 pointBackgroundColor: 'white',
                                 borderWidth: 1,
                                 borderColor: '#3866a6',
-                                data: [{{ $requisition_costs }}]
+                                data: [{{ $expense_year }}]
                         }]
                     },
                     options: {
@@ -1814,7 +1814,12 @@ function getChartJs(obj, type) {
                                 pointBackgroundColor: 'white',
                                 borderWidth: 1,
                                 borderColor: '#3866a6',
-                                data: [{{ $enrolls_1st_week }},{{ $enrolls_2nd_week }},{{ $enrolls_3rd_week }},{{ $enrolls_4th_week }}]
+                                data: [
+                                  {{ $expense_1st_week }},
+                                  {{ $expense_2nd_week }},
+                                  {{ $expense_3rd_week }},
+                                  {{ $expense_4th_week }}
+                                ]
                         }]
                     },
                     options: {
@@ -1881,17 +1886,17 @@ function getChartJs(obj, type) {
                                 borderWidth: 1,
                                 borderColor: '#3866a6',
                                 data: [
-                                  {{ $enrolls_nov_last10day }},
-                                    {{ $enrolls_oct_last9day }},
-                                    {{ $enrolls_sep_last8day }},
-                                    {{ $enrolls_aug_last7day }},
-                                    {{ $enrolls_july_last6day }},
-                                    {{ $enrolls_june_last5day }},
-                                    {{ $enrolls_may_last4day }},
-                                    {{ $enrolls_apr_last3day }},
-                                    {{ $enrolls_last2day }},
-                                    {{ $enrolls_lastday }},
-                                    {{ $enrolls_today }}
+                                  {{ $expense_today }},
+                                    {{ $expense_lastday }},
+                                    {{ $expense_last2day }},
+                                    {{ $expense_apr_last3day }},
+                                    {{ $expense_may_last4day }},
+                                    {{ $expense_june_last5day }},
+                                    {{ $expense_july_last6day }},
+                                    {{ $expense_aug_last7day }},
+                                    {{ $expense_sep_last8day }},
+                                    {{ $expense_oct_last9day }},
+                                    {{ $expense_nov_last10day }}
                                 ]
                         }]
                     },
