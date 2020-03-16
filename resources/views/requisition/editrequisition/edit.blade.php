@@ -1,6 +1,6 @@
 @extends('layout.master')
-@section('title', 'New Employee')
-@section('parentPageTitle', 'Employee Area')
+@section('title', 'Update Requisition')
+@section('parentPageTitle', 'Requisition Area')
 @section('page-style')
 <link rel="stylesheet" href="{{asset('assets/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css')}}"/>
 <link rel="stylesheet" href="{{asset('assets/plugins/bootstrap-select/css/bootstrap-select.css')}}"/>
@@ -19,70 +19,7 @@
 @section('content')
 <!-- Basic Validation -->
 
-<div class="row clearfix">
-  <div class="card">
-    <div class="body">
 
-<button type="button" class="btn btn-raised btn-primary waves-effect m-r-20" data-toggle="modal" data-target="#largeModal">Add Designation</button>
-<button type="button" class="btn btn-raised btn-primary waves-effect m-r-20" data-toggle="modal" data-target="#largeModal1">Add Duties</button>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-
-
-<div class="modal fade" id="largeModal" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="title" id="largeModalLabel">Add New Designation</h4>
-            </div>
-            <div class="modal-body">
-
-              <form id="desig_form" method="POST" action="{{ route('designation.create') }}" enctype="multipart/form-data">
-                @csrf
-                <!-- fullname -->
-                  <div class="form-group form-float">
-                      <input type="text" class="form-control name" placeholder="Add Designation" name="name" required autofocus>
-                  </div>
-
-              </form>
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default btn-round waves-effect" id="submit_desig">SUBMIT</button>
-                <button type="button" class="btn btn-danger waves-effect" data-dismiss="modal">CLOSE</button>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="modal fade" id="largeModal1" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="title" id="largeModalLabel">Add New Duty</h4>
-            </div>
-            <div class="modal-body">
-
-              <form id="duty_form" method="POST" action="{{ route('duties.create') }}" enctype="multipart/form-data">
-                @csrf
-                <!-- fullname -->
-                  <div class="form-group form-float">
-                      <input type="text" class="form-control name" placeholder="Add Duties" name="name" required autofocus>
-                  </div>
-
-              </form>
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default btn-round waves-effect" id="submit_duty">SUBMIT</button>
-                <button type="button" class="btn btn-danger waves-effect" data-dismiss="modal">CLOSE</button>
-            </div>
-        </div>
-    </div>
-</div>
 
 
 
@@ -90,7 +27,7 @@
     <div class="col-lg-12 col-md-12 col-sm-12">
         <div class="card">
             <div class="header">
-                <h2><strong>Employee</strong> Information</h2>
+                <h2><strong>Requisition</strong> Information</h2>
                 <ul class="header-dropdown">
                     <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
                         <ul class="dropdown-menu dropdown-menu-right">
@@ -105,22 +42,41 @@
                 </ul>
             </div>
             <div class="body">
-                <form id="form_validation" method="POST" action="{{ route('employee.create') }}" enctype="multipart/form-data">
+                <form id="form_validation" method="POST" action="{{ url('requisition/update') }}/{{ $edit_requisition->id }}" enctype="multipart/form-data">
                   @csrf
                   <!-- fullname -->
                     <div class="form-group form-float">
-                        <input type="text" class="form-control name" placeholder="Name" name="name" required>
+                        <input type="text" class="form-control name" placeholder="Requisition For" name="for_whom" value="{{ $edit_requisition->for_whom }}" required>
+                    </div>
+
+                  <!-- fullname -->
+                    <div class="form-group form-float">
+                        <input type="text" class="form-control" placeholder="Buy From" name="buy_from" value="{{ $edit_requisition->buy_from }}" required>
+                    </div>
+
+                  <!-- fullname -->
+                    <div class="form-group form-float">
+                        <input type="number" class="form-control" placeholder="Cost" name="cost" value="{{ $edit_requisition->cost }}" required>
+                    </div>
+
+                  <!-- fullname -->
+                    <div class="form-group form-float">
+                        <input type="number" class="form-control" placeholder="Quantity" name="quantity" value="{{ $edit_requisition->quantity }}" required>
+                    </div>
+
+                  <!-- fullname -->
+                    <div class="form-group form-float">
+                        <input type="number" class="form-control" placeholder="Transport fee" name="transport_fee" value="{{ $edit_requisition->transport_fee }}" required>
                     </div>
 
 
 
                       <!-- Blood Group -->
                       <div class="form-group form-float">
-                        <select name="designation" class="form-control show-tick ms select2" data-placeholder="Designation">
-                            <option></option>
-
-                            @foreach($designations as $designation)
-                              <option value="{{ $designation->id }}">{{ $designation->name }}</option>
+                        <select name="assigned_person" class="form-control show-tick ms select2" data-placeholder="Duties">
+                            <option value="{{ $edit_requisition->relationBetweenEmployee->id }}">{{ $edit_requisition->relationBetweenEmployee->name }}</option>
+                            @foreach($employees as $employee)
+                              <option value="{{ $edit_requisition->relationBetweenEmployee->id }}">{{ $edit_requisition->relationBetweenEmployee->name }}</option>
                             @endforeach
 
                         </select>
@@ -128,39 +84,27 @@
 
                       <!-- Blood Group -->
                       <div class="form-group form-float">
-                        <select name="duties" class="form-control show-tick ms select2" data-placeholder="Duties">
-                            <option></option>
-
-                            @foreach($duties as $dutiy)
-                              <option value="{{ $dutiy->id }}">{{ $dutiy->name }}</option>
-                            @endforeach
-
+                        <select name="payment_source" class="form-control show-tick ms select2" data-placeholder="Payment Source">
+                            <option value="{{ $edit_requisition->payment_source }}">{{ $edit_requisition->payment_source }}</option>
+                              <option value="Office">Office</option>
+                              <option value="Personal">Personal</option>
                         </select>
                       </div>
 
 
                     <!-- Present Address -->
                     <div class="form-group form-float">
-                        <textarea name="address" cols="30" rows="5" placeholder="Present Address" class="form-control no-resize" required></textarea>
+                        <textarea name="note" cols="30" rows="5" placeholder="Present Address" class="form-control no-resize" required>{{ $edit_requisition->note }}</textarea>
                     </div>
 
 
-                    <!-- Contact Number -->
-                    <div class="form-group form-float">
-                        <input type="number" placeholder="Contact Number.  Ex: 01825731327" class="form-control" name="phone" maxlength="14" minlength="11" required>
-                        <div class="help-info">Min. 11, Max. 14 characters</div>
-                    </div>
 
-                    <!-- fullname -->
-                      <div class="form-group form-float">
-                          <input type="number" class="form-control" placeholder="Salary" name="salary" required>
-                      </div>
 
 
                     <div class="card">
                         <div class="body">
-                            <p>Employee Photo</p>
-                            <input type="file" name="photo" id="dropify-event" data-default-file="{{asset('assets/images/image-gallery/1.jpg')}}">
+                            <p>Money Receipt Photo</p>
+                            <input type="file" name="money_receipt" id="dropify-event" data-default-file="{{asset('uploads/requisition')}}/{{ $edit_requisition->money_receipt }}">
                         </div>
                     </div>
 
@@ -170,7 +114,7 @@
                             <label for="checkbox">I have read and accept the terms</label>
                         </div>
                     </div>
-                    
+
                     <button class="btn btn-raised btn-primary waves-effect" type="submit">SUBMIT</button>
                 </form>
             </div>

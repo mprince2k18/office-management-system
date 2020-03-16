@@ -18,6 +18,18 @@ class Employee extends Model
       'salary',
       'duties',
     ];
+
+
+    function relationBetweenDesignation()
+    {
+      return $this->hasOne('App\Designation','id','designation');
+    }
+
+    function relationBetweenDuty()
+    {
+      return $this->hasOne('App\Duties','id','duties');
+    }
+
     //END
 
 }

@@ -1,6 +1,6 @@
 @extends('layout.master')
-@section('title', 'Student Profile')
-@section('parentPageTitle', 'Pages')
+@section('title', 'Requisition Profile')
+@section('parentPageTitle', 'Requisition Area')
 @section('page-style')
 <link rel="stylesheet" href="{{asset('assets/plugins/light-gallery/css/lightgallery.css')}}">
 <link rel="stylesheet" href="{{asset('assets/plugins/fullcalendar/fullcalendar.min.css')}}">
@@ -10,8 +10,8 @@
     <div class="col-lg-4 col-md-12">
         <div class="card mcard_3">
             <div class="body">
-                <a href="{{ url('employee/profile') }}/{{ $employee->id }}"><img src="{{ asset('uploads/employee') }}/{{ $employee->photo }}" class="rounded-circle shadow " alt="profile-image"></a>
-                <h4 class="m-t-10">{{ $employee->name }}</h4>
+                <a href="{{ url('requisition/profile') }}/{{ $requisition->id }}"><img src="{{ asset('uploads/employee') }}/{{ $requisition->relationBetweenEmployee->photo }}" class="rounded-circle shadow " alt="profile-image"></a>
+                <h4 class="m-t-10">{{ $requisition->name }}</h4>
                 <div class="row">
 
                     <div class="col-12">
@@ -22,7 +22,7 @@
                         </ul>
 
 
-                          <p class="text-muted">{{ $employee->relationBetweenDesignation->name }}</p>
+                          <p class="text-muted">{{ $requisition->relationBetweenEmployee->name }}</p>
 
 
                     </div>
@@ -33,7 +33,7 @@
             </div>
         </div>
 
-        <a href="{{ url('employee/edit') }}/{{ $employee->id }}">
+        <a href="{{ url('requisition/edit') }}/{{ $requisition->id }}">
           <div class="card info-box-2 hover-zoom-effect social-widget facebook-widget">
               <div class="icon"><i class="zmdi zmdi-edit"></i></div>
               <div class="content">
@@ -90,30 +90,44 @@
       <div class="card">
           <div class="body">
 
-            <small class="text-muted">Name: </small>
-            <p>{{ $employee->name }}</p>
+            <small class="text-muted">For Whom: </small>
+            <p>{{ $requisition->for_whom }}</p>
             <hr>
 
 
-            <small class="text-muted">Designation: </small>
-            <p>{{ $employee->relationBetweenDesignation->name }}</p>
+            <small class="text-muted">Buy From: </small>
+            <p>{{ $requisition->buy_from }}</p>
             <hr>
 
-            <small class="text-muted">Duty: </small>
-            <p>{{ $employee->relationBetweenDuty->name }}</p>
+            <small class="text-muted">Cost: </small>
+            <p>{{ $requisition->cost }}</p>
             <hr>
 
 
-              <small class="text-muted">Phone: </small>
-              <p>{{ $employee->phone }}</p>
+              <small class="text-muted">Quantity: </small>
+              <p>{{ $requisition->quantity }}</p>
               <hr>
 
 
 
-              <small class="text-muted">Present Address: </small>
-              <p>{{ $employee->address }}</p>
+              <small class="text-muted">Transport Fee: </small>
+              <p>{{ $requisition->transport_fee }}</p>
+
+              <small class="text-muted">payment Source: </small>
+              <p>{{ $requisition->payment_source }}</p>
+
+              <small class="text-muted">Assigned Person: </small>
+              <p>{{ $requisition->relationBetweenEmployee->name }}</p>
+
+              <small class="text-muted">Note: </small>
+              <p>{{ $requisition->note }}</p>
 
 
+              <div class="card">
+                <img src="{{ asset('uploads/requisition') }}/{{ $requisition->money_receipt }}" alt="">
+              </div>
+
+              <a href="{{ url('requisition/download') }}/{{ $requisition->id }}" class="btn btn-primary">Download</a>
 
 
 

@@ -2,7 +2,7 @@
 <aside id="leftsidebar" class="sidebar">
     <div class="navbar-brand">
         <button class="btn-menu ls-toggle-btn" type="button"><i class="zmdi zmdi-menu"></i></button>
-        <a href="{{route('dashboard.index')}}"><img src="../assets/images/logo.svg" width="25" alt="Aero"><span class="m-l-10">Aero</span></a>
+        <a href="{{route('dashboard.index')}}"><img src="../assets/images/logo.svg" width="25" alt="Aero"><span class="m-l-10">Softtech IT</span></a>
     </div>
     <div class="menu">
         <ul class="list">
@@ -81,7 +81,15 @@
                 <a href="#App" class="menu-toggle"><i class="zmdi zmdi-apps"></i> <span>Employee Area</span></a>
                 <ul class="ml-menu">
                     <li class="{{ Request::segment(2) === 'inbox' ? 'active' : null }}"><a href="{{route('employee.index')}}">New Employee</a></li>
-                    <li class="{{ Request::segment(2) === 'chat' ? 'active' : null }}"><a href="{{route('employee.index')}}">All Employee</a></li>
+                    <li class="{{ Request::segment(2) === 'chat' ? 'active' : null }}"><a href="{{route('employee.all')}}">All Employee</a></li>
+                </ul>
+            </li>
+
+            <li class="{{ Request::segment(1) === 'app' ? 'active open' : null }}">
+                <a href="#App" class="menu-toggle"><i class="zmdi zmdi-apps"></i> <span>Requisition Area</span></a>
+                <ul class="ml-menu">
+                    <li class="{{ Request::segment(2) === 'inbox' ? 'active' : null }}"><a href="{{route('requisition.index')}}">New Requisition</a></li>
+                    <li class="{{ Request::segment(2) === 'chat' ? 'active' : null }}"><a href="{{route('requisition.all')}}">All Requisition</a></li>
                 </ul>
             </li>
 

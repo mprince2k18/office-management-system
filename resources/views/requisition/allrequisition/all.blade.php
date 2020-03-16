@@ -1,6 +1,6 @@
 @extends('layout.master')
-@section('title', 'All Student')
-@section('parentPageTitle', 'Student Area')
+@section('title', 'All Employee')
+@section('parentPageTitle', 'Employee Area')
 @section('page-style')
 <link rel="stylesheet" href="{{asset('assets/plugins/jquery-datatable/dataTables.bootstrap4.min.css')}}"/>
 @stop
@@ -30,36 +30,38 @@
                     <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                         <thead>
                             <tr>
-                                <th>Photo</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Phone</th>
+                                <th>Receipt</th>
+                                <th>For Whom</th>
+                                <th>Buy From</th>
+                                <th>Cost</th>
+                                <th>Assigned Person</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
-                              <th>Photo</th>
-                              <th>Name</th>
-                              <th>Email</th>
-                              <th>Phone</th>
+                              <th>Receipt</th>
+                              <th>For Whom</th>
+                              <th>Buy From</th>
+                              <th>Cost</th>
+                              <th>Assigned Person</th>
                               <th>Action</th>
                             </tr>
                         </tfoot>
                         <tbody>
 
-                          @foreach ($students as $student)
+                          @foreach ($requisitions as $requisition)
 
                           <tr>
                               <td>
-                                <img src="{{ asset('uploads/student') }}/{{ $student->avatar }}" style="width: 25%;border-radius: 50%;" alt="">
+                                <img src="{{ asset('uploads/requisition') }}/{{ $requisition->money_receipt }}" style="width: 25%;border-radius: 50%;" alt="">
                               </td>
-                              <td>{{ $student->name }}</td>
-                              <td>{{ $student->email }}</td>
-                              <td>{{ $student->phone }}</td>
+                              <td>{{ $requisition->for_whom }}</td>
+                              <td>{{ $requisition->buy_from }}</td>
+                              <td>{{ $requisition->cost }}</td>
+                              <td>{{ $requisition->relationBetweenEmployee->name }}</td>
                               <td>
-                                <a href="{{ url('student/edit') }}/{{ $student->id }}" class="btn-sm btn-primary">Edit</a>
-                                <a href="{{ url('student/profile') }}/{{ $student->id }}" class="btn-sm btn-success">View</a>
+                                <a href="{{ url('requisition/profile') }}/{{ $requisition->id }}" class="btn-sm btn-success">View</a>
                                 <a href="#" class="btn-sm btn-danger">Delete</a>
                               </td>
                           </tr>

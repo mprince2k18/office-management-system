@@ -61,13 +61,37 @@ Route::post('enroll/update/{enroll_id}', 'EnrollController@update')->name('enrol
 
 
 
-// StudentController
+// EmployeeController
 Route::get('employee', 'EmployeeController@index')->name('employee.index');
 Route::post('employee/create', 'EmployeeController@create')->name('employee.create');
-// Route::get('employee/all', 'EmployeeController@all')->name('employee.all');
-// Route::get('employee/profile/{student_id}', 'EmployeeController@profile')->name('employee.profile');
-// Route::get('employee/edit/{student_id}', 'EmployeeController@edit')->name('employee.edit');
-// Route::post('employee/update/{student_id}', 'EmployeeController@update')->name('employee.update');
+Route::get('employee/all', 'EmployeeController@all')->name('employee.all');
+Route::get('employee/profile/{employee_id}', 'EmployeeController@profile')->name('employee.profile');
+Route::get('employee/edit/{employee_id}', 'EmployeeController@edit')->name('employee.edit');
+Route::post('employee/update/{employee_id}', 'EmployeeController@update')->name('employee.update');
+
+
+// RequisitionController
+Route::get('requisition', 'RequisitionController@index')->name('requisition.index');
+Route::post('requisition/create', 'RequisitionController@create')->name('requisition.create');
+Route::get('requisition/all', 'RequisitionController@all')->name('requisition.all');
+Route::get('requisition/profile/{requisition_id}', 'RequisitionController@profile')->name('requisition.profile');
+Route::get('requisition/edit/{requisition_id}', 'RequisitionController@edit')->name('requisition.edit');
+Route::post('requisition/update/{requisition_id}', 'RequisitionController@update')->name('requisition.update');
+Route::get('requisition/download/{requisition_id}', 'RequisitionController@download')->name('download.photo');
+
+
+
+//Designation
+Route::post('designation/create', 'EmployeeController@designation_create')->name('designation.create');
+//Duties
+Route::post('duties/create', 'EmployeeController@duties_create')->name('duties.create');
+
+
+
+
+
+
+
 
 // ActivityController
 Route::get('activity/log', 'ActivityController@index')->name('activity.index');

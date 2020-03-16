@@ -1,5 +1,5 @@
 @extends('layout.master')
-@section('title', 'New Employee')
+@section('title', 'Edit Employee')
 @section('parentPageTitle', 'Employee Area')
 @section('page-style')
 <link rel="stylesheet" href="{{asset('assets/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css')}}"/>
@@ -105,11 +105,11 @@
                 </ul>
             </div>
             <div class="body">
-                <form id="form_validation" method="POST" action="{{ route('employee.create') }}" enctype="multipart/form-data">
+                <form id="form_validation" method="POST" action="{{ url('employee/update') }}/{{ $edit_employee->id }}" enctype="multipart/form-data">
                   @csrf
                   <!-- fullname -->
                     <div class="form-group form-float">
-                        <input type="text" class="form-control name" placeholder="Name" name="name" required>
+                        <input type="text" class="form-control name" value="{{ $edit_employee->name }}" placeholder="Name" name="name" required>
                     </div>
 
 
@@ -117,7 +117,7 @@
                       <!-- Blood Group -->
                       <div class="form-group form-float">
                         <select name="designation" class="form-control show-tick ms select2" data-placeholder="Designation">
-                            <option></option>
+                            <option value="{{ $edit_employee->relationBetweenDesignation->id }}">{{ $edit_employee->relationBetweenDesignation->name }}</option>
 
                             @foreach($designations as $designation)
                               <option value="{{ $designation->id }}">{{ $designation->name }}</option>
@@ -129,7 +129,7 @@
                       <!-- Blood Group -->
                       <div class="form-group form-float">
                         <select name="duties" class="form-control show-tick ms select2" data-placeholder="Duties">
-                            <option></option>
+                            <option value="{{ $edit_employee->relationBetweenDuty->id }}">{{ $edit_employee->relationBetweenDuty->name }}</option>
 
                             @foreach($duties as $dutiy)
                               <option value="{{ $dutiy->id }}">{{ $dutiy->name }}</option>
@@ -141,26 +141,26 @@
 
                     <!-- Present Address -->
                     <div class="form-group form-float">
-                        <textarea name="address" cols="30" rows="5" placeholder="Present Address" class="form-control no-resize" required></textarea>
+                        <textarea name="address" cols="30" rows="5" placeholder="Present Address" class="form-control no-resize" required>{{ $edit_employee->address }}</textarea>
                     </div>
 
 
                     <!-- Contact Number -->
                     <div class="form-group form-float">
-                        <input type="number" placeholder="Contact Number.  Ex: 01825731327" class="form-control" name="phone" maxlength="14" minlength="11" required>
+                        <input type="number" value="{{ $edit_employee->phone }}" placeholder="Contact Number.  Ex: 01825731327" class="form-control" name="phone" maxlength="14" minlength="11" required>
                         <div class="help-info">Min. 11, Max. 14 characters</div>
                     </div>
 
                     <!-- fullname -->
                       <div class="form-group form-float">
-                          <input type="number" class="form-control" placeholder="Salary" name="salary" required>
+                          <input type="number" value="{{ $edit_employee->salary }}" class="form-control" placeholder="Salary" name="salary" required>
                       </div>
 
 
                     <div class="card">
                         <div class="body">
                             <p>Employee Photo</p>
-                            <input type="file" name="photo" id="dropify-event" data-default-file="{{asset('assets/images/image-gallery/1.jpg')}}">
+                            <input type="file" name="photo" id="dropify-event" data-default-file="{{ asset('uploads/employee') }}/{{ $edit_employee->photo }}">
                         </div>
                     </div>
 
@@ -170,7 +170,7 @@
                             <label for="checkbox">I have read and accept the terms</label>
                         </div>
                     </div>
-                    
+
                     <button class="btn btn-raised btn-primary waves-effect" type="submit">SUBMIT</button>
                 </form>
             </div>
