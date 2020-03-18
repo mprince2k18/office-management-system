@@ -116,6 +116,21 @@ class ReportController extends Controller
       // END:MONTH
 
       // BEGIN:MONTH
+      $expense_jan   = Requisition::select('cost')->whereBetween('created_at',['2020-01-01 00:00:00','2020-01-31 00:00:00'])->pluck('cost')->sum();
+      $expense_feb   = Requisition::select('cost')->whereBetween('created_at',['2020-02-01 00:00:00','2020-02-31 00:00:00'])->pluck('cost')->sum();
+      $expense_mar   = Requisition::select('cost')->whereBetween('created_at',['2020-03-01 00:00:00','2020-03-31 00:00:00'])->pluck('cost')->sum();
+      $expense_apr   = Requisition::select('cost')->whereBetween('created_at',['2020-04-01 00:00:00','2020-04-31 00:00:00'])->pluck('cost')->sum();
+      $expense_may   = Requisition::select('cost')->whereBetween('created_at',['2020-05-01 00:00:00','2020-05-31 00:00:00'])->pluck('cost')->sum();
+      $expense_june  = Requisition::select('cost')->whereBetween('created_at',['2020-06-01 00:00:00','2020-06-31 00:00:00'])->pluck('cost')->sum();
+      $expense_july  = Requisition::select('cost')->whereBetween('created_at',['2020-07-01 00:00:00','2020-07-31 00:00:00'])->pluck('cost')->sum();
+      $expense_aug   = Requisition::select('cost')->whereBetween('created_at',['2020-08-01 00:00:00','2020-08-31 00:00:00'])->pluck('cost')->sum();
+      $expense_sep   = Requisition::select('cost')->whereBetween('created_at',['2020-09-01 00:00:00','2020-09-31 00:00:00'])->pluck('cost')->sum();
+      $expense_oct   = Requisition::select('cost')->whereBetween('created_at',['2020-10-01 00:00:00','2020-10-31 00:00:00'])->pluck('cost')->sum();
+      $expense_nov   = Requisition::select('cost')->whereBetween('created_at',['2020-11-01 00:00:00','2020-11-31 00:00:00'])->pluck('cost')->sum();
+      $expense_dec   = Requisition::select('cost')->whereBetween('created_at',['2020-12-01 00:00:00','2020-12-31 00:00:00'])->pluck('cost')->sum();
+      // END:MONTH
+
+      // BEGIN:MONTH
       // $payment_jan   = Installment::whereBetween('created_at',['2020-01-01 00:00:00','2020-01-31 00:00:00'])->count();
       // $payment_feb   = Installment::whereBetween('created_at',['2020-02-01 00:00:00','2020-02-31 00:00:00'])->count();
       // $payment_mar   = Installment::whereBetween('created_at',['2020-03-01 00:00:00','2020-03-31 00:00:00'])->count();
@@ -408,7 +423,19 @@ class ReportController extends Controller
       'expense_2nd_week',
       'expense_3rd_week',
       'expense_4th_week',
-      'expense_year'
+      'expense_year',
+      'expense_jan',
+      'expense_feb',
+      'expense_mar',
+      'expense_apr',
+      'expense_may',
+      'expense_june',
+      'expense_july',
+      'expense_aug',
+      'expense_sep',
+      'expense_oct',
+      'expense_nov',
+      'expense_dec'
     ));
 
       // return $requisition_costs;

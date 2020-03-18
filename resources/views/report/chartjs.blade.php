@@ -1748,7 +1748,7 @@ function getChartJs(obj, type) {
                                 pointBackgroundColor: 'white',
                                 borderWidth: 1,
                                 borderColor: '#3866a6',
-                                data: [{{ $enrolls_jan }}, {{ $enrolls_feb }}, {{ $enrolls_mar }}, {{ $enrolls_apr }}, {{ $enrolls_may }}, {{ $enrolls_june }}, {{ $enrolls_july }}]
+                                data: [{{ $expense_jan }}, {{ $expense_feb }}, {{ $expense_mar }}, {{ $expense_apr }}, {{ $expense_may }}, {{ $expense_june }}, {{ $expense_july }}]
                         }]
                     },
                     options: {
