@@ -2,16 +2,26 @@
 <aside id="leftsidebar" class="sidebar">
     <div class="navbar-brand">
         <button class="btn-menu ls-toggle-btn" type="button"><i class="zmdi zmdi-menu"></i></button>
-        <a href="{{route('dashboard.index')}}"><img src="../assets/images/logo.svg" width="25" alt="Aero"><span class="m-l-10">Softtech IT</span></a>
+        <a href="{{route('dashboard.index')}}">
+
+          @foreach ($logos  = App\Logo::where('status',1)->get() as $logo)
+            <img class="logo" src="{{ asset('uploads/logo') }}/{{ $logo->logo }}" width="25" alt="Logo">
+        @endforeach
+
+          <span class="m-l-10">Softtech IT</span></a>
     </div>
     <div class="menu">
         <ul class="list">
             <li>
                 <div class="user-info">
-                    <div class="image"><a href="#"><img src="../assets/images/profile_av.jpg" alt="User"></a></div>
+                    <div class="image"><a href="#">
+
+                        <img class="logo" src="http://127.0.0.1:8000/uploads/logo/9.png" alt="Logo">
+
+                    </a></div>
                     <div class="detail">
-                        <h4>Michael</h4>
-                        <small>Super Admin</small>
+                        <h6>{{ Auth::user()->name }}</h6>
+                        <small>{{ Auth::user()->relationBetweenRole->role_name }}</small>
                     </div>
                 </div>
             </li>
@@ -104,6 +114,13 @@
                 <a href="#App" class="menu-toggle"><i class="zmdi zmdi-apps"></i> <span>Report Area</span></a>
                 <ul class="ml-menu">
                     <li class="{{ Request::segment(2) === 'inbox' ? 'active' : null }}"><a href="{{route('report.index')}}">Report</a></li>
+                </ul>
+            </li>
+
+            <li class="{{ Request::segment(1) === 'app' ? 'active open' : null }}">
+                <a href="#App" class="menu-toggle"><i class="zmdi zmdi-apps"></i> <span>Admin Area</span></a>
+                <ul class="ml-menu">
+                    <li class="{{ Request::segment(2) === 'inbox' ? 'active' : null }}"><a href="{{route('admin.index')}}">User Create</a></li>
                 </ul>
             </li>
 

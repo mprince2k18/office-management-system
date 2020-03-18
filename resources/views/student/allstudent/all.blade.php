@@ -58,9 +58,11 @@
                               <td>{{ $student->email }}</td>
                               <td>{{ $student->phone }}</td>
                               <td>
+
                                 <a href="{{ url('student/edit') }}/{{ $student->id }}" class="btn-sm btn-primary">Edit</a>
                                 <a href="{{ url('student/profile') }}/{{ $student->id }}" class="btn-sm btn-success">View</a>
                                 <a href="#" class="btn-sm btn-danger">Delete</a>
+
                               </td>
                           </tr>
 

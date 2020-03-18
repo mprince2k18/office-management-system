@@ -1,6 +1,7 @@
 <?php
 
 // StudentController
+
 Route::get('student', 'StudentController@index')->name('student.index');
 Route::post('student/create', 'StudentController@create')->name('student.create');
 Route::get('student/all', 'StudentController@all')->name('student.all');
@@ -88,9 +89,17 @@ Route::post('duties/create', 'EmployeeController@duties_create')->name('duties.c
 
 
 
+// AppSettingsController
+Route::get('/application/settings','AppSettingsController@index')->name('app_index');
 
+Route::post('/application/settings/logo/create','AppSettingsController@logo_create')->name('logo.create');
+Route::get('/application/settings/logo/delete/{logo_id}','AppSettingsController@logo_delete')->name('logo.delete');
+Route::get('/application/settings/logo/{logo_id}/change','AppSettingsController@logo_active')->name('logo.active');
 
-
+// AdminController
+Route::get('/admin/user','AdminController@index')->name('admin.index');
+Route::post('/admin/role/create','AdminController@role_create')->name('role.create');
+Route::post('/admin/user/create','AdminController@user_create')->name('user.create');
 
 
 // ActivityController
@@ -101,6 +110,45 @@ Route::get('activity/log/search', 'ActivityController@searchLog')->name('activit
 // ReportController
 Route::get('report', 'ReportController@index')->name('report.index');
 
+
+// Auth
+Route::get('non-verified', 'OpenController@index')->name('outsider.index');
+
+
+// UserProfile
+
+// Route::get('student/profile/{student_id}/{name}', 'StudentProfileController@index')->name('student.profile.index');
+
+
+
+//Todo:there are the user Manager section
+Route::get('user/destroy/{id}','UserController@destroy')->name('users.destroy');
+Route::get('user/create','UserController@create')->name('users.create');
+//Route::get('user/create','UserController@create')->middleware('permissions:user-create');
+Route::post('user/store','UserController@store')->name('users.store');
+Route::get('user/edit/{id}','UserController@edit')->name('users.edit');
+Route::post('user/update','UserController@update')->name('users.update');
+Route::get('user/show/{id}','UserController@show')->name('users.show');
+Route::get('user/index','UserController@index')->name('users.index');
+
+//permission
+Route::get('permission/destroy/{id}','PermissionController@destroy')->name('permissions.destroy');
+Route::get('permission/create','PermissionController@create')->name('permissions.create');
+Route::post('permission/store','PermissionController@store')->name('permissions.store');
+Route::get('permission/edit/{id}','PermissionController@edit')->name('permissions.edit');
+Route::post('permission/update','PermissionController@update')->name('permissions.update');
+Route::get('permission/show/{id}','PermissionController@show')->name('permissions.show');
+Route::get('permission/index','PermissionController@index')->name('permissions.index');
+
+//group
+Route::get('group/destroy/{id}','GroupController@destroy')->name('groups.destroy');
+Route::get('group/create','GroupController@create')->name('groups.create');
+Route::post('group/store','GroupController@store')->name('groups.store');
+Route::get('group/edit/{id}','GroupController@edit')->name('groups.edit');
+Route::post('group/update','GroupController@update')->name('groups.update');
+Route::get('group/show/{id}','GroupController@show')->name('groups.show');
+Route::get('group/index','GroupController@index')->name('groups.index');
+//end
 
 
 /*
@@ -116,7 +164,9 @@ Route::get('report', 'ReportController@index')->name('report.index');
 
 // Route::get('/', function () {return view('welcome');});
 
-Route::get('/', function () { return redirect('dashboard/index'); });
+Route::get('/', function () {
+    return redirect('dashboard/index');
+ });
 
 /* Dashboard */
 Route::get('dashboard', function () { return redirect('dashboard/index'); });

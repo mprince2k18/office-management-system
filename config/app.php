@@ -177,6 +177,10 @@ return [
         Mckenziearts\Notify\LaravelNotifyServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
 
+        Junges\ACL\ACLServiceProvider::class,
+    Junges\ACL\ACLAuthServiceProvider::class,
+    Junges\ACL\ACLEventsServiceProvider::class,
+
     ],
 
     /*
