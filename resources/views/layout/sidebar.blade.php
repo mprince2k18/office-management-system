@@ -201,7 +201,7 @@
 
 
 
-            <li class="{{ Request::segment(1) === 'dashboard' ? 'active open' : null }}"><a href="{{route('dashboard.index')}}"><i class="zmdi zmdi-home"></i><span>Dashboard</span></a></li>
+            <!-- <li class="{{ Request::segment(1) === 'dashboard' ? 'active open' : null }}"><a href="{{route('dashboard.index')}}"><i class="zmdi zmdi-home"></i><span>Dashboard</span></a></li>
             <li class="{{ Request::segment(1) === 'my-profile' ? 'active open' : null }}"><a href="{{route('profile.my-profile')}}"><i class="zmdi zmdi-account"></i><span>My Profile</span></a></li>
             <li class="{{ Request::segment(1) === 'app' ? 'active open' : null }}">
                 <a href="#App" class="menu-toggle"><i class="zmdi zmdi-apps"></i> <span>App</span></a>
@@ -349,7 +349,7 @@
                     <li class="{{ Request::segment(2) === 'yandex' ? 'active' : null }}"><a href="{{route('map.yandex')}}">YandexMap</a></li>
                     <li class="{{ Request::segment(2) === 'jvector' ? 'active' : null }}"><a href="{{route('map.jvector')}}">jVectorMap</a></li>
                 </ul>
-            </li>
+            </li> -->
         </ul>
     </div>
 </aside>
