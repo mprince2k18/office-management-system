@@ -2,28 +2,46 @@
 
 // StudentController
 
-Route::get('student', 'StudentController@index')->name('student.index');
-Route::post('student/create', 'StudentController@create')->name('student.create');
-Route::get('student/all', 'StudentController@all')->name('student.all');
-Route::get('student/profile/{student_id}', 'StudentController@profile')->name('student.profile');
-Route::get('student/edit/{student_id}', 'StudentController@edit')->name('student.edit');
-Route::post('student/update/{student_id}', 'StudentController@update')->name('student.update');
+Route::get('student', 'StudentController@index')->name('student.index')
+->middleware('permissions:student-create');
+Route::post('student/create', 'StudentController@create')->name('student.create')
+->middleware('permissions:student-create');
+Route::get('student/all', 'StudentController@all')->name('student.all')
+->middleware('permissions:student-all');
+Route::get('student/profile/{student_id}', 'StudentController@profile')->name('student.profile')
+->middleware('permissions:student-profile');
+Route::get('student/edit/{student_id}', 'StudentController@edit')->name('student.edit')
+->middleware('permissions:student-edit');
+Route::post('student/update/{student_id}', 'StudentController@update')->name('student.update')
+->middleware('permissions:student-update');
 
 // TeacherController
-Route::get('teacher', 'TeacherController@index')->name('teacher.index');
-Route::post('teacher/create', 'TeacherController@create')->name('teacher.create');
-Route::get('teacher/all', 'TeacherController@all')->name('teacher.all');
-Route::get('teacher/profile/{teacher_id}', 'TeacherController@profile')->name('teacher.profile');
-Route::get('teacher/edit/{teacher_id}', 'TeacherController@edit')->name('teacher.edit');
-Route::post('teacher/update/{teacher_id}', 'TeacherController@update')->name('teacher.update');
+Route::get('teacher', 'TeacherController@index')->name('teacher.index')
+->middleware('permissions:teacher-index');
+Route::post('teacher/create', 'TeacherController@create')->name('teacher.create')
+->middleware('permissions:teacher-create');
+Route::get('teacher/all', 'TeacherController@all')->name('teacher.all')
+->middleware('permissions:teacher-all');
+Route::get('teacher/profile/{teacher_id}', 'TeacherController@profile')->name('teacher.profile')
+->middleware('permissions:teacher-profile');
+Route::get('teacher/edit/{teacher_id}', 'TeacherController@edit')->name('teacher.edit')
+->middleware('permissions:teacher-edit');
+Route::post('teacher/update/{teacher_id}', 'TeacherController@update')->name('teacher.update')
+->middleware('permissions:teacher-update');
 
 // CourseController
-Route::get('course', 'CourseController@index')->name('course.index');
-Route::post('course/create', 'CourseController@create')->name('course.create');
-Route::get('course/all', 'CourseController@all')->name('course.all');
-Route::get('course/profile/{course_id}', 'CourseController@profile')->name('course.profile');
-Route::get('course/edit/{course_id}', 'CourseController@edit')->name('course.edit');
-Route::post('course/update/{course_id}', 'CourseController@update')->name('course.update');
+Route::get('course', 'CourseController@index')->name('course.index')
+->middleware('permissions:course-index');
+Route::post('course/create', 'CourseController@create')->name('course.create')
+->middleware('permissions:course-create');
+Route::get('course/all', 'CourseController@all')->name('course.all')
+->middleware('permissions:course-all');
+Route::get('course/profile/{course_id}', 'CourseController@profile')->name('course.profile')
+->middleware('permissions:course-profile');
+Route::get('course/edit/{course_id}', 'CourseController@edit')->name('course.edit')
+->middleware('permissions:course-edit');
+Route::post('course/update/{course_id}', 'CourseController@update')->name('course.update')
+->middleware('permissions:course-update');
 
 // CourseController
 Route::get('batch', 'BatchController@index')->name('batch.index');

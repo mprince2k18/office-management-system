@@ -1,5 +1,5 @@
 @extends('layout.master')
-{{ error_reporting(0) }}
+
 @section('content')
 <!-- Content Header (Page header) -->
 
@@ -14,7 +14,7 @@
             <div class="kt-portlet__head-wrapper">
                 <div class="kt-portlet__head-actions">
 
-                    <a href="{{ route("users.create") }}" class="btn btn-brand btn-elevate btn-icon-sm">
+                    <a href="{{ route('users.create') }}" class="btn btn-brand btn-elevate btn-icon-sm">
                         <i class="la la-plus"></i>
                        Add New User
                     </a>

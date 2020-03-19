@@ -8,6 +8,7 @@ use App\Group;
 use App\Http\Controllers\Controller;
 use App\User;
 use App\UserHasGroup;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -98,6 +99,7 @@ class UserController extends Controller
                 $gpc = new UserHasGroup();
                 $gpc->group_id = $id;
                 $gpc->user_id = $request->id;
+                $gpc->updated_at = Carbon::now();
                 $gpc->save();
             }
 

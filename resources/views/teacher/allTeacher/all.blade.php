@@ -58,9 +58,15 @@
                               <td>{{ $teacher->email }}</td>
                               <td>{{ $teacher->phone }}</td>
                               <td>
+                                @anypermission('admin')
                                 <a href="{{ url('teacher/edit') }}/{{ $teacher->id }}" class="btn-sm btn-primary">Edit</a>
+                                @endanypermission
+                                @anypermission('admin','desk-admin')
                                 <a href="{{ url('teacher/profile') }}/{{ $teacher->id }}" class="btn-sm btn-success">View</a>
+                                @endanypermission
+                                @anypermission('admin')
                                 <a href="#" class="btn-sm btn-danger">Delete</a>
+                                @endanypermission
                               </td>
                           </tr>
 

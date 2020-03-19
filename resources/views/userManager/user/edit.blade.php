@@ -1,78 +1,110 @@
+
 @extends('layout.master')
+@section('title', 'Group Create')
+@section('parentPageTitle', 'Admin Area')
+
+@section('page-style')
+<link rel="stylesheet" href="{{asset('assets/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css')}}"/>
+<link rel="stylesheet" href="{{asset('assets/plugins/bootstrap-select/css/bootstrap-select.css')}}"/>
+
+<link rel="stylesheet" href="{{asset('assets/plugins/dropify/css/dropify.min.css')}}"/>
+<link rel="stylesheet" href="{{asset('assets/plugins/morrisjs/morris.css')}}"/>
+<link rel="stylesheet" href="{{asset('assets/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css')}}"/>
+<link rel="stylesheet" href="{{asset('assets/plugins/multi-select/css/multi-select.css')}}"/>
+<link rel="stylesheet" href="{{asset('assets/plugins/jquery-spinner/css/bootstrap-spinner.css')}}"/>
+<link rel="stylesheet" href="{{asset('assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css')}}"/>
+<link rel="stylesheet" href="{{asset('assets/plugins/bootstrap-select/css/bootstrap-select.css')}}"/>
+<link rel="stylesheet" href="{{asset('assets/plugins/nouislider/nouislider.min.css')}}"/>
+<link rel="stylesheet" href="{{asset('assets/plugins/select2/select2.css')}}"/>
+
+@stop
+
+
 @section('content')
-<!-- Content Header (Page header) -->
-<div class="kt-portlet kt-portlet--mobile">
-    <div class="kt-portlet__head kt-portlet__head--lg">
-        <div class="kt-portlet__head-label">
-            <h3 class="kt-portlet__head-title">
-                User Update
-            </h3>
-        </div>
-        <div class="kt-portlet__head-toolbar">
-            <div class="kt-portlet__head-wrapper">
-                <!--We Can Add There button -->
-                <a href="{{ route("users.index") }}" class="btn btn-brand btn-elevate btn-icon-sm">
-                    <i class="la la-list"></i>
-                    Show All User
-                </a>
-            </div>
-        </div>
-    </div>
+    <!-- Content Header (Page header) -->
 
-    <div class="kt-portlet__body">
-        <form action="{{route('users.update')}}" method="post" enctype="multipart/form-data">
-            @csrf
-            <input type="hidden" name="id" value="{{$user->id}}" />
-            <div class="">
-                <div class="form-group row">
-                    <label for="name" class="col-md-4 col-form-label text-md-right">Name</label>
 
-                    <div class="col-md-6">
-                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $user->name}}" required autocomplete="name" autofocus>
+    <a href="{{ route('users.index') }}" class="btn btn-brand btn-elevate btn-icon-sm">
+        <i class="la la-list"></i>
+        Show All Users
+    </a>
 
-                        @error('name')
-                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                        @enderror
-                    </div>
+    <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="card">
+                <div class="header">
+                    <h2><strong>Group</strong> Information</h2>
+                    <ul class="header-dropdown">
+                        <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li><a href="javascript:void(0);">Action</a></li>
+                                <li><a href="javascript:void(0);">Another action</a></li>
+                                <li><a href="javascript:void(0);">Something else</a></li>
+                            </ul>
+                        </li>
+                        <li class="remove">
+                            <a role="button" class="boxs-close"><i class="zmdi zmdi-close"></i></a>
+                        </li>
+                    </ul>
                 </div>
+                <div class="body">
+                    <form id="form_validation" method="POST" action="{{ route('users.update') }}" enctype="multipart/form-data">
+                      @csrf
+                      <input type="hidden" name="id" value="{{$user->id}}" />
+                      <!-- fullname -->
+                        <div class="form-group form-float">
+                            <input type="text" class="form-control" placeholder="Name" value="{{ $user->name}}"  name="name" required>
+                        </div>
 
-                <div class="form-group row">
-                    <label for="email" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
 
-                    <div class="col-md-6">
-                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $user->email}}" required autocomplete="email">
+                      <!-- fullname -->
+                        <div class="form-group form-float">
+                            <input type="email" class="form-control" placeholder="Email" value="{{ $user->email}}"  name="email" required>
+                        </div>
 
-                        @error('email')
-                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                        @enderror
-                    </div>
-                </div>
-          
-                <div class="form-group row">
-                    <label class="col-md-4 col-form-label text-md-right">Select Groups </label>
-                    <div class="col-md-6">
-                        <select class="form-control kt-select2" id="kt_select2_3" style="width: 100%;" name="group_id[]"  multiple required>
-                            @foreach($groupss as $item)
-                                <option value="{{$item->id}}"
-                                @foreach($user->groups as $item1)
-                                    {{$item1->id == $item->id ? 'selected' : null}}
-                                    @endforeach
-                                >{{$item->name}}</option>
-                            @endforeach
+                        <select id="max-select" class="form-control show-tick ms" multiple name="group_id[]">
+                            <option></option>
+                            <optgroup label="Condiments" data-max-options="2">
+                              @foreach($groupss as $item)
+                              <option value="{{ $item->id }}">
+                                {{ $item->name }}
+                              </option>
+                              @endforeach
+                            </optgroup>
                         </select>
-                    </div>
+
+
+                        <div class="form-group">
+                            <div class="checkbox">
+                                <input id="checkbox" type="checkbox">
+                                <label for="checkbox">I have read and accept the terms</label>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-raised btn-primary waves-effect" type="submit">SUBMIT</button>
+                    </form>
                 </div>
             </div>
-            <div class="float-right">
-                <button class="btn btn-primary m-2" type="submit">Update</button>
-            </div>
-
-        </form>
+        </div>
     </div>
-</div>
 
-@endsection
+    @stop
+    @section('page-script')
+    <script src="{{asset('assets/plugins/jquery-validation/jquery.validate.js')}}"></script>
+    <script src="{{asset('assets/plugins/jquery-steps/jquery.steps.js')}}"></script>
+    <script src="{{asset('assets/js/pages/forms/form-validation.js')}}"></script>
+
+    <script src="{{asset('assets/plugins/dropify/js/dropify.min.js')}}"></script>
+    <script src="{{asset('assets/js/pages/forms/dropify.js')}}"></script>
+    <script src="{{asset('assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js')}}"></script>
+    <script src="{{asset('assets/plugins/jquery-inputmask/jquery.inputmask.bundle.js')}}"></script>
+    <script src="{{asset('assets/plugins/multi-select/js/jquery.multi-select.js')}}"></script>
+    <script src="{{asset('assets/plugins/jquery-spinner/js/jquery.spinner.js')}}"></script>
+    <script src="{{asset('assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput.js')}}"></script>
+    <script src="{{asset('assets/plugins/nouislider/nouislider.js')}}"></script>
+    <script src="{{asset('assets/plugins/select2/select2.min.js')}}"></script>
+    <script src="{{asset('assets/js/pages/forms/advanced-form-elements.js')}}"></script>
+    <script type="text/javascript">
+
+
+    @stop

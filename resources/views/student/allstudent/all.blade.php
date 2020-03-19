@@ -59,13 +59,15 @@
                               <td>{{ $student->phone }}</td>
                               <td>
 
+                                @anypermission('admin')
                                 <a href="{{ url('student/edit') }}/{{ $student->id }}" class="btn-sm btn-primary">Edit</a>
-                                @can('view')
+                                @endanypermission
+                                @anypermission('admin','student-view')
                                 <a href="{{ url('student/profile') }}/{{ $student->id }}" class="btn-sm btn-success">View</a>
-                                @endcan
-
+                                @endanypermission
+                                @anypermission('admin')
                                 <a href="#" class="btn-sm btn-danger">Delete</a>
-
+                                @endanypermission
                               </td>
                           </tr>
 

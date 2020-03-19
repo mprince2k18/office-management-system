@@ -16,6 +16,12 @@
 <link rel="stylesheet" href="{{asset('assets/plugins/nouislider/nouislider.min.css')}}"/>
 <link rel="stylesheet" href="{{asset('assets/plugins/select2/select2.css')}}"/>
 
+<style media="screen">
+    .mySelect{
+      width: 100% !important;
+    }
+</style>
+
 @stop
 
 
@@ -55,13 +61,23 @@
                         </div>
 
 
-                        <select id="max-select" class="form-control show-tick ms" multiple name="teacher[]">
+                        <!-- <select id="max-select" class="form-control show-tick ms" multiple name="permission_id[]">
                             <option></option>
                             <optgroup label="Condiments" data-max-options="2">
                               @foreach($permissions as $item)
                               <option value="{{ $item->id }}">{{ $item->name }}</option>
                               @endforeach
                             </optgroup>
+                        </select> -->
+
+
+                        <select class="mySelect for" multiple="multiple" name="permission_id[]">
+                          <option></option>
+                          <optgroup label="Condiments" data-max-options="5">
+                            @foreach($permissions as $item)
+                            <option value="{{ $item->id }}">{{ $item->name }}</option>
+                            @endforeach
+                          </optgroup>
                         </select>
 
 
@@ -96,6 +112,13 @@
     <script src="{{asset('assets/plugins/select2/select2.min.js')}}"></script>
     <script src="{{asset('assets/js/pages/forms/advanced-form-elements.js')}}"></script>
     <script type="text/javascript">
-
+      var placeholder = "select";
+      $(".mySelect").select2({
+        data: data,
+        placeholder: placeholder,
+        allowClear: false,
+        minimumResultsForSearch: 5
+      });
+    </script>
 
     @stop

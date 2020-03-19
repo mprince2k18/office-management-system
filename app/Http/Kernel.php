@@ -63,6 +63,12 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'outsiders' =>  \App\Http\Middleware\Outsiders::class,
         'check.role' =>  \App\Http\Middleware\CheckRole::class,
+
+        //permission
+        'permissions' => \Junges\ACL\Middlewares\PermissionMiddleware::class,
+        'groups' => \Junges\ACL\Middlewares\GroupMiddleware::class,
+        'permissionOrGroup' => \Junges\ACL\Middlewares\PermissionOrGroupMiddleware::class,
+        'hierarchical_permissions' => \Junges\ACL\Middlewares\HierarchicalPermissionsMiddleware::class
     ];
 
     /**

@@ -1,5 +1,27 @@
 @extends('layout.master')
+@section('title', 'Group Create')
+@section('parentPageTitle', 'Admin Area')
+
+@section('page-style')
+<link rel="stylesheet" href="{{asset('assets/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css')}}"/>
+<link rel="stylesheet" href="{{asset('assets/plugins/bootstrap-select/css/bootstrap-select.css')}}"/>
+
+<link rel="stylesheet" href="{{asset('assets/plugins/dropify/css/dropify.min.css')}}"/>
+<link rel="stylesheet" href="{{asset('assets/plugins/morrisjs/morris.css')}}"/>
+<link rel="stylesheet" href="{{asset('assets/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css')}}"/>
+<link rel="stylesheet" href="{{asset('assets/plugins/multi-select/css/multi-select.css')}}"/>
+<link rel="stylesheet" href="{{asset('assets/plugins/jquery-spinner/css/bootstrap-spinner.css')}}"/>
+<link rel="stylesheet" href="{{asset('assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css')}}"/>
+<link rel="stylesheet" href="{{asset('assets/plugins/bootstrap-select/css/bootstrap-select.css')}}"/>
+<link rel="stylesheet" href="{{asset('assets/plugins/nouislider/nouislider.min.css')}}"/>
+<link rel="stylesheet" href="{{asset('assets/plugins/select2/select2.css')}}"/>
+
+@stop
+
+
 @section('content')
+    <!-- Content Header (Page header) -->
+
     <!-- Content Header (Page header) -->
 
     <div class="kt-portlet kt-portlet--mobile">
@@ -80,4 +102,24 @@
 
     </div>
 
-@endsection
+
+    @stop
+    @section('page-script')
+    <script src="{{asset('assets/plugins/jquery-validation/jquery.validate.js')}}"></script>
+    <script src="{{asset('assets/plugins/jquery-steps/jquery.steps.js')}}"></script>
+    <script src="{{asset('assets/js/pages/forms/form-validation.js')}}"></script>
+
+    <script src="{{asset('assets/plugins/dropify/js/dropify.min.js')}}"></script>
+    <script src="{{asset('assets/js/pages/forms/dropify.js')}}"></script>
+    <script src="{{asset('assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js')}}"></script>
+    <script src="{{asset('assets/plugins/jquery-inputmask/jquery.inputmask.bundle.js')}}"></script>
+    <script src="{{asset('assets/plugins/multi-select/js/jquery.multi-select.js')}}"></script>
+    <script src="{{asset('assets/plugins/jquery-spinner/js/jquery.spinner.js')}}"></script>
+    <script src="{{asset('assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput.js')}}"></script>
+    <script src="{{asset('assets/plugins/nouislider/nouislider.js')}}"></script>
+    <script src="{{asset('assets/plugins/select2/select2.min.js')}}"></script>
+    <script src="{{asset('assets/js/pages/forms/advanced-form-elements.js')}}"></script>
+    <script type="text/javascript">
+
+
+    @stop

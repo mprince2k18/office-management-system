@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Student;
 use App\ApiData;
 use Carbon\Carbon;
+use Auth;
 use File;
 use Image;
 
@@ -23,6 +24,7 @@ class StudentController extends Controller
     // index
     function index()
     {
+      // return Auth::user();
       return view('student.newstudent.index');
     }
     // create
