@@ -60,7 +60,10 @@
                               <td>
 
                                 <a href="{{ url('student/edit') }}/{{ $student->id }}" class="btn-sm btn-primary">Edit</a>
+                                @can('view')
                                 <a href="{{ url('student/profile') }}/{{ $student->id }}" class="btn-sm btn-success">View</a>
+                                @endcan
+
                                 <a href="#" class="btn-sm btn-danger">Delete</a>
 
                               </td>

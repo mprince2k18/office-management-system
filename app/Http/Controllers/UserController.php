@@ -83,14 +83,13 @@ class UserController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255'],
-            'phone' => ['required', 'string', 'min:8'],
-            'id' => 'required',
+
         ]);
         try {
             $user = User::where('id', $request->id)->update([
                 'name' => $request->name,
                 'email' =>$request->email,
-                'phone' =>$request->phone,
+
             ]);
             //delete old data form group_has_permission table
             UserHasGroup::where('user_id',$request->id)->delete();

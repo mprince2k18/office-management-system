@@ -1,4 +1,4 @@
-@extends('admin.master')
+@extends('layout.master')
 @section('content')
 <!-- Content Header (Page header) -->
 <div class="kt-portlet kt-portlet--mobile">
@@ -51,19 +51,7 @@
                         @enderror
                     </div>
                 </div>
-                <div class="form-group row">
-                    <label for="phone" class="col-md-4 col-form-label text-md-right">Phone</label>
-
-                    <div class="col-md-6">
-                        <input id="phone" type="email" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{  $user->phone }}" required autocomplete="phone">
-
-                        @error('phone')
-                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                        @enderror
-                    </div>
-                </div>
+          
                 <div class="form-group row">
                     <label class="col-md-4 col-form-label text-md-right">Select Groups </label>
                     <div class="col-md-6">

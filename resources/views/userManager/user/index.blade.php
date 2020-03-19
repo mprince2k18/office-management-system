@@ -1,4 +1,4 @@
-@extends('admin.master')
+@extends('layout.master')
 {{ error_reporting(0) }}
 @section('content')
 <!-- Content Header (Page header) -->
