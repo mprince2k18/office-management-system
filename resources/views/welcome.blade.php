@@ -92,6 +92,11 @@
                    <p class="demo">password : 12345678</p>
 
 
+                   <div class="links">
+                  <a href="{{ route('report.index') }}">Dashboard</a>
+              </div>
+
+
             </div>
         </div>
     </body>
