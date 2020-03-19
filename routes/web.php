@@ -157,8 +157,7 @@ Route::post('/admin/user/create','AdminController@user_create')->name('user.crea
 
 
 // ActivityController
-Route::get('activity/log', 'ActivityController@index')->name('activity.index')
-->middleware('permissions:activity-index');
+Route::get('activity/log', 'ActivityController@index')->name('activity.index');
 Route::get('activity/log/search', 'ActivityController@searchLog')->name('activity.search')
 ->middleware('permissions:activity-search');
 

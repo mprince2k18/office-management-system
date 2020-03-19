@@ -10,6 +10,7 @@ use App\Course;
 use App\ApiData;
 use Carbon\Carbon;
 use Image;
+use Auth;
 
 class VisitorController extends Controller
 {
@@ -32,6 +33,7 @@ class VisitorController extends Controller
   function create(Request $request)
   {
 
+      $auth = Auth::user()->name;
 
       $last_inserted_id = Visitor::insertGetId([
         'name'=>$request->name,
@@ -50,7 +52,7 @@ class VisitorController extends Controller
       ]);
 
 
-    activity()->withProperties(['name' => $request->name])->log('New Visitor named');
+    activity()->withProperties(['name' => $request->name])->log($auth . ' ' . 'Added a new visitor named '. $request->name);
     notify()->success($request->batch_no . ' ' . 'Created Successfully');
     return back();
   }

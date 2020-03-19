@@ -156,11 +156,11 @@
                   </div>
                   <h5>
                     <span>{{ $activity->description }}</span>
-                    <a href="javascript:void(0);">
+                    <!-- <a href="javascript:void(0);">
                       @foreach ($activity->properties as  $value)
                           {{ $value }}
                       @endforeach
-                    </a>
+                    </a> -->
                   </h5>
               </div>
           </li>
