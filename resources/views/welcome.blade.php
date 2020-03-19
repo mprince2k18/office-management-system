@@ -61,6 +61,10 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            .demo{
+            font-size: 20px;
+          }
         </style>
     </head>
     <body>
@@ -81,19 +85,13 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    SOFTTECH IT
                 </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+                <p class="demo">email : mprince2k16@gmail.com</p>
+                   <p class="demo">password : 12345678</p>
+
+
             </div>
         </div>
     </body>
