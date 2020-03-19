@@ -8,7 +8,7 @@
                 <li class="body">
                     <ul class="menu app_sortcut list-unstyled">
                         <li>
-                            <a href="{{route('pages.gallery')}}">
+                            <a href="#">
                                 <div class="icon-circle mb-2 bg-blue"><i class="zmdi zmdi-camera"></i></div>
                                 <p class="mb-0">Photos</p>
                             </a>
@@ -20,13 +20,13 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{route('app.calendar')}}">
+                            <a href="#">
                                 <div class="icon-circle mb-2 bg-green"><i class="zmdi zmdi-calendar"></i></div>
                                 <p class="mb-0">Calendar</p>
                             </a>
                         </li>
                         <li>
-                            <a href="{{route('app.contact-list')}}">
+                            <a href="#">
                                 <div class="icon-circle mb-2 bg-purple"><i class="zmdi zmdi-account-calendar"></i></div>
                                 <p class="mb-0">Contacts</p>
                             </a>
@@ -138,7 +138,7 @@
                                     <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="86" aria-valuemin="0" aria-valuemax="100" style="width: 86%;">
                                         <span class="progress-value">86%</span>
                                     </div>
-                                </div>                        
+                                </div>
                                 <ul class="list-unstyled team-info">
                                     <li class="m-r-15"><small>Team</small></li>
                                     <li>
@@ -149,7 +149,7 @@
                                     </li>
                                     <li>
                                         <img src="../assets/images/xs/avatar4.jpg" alt="Avatar">
-                                    </li>                            
+                                    </li>
                                 </ul>
                             </div>
                         </li>
@@ -199,7 +199,7 @@
                                     </li>
                                     <li>
                                         <img src="../assets/images/xs/avatar7.jpg" alt="Avatar">
-                                    </li>                            
+                                    </li>
                                 </ul>
                             </div>
                         </li>
