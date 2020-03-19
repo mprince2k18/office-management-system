@@ -60,9 +60,19 @@
                               <td>{{ $employee->relationBetweenDesignation->name }}</td>
                               <td>{{ $employee->relationBetweenDuty->name }}</td>
                               <td>
+
+                                @anypermission('admin')
                                 <a href="{{ url('employee/edit') }}/{{ $employee->id }}" class="btn-sm btn-primary">Edit</a>
+                                @endanypermission
+
+                                @anypermission('desk-admin','admin')
                                 <a href="{{ url('employee/profile') }}/{{ $employee->id }}" class="btn-sm btn-success">View</a>
+                                @endanypermission
+
+                                @anypermission('admin')
                                 <a href="#" class="btn-sm btn-danger">Delete</a>
+                                @endanypermission
+
                               </td>
                           </tr>
 

@@ -44,66 +44,99 @@ Route::post('course/update/{course_id}', 'CourseController@update')->name('cours
 ->middleware('permissions:course-update');
 
 // CourseController
-Route::get('batch', 'BatchController@index')->name('batch.index');
-Route::post('batch/create', 'BatchController@create')->name('batch.create');
-Route::get('batch/all', 'BatchController@all')->name('batch.all');
-// Route::get('batch/profile/{course_id}', 'BatchController@profile')->name('batch.profile');
-// Route::get('batch/edit/{course_id}', 'BatchController@edit')->name('batch.edit');
-// Route::post('batch/update/{course_id}', 'BatchController@update')->name('batch.update');
+Route::get('batch', 'BatchController@index')->name('batch.index')
+->middleware('permissions:batch-index');
+Route::post('batch/create', 'BatchController@create')->name('batch.create')
+->middleware('permissions:batch-create');
+Route::get('batch/all', 'BatchController@all')->name('batch.all')
+->middleware('permissions:batch-all');
+// Route::get('batch/profile/{course_id}', 'BatchController@profile')->name('batch.profile')->middleware('permissions:batch-profile');
+// Route::get('batch/edit/{course_id}', 'BatchController@edit')->name('batch.edit')->middleware('permissions:batch-edit');
+// Route::post('batch/update/{course_id}', 'BatchController@update')->name('batch.update')->middleware('permissions:batch-update');
 
 // VisitorController
-Route::get('visitor', 'VisitorController@index')->name('visitor.index');
-Route::post('visitor/create', 'VisitorController@create')->name('visitor.create');
-Route::get('visitor/all', 'VisitorController@all')->name('visitor.all');
-Route::get('batch/profile/{batch_id}', 'BatchController@profile')->name('batch.profile');
-// Route::get('batch/edit/{course_id}', 'BatchController@edit')->name('batch.edit');
-// Route::post('batch/update/{course_id}', 'BatchController@update')->name('batch.update');
+Route::get('visitor', 'VisitorController@index')->name('visitor.index')
+->middleware('permissions:visitor-index');
+Route::post('visitor/create', 'VisitorController@create')->name('visitor.create')
+->middleware('permissions:visitor-create');
+Route::get('visitor/all', 'VisitorController@all')->name('visitor.all')
+->middleware('permissions:visitor-all');
+Route::get('batch/profile/{batch_id}', 'BatchController@profile')->name('batch.profile')
+->middleware('permissions:batch-profile');
+// Route::get('batch/edit/{course_id}', 'BatchController@edit')->name('batch.edit')->middleware('permissions:visitor-edit');
+// Route::post('batch/update/{course_id}', 'BatchController@update')->name('batch.update')->middleware('permissions:visitor-update');
 
 // SeminarController
-Route::get('seminar', 'SeminarController@index')->name('seminar.index');
-Route::post('seminar/create', 'SeminarController@create')->name('seminar.create');
-Route::get('seminar/all', 'SeminarController@all')->name('seminar.all');
-Route::get('seminar/profile/{batch_id}', 'SeminarController@profile')->name('seminar.profile');
-// Route::get('batch/edit/{course_id}', 'BatchController@edit')->name('batch.edit');
-// Route::post('batch/update/{course_id}', 'BatchController@update')->name('batch.update');
+Route::get('seminar', 'SeminarController@index')->name('seminar.index')
+->middleware('permissions:seminar-index');
+Route::post('seminar/create', 'SeminarController@create')->name('seminar.create')
+->middleware('permissions:seminar-create');
+Route::get('seminar/all', 'SeminarController@all')->name('seminar.all')
+->middleware('permissions:seminar-all');
+Route::get('seminar/profile/{batch_id}', 'SeminarController@profile')->name('seminar.profile')
+->middleware('permissions:seminar-profile');
+// Route::get('batch/edit/{course_id}', 'BatchController@edit')->name('batch.edit')->middleware('permissions:seminar-edit');
+// Route::post('batch/update/{course_id}', 'BatchController@update')->name('batch.update')->middleware('permissions:seminar-edit');
 
 
 
 // VisitorController
-Route::get('enrollment', 'EnrollController@index')->name('enroll.index');
-Route::post('enroll/create', 'EnrollController@create')->name('enroll.create');
-Route::get('enroll/all', 'EnrollController@all')->name('enroll.all');
-Route::post('get/course/fee', 'EnrollController@courseFee')->name('courseFee');
-Route::get('enroll/profile/{enroll_id}', 'EnrollController@profile')->name('enroll.profile');
-Route::get('enroll/edit/{enroll_id}', 'EnrollController@edit')->name('enroll.edit');
-Route::post('enroll/update/{enroll_id}', 'EnrollController@update')->name('enroll.update');
+Route::get('enrollment', 'EnrollController@index')->name('enroll.index')
+->middleware('permissions:enroll-index');
+Route::post('enroll/create', 'EnrollController@create')->name('enroll.create')
+->middleware('permissions:enroll-create');
+Route::get('enroll/all', 'EnrollController@all')->name('enroll.all')
+->middleware('permissions:enroll-all');
+Route::post('get/course/fee', 'EnrollController@courseFee')->name('courseFee')
+->middleware('permissions:enroll-coursefee');
+Route::get('enroll/profile/{enroll_id}', 'EnrollController@profile')->name('enroll.profile')
+->middleware('permissions:enroll-profile');
+Route::get('enroll/edit/{enroll_id}', 'EnrollController@edit')->name('enroll.edit')
+->middleware('permissions:enroll-edit');
+Route::post('enroll/update/{enroll_id}', 'EnrollController@update')->name('enroll.update')
+->middleware('permissions:enroll-update');
 
 
 
 // EmployeeController
-Route::get('employee', 'EmployeeController@index')->name('employee.index');
-Route::post('employee/create', 'EmployeeController@create')->name('employee.create');
-Route::get('employee/all', 'EmployeeController@all')->name('employee.all');
-Route::get('employee/profile/{employee_id}', 'EmployeeController@profile')->name('employee.profile');
-Route::get('employee/edit/{employee_id}', 'EmployeeController@edit')->name('employee.edit');
-Route::post('employee/update/{employee_id}', 'EmployeeController@update')->name('employee.update');
+Route::get('employee', 'EmployeeController@index')->name('employee.index')
+->middleware('permissions:employee-index');
+Route::post('employee/create', 'EmployeeController@create')->name('employee.create')
+->middleware('permissions:employee-create');
+Route::get('employee/all', 'EmployeeController@all')->name('employee.all')
+->middleware('permissions:employee-all');
+Route::get('employee/profile/{employee_id}', 'EmployeeController@profile')->name('employee.profile')
+->middleware('permissions:employee-profile');
+Route::get('employee/edit/{employee_id}', 'EmployeeController@edit')->name('employee.edit')
+->middleware('permissions:employee-edit');
+Route::post('employee/update/{employee_id}', 'EmployeeController@update')->name('employee.update')
+->middleware('permissions:employee-update');
 
 
 // RequisitionController
-Route::get('requisition', 'RequisitionController@index')->name('requisition.index');
-Route::post('requisition/create', 'RequisitionController@create')->name('requisition.create');
-Route::get('requisition/all', 'RequisitionController@all')->name('requisition.all');
-Route::get('requisition/profile/{requisition_id}', 'RequisitionController@profile')->name('requisition.profile');
-Route::get('requisition/edit/{requisition_id}', 'RequisitionController@edit')->name('requisition.edit');
-Route::post('requisition/update/{requisition_id}', 'RequisitionController@update')->name('requisition.update');
-Route::get('requisition/download/{requisition_id}', 'RequisitionController@download')->name('download.photo');
+Route::get('requisition', 'RequisitionController@index')->name('requisition.index')
+->middleware('permissions:requisition-index');
+Route::post('requisition/create', 'RequisitionController@create')->name('requisition.create')
+->middleware('permissions:requisition-create');
+Route::get('requisition/all', 'RequisitionController@all')->name('requisition.all')
+->middleware('permissions:requisition-all');
+Route::get('requisition/profile/{requisition_id}', 'RequisitionController@profile')->name('requisition.profile')
+->middleware('permissions:requisition-profile');
+Route::get('requisition/edit/{requisition_id}', 'RequisitionController@edit')->name('requisition.edit')
+->middleware('permissions:requisition-edit');
+Route::post('requisition/update/{requisition_id}', 'RequisitionController@update')->name('requisition.update')
+->middleware('permissions:requisition-update');
+Route::get('requisition/download/{requisition_id}', 'RequisitionController@download')->name('download.photo')
+->middleware('permissions:requisition-photo');
 
 
 
 //Designation
-Route::post('designation/create', 'EmployeeController@designation_create')->name('designation.create');
+Route::post('designation/create', 'EmployeeController@designation_create')->name('designation.create')
+->middleware('permissions:designation-create');
 //Duties
-Route::post('duties/create', 'EmployeeController@duties_create')->name('duties.create');
+Route::post('duties/create', 'EmployeeController@duties_create')->name('duties.create')
+->middleware('permissions:duties-create');
 
 
 
@@ -115,18 +148,24 @@ Route::get('/application/settings/logo/delete/{logo_id}','AppSettingsController@
 Route::get('/application/settings/logo/{logo_id}/change','AppSettingsController@logo_active')->name('logo.active');
 
 // AdminController
-Route::get('/admin/user','AdminController@index')->name('admin.index');
-Route::post('/admin/role/create','AdminController@role_create')->name('role.create');
-Route::post('/admin/user/create','AdminController@user_create')->name('user.create');
+Route::get('/admin/user','AdminController@index')->name('admin.index')
+->middleware('permissions:admin-index');
+Route::post('/admin/role/create','AdminController@role_create')->name('role.create')
+->middleware('permissions:role-create');
+Route::post('/admin/user/create','AdminController@user_create')->name('user.create')
+->middleware('permissions:user-create');
 
 
 // ActivityController
-Route::get('activity/log', 'ActivityController@index')->name('activity.index');
-Route::get('activity/log/search', 'ActivityController@searchLog')->name('activity.search');
+Route::get('activity/log', 'ActivityController@index')->name('activity.index')
+->middleware('permissions:activity-index');
+Route::get('activity/log/search', 'ActivityController@searchLog')->name('activity.search')
+->middleware('permissions:activity-search');
 
 
 // ReportController
-Route::get('report', 'ReportController@index')->name('report.index');
+Route::get('report', 'ReportController@index')->name('report.index')
+->middleware('permissions:report-index');
 
 
 // Auth
