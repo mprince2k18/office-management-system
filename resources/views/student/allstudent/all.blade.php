@@ -66,7 +66,7 @@
                                 <a href="{{ url('student/profile') }}/{{ $student->id }}" class="btn-sm btn-success">View</a>
                                 @endanypermission
                                 @anypermission('admin')
-                                <a href="#" class="btn-sm btn-danger">Delete</a>
+                                <a href="{{ url('student/delete') }}/{{ $student->id }}" class="btn-sm btn-danger">Delete</a>
                                 @endanypermission
                               </td>
                           </tr>

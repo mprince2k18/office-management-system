@@ -14,11 +14,13 @@ class StudentController extends Controller
 {
 
 
+
   public function __construct()
   {
       $this->middleware('auth');
       $this->middleware('outsiders');
   }
+
 
 
     // index
@@ -85,7 +87,10 @@ class StudentController extends Controller
              'phone'=>$request->phone,
            ]);
 
-      activity()->withProperties(['name' => $request->name])->log('New student admitted named');
+           $auth = Auth::user()->name;
+
+
+      activity()->withProperties(['name' => $request->name])->log($auth . ' Admitted new student named ' . $request->name);
       notify()->success($request->name . ' ' . 'Admitted Successfully');
       return back();
     }
@@ -170,11 +175,26 @@ class StudentController extends Controller
         'updated_at'=>Carbon::now(),
       ]);
 
+      $auth = Auth::user()->name;
 
-      activity()->withProperties(['name' => $request->name])->log('Student profile updated');
+
+      activity()->withProperties(['name' => $request->name])->log($auth . ' Updated ' . $request->name . ' profile' );
       notify()->success($request->name . ' ' . 'Updated Successfully');
       return back();
     }
+
+
+    function delete($student_id)
+    {
+      $auth = Auth::user()->name;
+      $name = Student::findOrFail($student_id)->name;
+      Student::findOrFail($student_id)->delete();
+
+      activity()->withProperties(['name' => $name])->log($auth. ' Removed a student named ' . $name);
+      notify()->success($name . ' ' . 'Removed Successfully');
+      return back();
+    }
+
 
     //END
 }

@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="{{ asset('assets/plugins/charts-c3/plugin.css') }}"/>
 <link rel="stylesheet" href="{{ asset('assets/plugins/morrisjs/morris.min.css') }}" />
 
+
 <style media="screen">
   .cbp_tmtimeline>li .cbp_tmtime span{
     font-size: 22px !important;
@@ -23,8 +24,8 @@
                         <p>Search</p>
                         <form id="searchForm" action="{{ route('activity.search') }}" method="GET">
                         <div class="row clearfix">
-
                           @csrf
+
                           <div class="col-md-4">
                               <div class="mb-3">
                                   <label>From</label>
@@ -244,7 +245,6 @@
 </div>
 @stop
 @section('page-script')
-
 <script src="{{asset('assets/bundles/countTo.bundle.js')}}"></script>
 <script src="{{asset('assets/bundles/knob.bundle.js')}}"></script>
 <script src="{{asset('assets/bundles/sparkline.bundle.js')}}"></script>
@@ -289,5 +289,6 @@
     }
   });
   </script>
+
 
 @stop

@@ -14,6 +14,8 @@ Route::get('student/edit/{student_id}', 'StudentController@edit')->name('student
 ->middleware('permissions:student-edit');
 Route::post('student/update/{student_id}', 'StudentController@update')->name('student.update')
 ->middleware('permissions:student-update');
+Route::get('student/delete/{student_id}', 'StudentController@delete')->name('student.delete')
+->middleware('permissions:student-delete');
 
 // TeacherController
 Route::get('teacher', 'TeacherController@index')->name('teacher.index')
@@ -28,6 +30,8 @@ Route::get('teacher/edit/{teacher_id}', 'TeacherController@edit')->name('teacher
 ->middleware('permissions:teacher-edit');
 Route::post('teacher/update/{teacher_id}', 'TeacherController@update')->name('teacher.update')
 ->middleware('permissions:teacher-update');
+Route::get('teacher/delete/{teacher_id}', 'TeacherController@delete')->name('teacher.delete')
+->middleware('permissions:teacher-delete');
 
 // CourseController
 Route::get('course', 'CourseController@index')->name('course.index')

@@ -8,6 +8,7 @@ use App\Course;
 use App\ApiData;
 use Image;
 use Carbon\Carbon;
+use Auth;
 
 class TeacherController extends Controller
 {
@@ -197,6 +198,19 @@ class TeacherController extends Controller
     notify()->success($request->name . ' ' . 'Updated Successfully');
     return back();
   }
+
+
+  function delete($teacher_id)
+  {
+    $auth = Auth::user()->name;
+    $name = Teacher::findOrFail($teacher_id)->name;
+    Teacher::findOrFail($teacher_id)->delete();
+
+    activity()->withProperties(['name' => $name])->log($auth. ' Removed a teacher named ' . $name);
+    notify()->success($name . ' ' . 'Removed Successfully');
+    return back();
+  }
+
 
   //END
 }
