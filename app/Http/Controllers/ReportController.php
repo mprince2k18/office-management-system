@@ -307,7 +307,7 @@ class ReportController extends Controller
 
 
 
-      return view('report.chartjs',compact('students',
+      return view('report.chartjs',compact(
       'students_jan',
       'students_feb',
       'students_mar',

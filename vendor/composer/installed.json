@@ -1,58 +1,5 @@
 [
     {
-        "name": "anahkiasen/underscore-php",
-        "version": "2.0.0",
-        "version_normalized": "2.0.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/Anahkiasen/underscore-php.git",
-            "reference": "48f97b295c82d99c1fe10d8b0684c43f051b5580"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/Anahkiasen/underscore-php/zipball/48f97b295c82d99c1fe10d8b0684c43f051b5580",
-            "reference": "48f97b295c82d99c1fe10d8b0684c43f051b5580",
-            "shasum": ""
-        },
-        "require": {
-            "doctrine/inflector": "^1.0",
-            "patchwork/utf8": "^1.2",
-            "php": ">=5.4.0"
-        },
-        "require-dev": {
-            "fabpot/php-cs-fixer": "2.0.*@dev",
-            "phpunit/phpunit": "^4.6"
-        },
-        "time": "2015-05-16T19:24:58+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Underscore\\": [
-                    "src",
-                    "tests"
-                ]
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Maxime Fabre",
-                "email": "ehtnam6@gmail.com"
-            }
-        ],
-        "description": "A redacted port of Underscore.js for PHP",
-        "keywords": [
-            "internals",
-            "laravel",
-            "toolkit"
-        ],
-        "abandoned": true
-    },
-    {
         "name": "dnoegel/php-xdg-base-dir",
         "version": "v0.1.1",
         "version_normalized": "0.1.1.0",
@@ -1029,17 +976,17 @@
     },
     {
         "name": "laravel/framework",
-        "version": "v6.18.1",
-        "version_normalized": "6.18.1.0",
+        "version": "v6.18.2",
+        "version_normalized": "6.18.2.0",
         "source": {
             "type": "git",
             "url": "https://github.com/laravel/framework.git",
-            "reference": "367c2c8dfdfe83cb2ddbc029c0222174098d093a"
+            "reference": "9425a2f410d05d5bba493f62cff03854a8b19559"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/laravel/framework/zipball/367c2c8dfdfe83cb2ddbc029c0222174098d093a",
-            "reference": "367c2c8dfdfe83cb2ddbc029c0222174098d093a",
+            "url": "https://api.github.com/repos/laravel/framework/zipball/9425a2f410d05d5bba493f62cff03854a8b19559",
+            "reference": "9425a2f410d05d5bba493f62cff03854a8b19559",
             "shasum": ""
         },
         "require": {
@@ -1124,7 +1071,7 @@
             "ext-memcached": "Required to use the memcache cache driver.",
             "ext-pcntl": "Required to use all features of the queue worker.",
             "ext-posix": "Required to use all features of the queue worker.",
-            "ext-redis": "Required to use the Redis cache and queue drivers.",
+            "ext-redis": "Required to use the Redis cache and queue drivers (^4.0|^5.0).",
             "filp/whoops": "Required for friendly error pages in development (^2.4).",
             "fzaninotto/faker": "Required to use the eloquent factory builder (^1.9.1).",
             "guzzlehttp/guzzle": "Required to use the Mailgun mail driver and the ping methods on schedules (^6.0|^7.0).",
@@ -1141,7 +1088,7 @@
             "symfony/psr-http-message-bridge": "Required to use PSR-7 bridging features (^1.2).",
             "wildbit/swiftmailer-postmark": "Required to use Postmark mail driver (^3.0)."
         },
-        "time": "2020-03-10T14:11:04+00:00",
+        "time": "2020-03-17T17:08:02+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1374,17 +1321,17 @@
     },
     {
         "name": "league/flysystem",
-        "version": "1.0.65",
-        "version_normalized": "1.0.65.0",
+        "version": "1.0.66",
+        "version_normalized": "1.0.66.0",
         "source": {
             "type": "git",
             "url": "https://github.com/thephpleague/flysystem.git",
-            "reference": "8f17b3ba67097aafb8318cd5c553b1acf7c891c8"
+            "reference": "021569195e15f8209b1c4bebb78bd66aa4f08c21"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/8f17b3ba67097aafb8318cd5c553b1acf7c891c8",
-            "reference": "8f17b3ba67097aafb8318cd5c553b1acf7c891c8",
+            "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/021569195e15f8209b1c4bebb78bd66aa4f08c21",
+            "reference": "021569195e15f8209b1c4bebb78bd66aa4f08c21",
             "shasum": ""
         },
         "require": {
@@ -1414,7 +1361,7 @@
             "spatie/flysystem-dropbox": "Allows you to use Dropbox storage",
             "srmklive/flysystem-dropbox-v2": "Allows you to use Dropbox storage for PHP 5 applications"
         },
-        "time": "2020-03-08T18:53:20+00:00",
+        "time": "2020-03-17T18:58:12+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1460,17 +1407,17 @@
     },
     {
         "name": "mateusjunges/laravel-acl",
-        "version": "2.4.2",
-        "version_normalized": "2.4.2.0",
+        "version": "2.4.3",
+        "version_normalized": "2.4.3.0",
         "source": {
             "type": "git",
             "url": "https://github.com/mateusjunges/laravel-acl.git",
-            "reference": "858419733735a526bb6d40ad7ee9cd3dfa1b8354"
+            "reference": "f2b9f9051d48e54ba1ef9aa228cd5c9144a1e8ad"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/mateusjunges/laravel-acl/zipball/858419733735a526bb6d40ad7ee9cd3dfa1b8354",
-            "reference": "858419733735a526bb6d40ad7ee9cd3dfa1b8354",
+            "url": "https://api.github.com/repos/mateusjunges/laravel-acl/zipball/f2b9f9051d48e54ba1ef9aa228cd5c9144a1e8ad",
+            "reference": "f2b9f9051d48e54ba1ef9aa228cd5c9144a1e8ad",
             "shasum": ""
         },
         "require": {
@@ -1489,7 +1436,7 @@
         "suggest": {
             "facade/igntion": "Needed to be able to use the ignition solutions for laravel-acl"
         },
-        "time": "2020-03-11T11:53:31+00:00",
+        "time": "2020-03-19T17:44:33+00:00",
         "type": "laravel-package",
         "extra": {
             "laravel": {
@@ -2092,70 +2039,6 @@
             "polyfill",
             "pseudorandom",
             "random"
-        ]
-    },
-    {
-        "name": "patchwork/utf8",
-        "version": "v1.3.2",
-        "version_normalized": "1.3.2.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/tchwork/utf8.git",
-            "reference": "d296e0026e7ce10b2a9fe594feca9628ef00e9e8"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/tchwork/utf8/zipball/d296e0026e7ce10b2a9fe594feca9628ef00e9e8",
-            "reference": "d296e0026e7ce10b2a9fe594feca9628ef00e9e8",
-            "shasum": ""
-        },
-        "require": {
-            "lib-pcre": ">=7.3",
-            "php": ">=5.3.0"
-        },
-        "require-dev": {
-            "symfony/phpunit-bridge": "^3.4|^4.4"
-        },
-        "suggest": {
-            "ext-iconv": "Use iconv for best performance",
-            "ext-intl": "Use Intl for best performance",
-            "ext-mbstring": "Use Mbstring for best performance",
-            "ext-wfio": "Use WFIO for UTF-8 filesystem access on Windows"
-        },
-        "time": "2019-12-03T14:44:12+00:00",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.3-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Patchwork\\": "src/Patchwork/"
-            },
-            "classmap": [
-                "src/Normalizer.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "(Apache-2.0 or GPL-2.0)"
-        ],
-        "authors": [
-            {
-                "name": "Nicolas Grekas",
-                "email": "p@tchwork.com"
-            }
-        ],
-        "description": "Portable and performant UTF-8, Unicode and Grapheme Clusters for PHP",
-        "homepage": "https://github.com/tchwork/utf8",
-        "keywords": [
-            "grapheme",
-            "i18n",
-            "unicode",
-            "utf-8",
-            "utf8"
         ]
     },
     {
@@ -4011,32 +3894,31 @@
     },
     {
         "name": "spatie/laravel-activitylog",
-        "version": "3.11.3",
-        "version_normalized": "3.11.3.0",
+        "version": "3.13.0",
+        "version_normalized": "3.13.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/spatie/laravel-activitylog.git",
-            "reference": "5ca26d62da6d3ce07d6bf438dcbdc45cb91f2007"
+            "reference": "9af498a8d2e08a7a46790e306a011e1e281c78db"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/spatie/laravel-activitylog/zipball/5ca26d62da6d3ce07d6bf438dcbdc45cb91f2007",
-            "reference": "5ca26d62da6d3ce07d6bf438dcbdc45cb91f2007",
+            "url": "https://api.github.com/repos/spatie/laravel-activitylog/zipball/9af498a8d2e08a7a46790e306a011e1e281c78db",
+            "reference": "9af498a8d2e08a7a46790e306a011e1e281c78db",
             "shasum": ""
         },
         "require": {
             "illuminate/config": "^6.0|^7.0",
             "illuminate/database": "^6.0|^7.0",
             "illuminate/support": "^6.0|^7.0",
-            "php": "^7.2",
-            "spatie/string": "^2.1"
+            "php": "^7.2"
         },
         "require-dev": {
             "ext-json": "*",
             "orchestra/testbench": "^4.0|^5.0",
             "phpunit/phpunit": "^8.0|^9.0"
         },
-        "time": "2020-03-10T11:51:23+00:00",
+        "time": "2020-03-13T12:45:34+00:00",
         "type": "library",
         "extra": {
             "laravel": {
@@ -4086,61 +3968,6 @@
             "log",
             "spatie",
             "user"
-        ]
-    },
-    {
-        "name": "spatie/string",
-        "version": "2.2.2",
-        "version_normalized": "2.2.2.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/spatie/string.git",
-            "reference": "28607b9925b4f0499d48570553ca419c6298e26b"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/spatie/string/zipball/28607b9925b4f0499d48570553ca419c6298e26b",
-            "reference": "28607b9925b4f0499d48570553ca419c6298e26b",
-            "shasum": ""
-        },
-        "require": {
-            "anahkiasen/underscore-php": "^2.0",
-            "php": ">=5.6.0"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "5.*",
-            "scrutinizer/ocular": "~1.1"
-        },
-        "time": "2017-11-08T14:28:57+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "files": [
-                "src/string_functions.php"
-            ],
-            "psr-4": {
-                "Spatie\\String\\": "src"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Freek Van der Herten",
-                "email": "freek@spatie.be",
-                "homepage": "https://murze.be",
-                "role": "Developer"
-            }
-        ],
-        "description": "String handling evolved",
-        "homepage": "https://github.com/spatie/string",
-        "keywords": [
-            "handling",
-            "handy",
-            "spatie",
-            "string"
         ]
     },
     {

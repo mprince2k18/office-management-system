@@ -2,6 +2,18 @@
 
 All notable changes to `spatie/laravel-activitylog` will be documented in this file
 
+## 3.13.0 - 2020-03-13
+
+- add `\Spatie\Activitylog\ActivityLogger::withoutLogs()` method [#695](https://github.com/spatie/laravel-activitylog/pull/695)
+
+## 3.12.0 - 2020-03-13
+
+- respect custom date casts [#627](https://github.com/spatie/laravel-activitylog/pull/627)
+
+## 3.11.4 - 2020-03-11
+
+- remove `spatie/string` dependency [#690](https://github.com/spatie/laravel-activitylog/pull/690)
+
 ## 3.11.3 - 2020-03-10
 
 - fix performance issue around global vs model log disabling [#682](https://github.com/spatie/laravel-activitylog/pull/682)
