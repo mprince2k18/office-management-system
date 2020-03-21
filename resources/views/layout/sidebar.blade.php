@@ -33,7 +33,7 @@
             @anypermission('desk-admin','admin')
 
             <li class="{{ Request::segment(1) === 'app' ? 'active open' : null }}">
-                <a href="#App" class="menu-toggle"><i class="zmdi zmdi-apps"></i> <span>Student Area</span></a>
+                <a href="#App" class="menu-toggle"><i class="zmdi zmdi-account"></i> <span>Student Area</span></a>
                 <ul class="ml-menu">
                   @can('admin')
                     <li class="{{ Request::segment(2) === 'inbox' ? 'active' : null }}"><a href="{{route('student.index')}}">New Student</a></li>
@@ -50,7 +50,7 @@
             @anypermission('desk-admin','admin')
 
             <li class="{{ Request::segment(1) === 'app' ? 'active open' : null }}">
-                <a href="#App" class="menu-toggle"><i class="zmdi zmdi-apps"></i> <span>Teacher Area</span></a>
+                <a href="#App" class="menu-toggle"><i class="zmdi zmdi-account-box-mail"></i> <span>Teacher Area</span></a>
                 <ul class="ml-menu">
                     @can('admin')
                     <li class="{{ Request::segment(2) === 'inbox' ? 'active' : null }}"><a href="{{route('teacher.index')}}">New Teacher</a></li>
@@ -65,7 +65,7 @@
 
             @anypermission('desk-admin','admin')
             <li class="{{ Request::segment(1) === 'app' ? 'active open' : null }}">
-                <a href="#App" class="menu-toggle"><i class="zmdi zmdi-apps"></i> <span>Course Area</span></a>
+                <a href="#App" class="menu-toggle"><i class="zmdi zmdi-accounts-list"></i> <span>Course Area</span></a>
                 <ul class="ml-menu">
                   @can('admin')
                     <li class="{{ Request::segment(2) === 'inbox' ? 'active' : null }}"><a href="{{route('course.index')}}">New Course</a></li>
@@ -79,7 +79,7 @@
 
             @anypermission('desk-admin','admin')
             <li class="{{ Request::segment(1) === 'app' ? 'active open' : null }}">
-                <a href="#App" class="menu-toggle"><i class="zmdi zmdi-apps"></i> <span>Batch Area</span></a>
+                <a href="#App" class="menu-toggle"><i class="zmdi zmdi-folder-outline"></i> <span>Batch Area</span></a>
                 <ul class="ml-menu">
                   @can('admin')
                     <li class="{{ Request::segment(2) === 'inbox' ? 'active' : null }}"><a href="{{route('batch.index')}}">New Batch</a></li>
@@ -93,7 +93,7 @@
 
             @anypermission('desk-admin','admin')
             <li class="{{ Request::segment(1) === 'app' ? 'active open' : null }}">
-                <a href="#App" class="menu-toggle"><i class="zmdi zmdi-apps"></i> <span>Visitor Area</span></a>
+                <a href="#App" class="menu-toggle"><i class="zmdi zmdi-run"></i> <span>Visitor Area</span></a>
                 <ul class="ml-menu">
                   @can('admin')
                     <li class="{{ Request::segment(2) === 'inbox' ? 'active' : null }}"><a href="{{route('visitor.index')}}">New Visitor</a></li>
@@ -107,7 +107,7 @@
 
             @anypermission('desk-admin','admin')
             <li class="{{ Request::segment(1) === 'app' ? 'active open' : null }}">
-                <a href="#App" class="menu-toggle"><i class="zmdi zmdi-apps"></i> <span>Seminar Area</span></a>
+                <a href="#App" class="menu-toggle"><i class="zmdi zmdi-labels"></i> <span>Seminar Area</span></a>
                 <ul class="ml-menu">
                   @can('admin')
                     <li class="{{ Request::segment(2) === 'inbox' ? 'active' : null }}"><a href="{{route('seminar.index')}}">New Seminar</a></li>
@@ -121,7 +121,7 @@
 
             @anypermission('desk-admin','admin')
             <li class="{{ Request::segment(1) === 'app' ? 'active open' : null }}">
-                <a href="#App" class="menu-toggle"><i class="zmdi zmdi-apps"></i> <span>Enrollment Area</span></a>
+                <a href="#App" class="menu-toggle"><i class="zmdi zmdi-pin-account"></i> <span>Enrollment Area</span></a>
                 <ul class="ml-menu">
                   @can('admin')
                     <li class="{{ Request::segment(2) === 'inbox' ? 'active' : null }}"><a href="{{route('enroll.index')}}">New Enrollment</a></li>
@@ -135,7 +135,7 @@
 
             @anypermission('desk-admin','admin')
             <li class="{{ Request::segment(1) === 'app' ? 'active open' : null }}">
-                <a href="#App" class="menu-toggle"><i class="zmdi zmdi-apps"></i> <span>Employee Area</span></a>
+                <a href="#App" class="menu-toggle"><i class="zmdi zmdi-accounts"></i> <span>Employee Area</span></a>
                 <ul class="ml-menu">
                   @can('admin')
                     <li class="{{ Request::segment(2) === 'inbox' ? 'active' : null }}"><a href="{{route('employee.index')}}">New Employee</a></li>
@@ -149,7 +149,7 @@
 
             @anypermission('desk-admin','admin')
             <li class="{{ Request::segment(1) === 'app' ? 'active open' : null }}">
-                <a href="#App" class="menu-toggle"><i class="zmdi zmdi-apps"></i> <span>Requisition Area</span></a>
+                <a href="#App" class="menu-toggle"><i class="zmdi zmdi-border-color"></i> <span>Requisition Area</span></a>
                 <ul class="ml-menu">
                   @can('admin')
                     <li class="{{ Request::segment(2) === 'inbox' ? 'active' : null }}"><a href="{{route('requisition.index')}}">New Requisition</a></li>
@@ -163,7 +163,7 @@
 
             @anypermission('admin')
             <li class="{{ Request::segment(1) === 'app' ? 'active open' : null }}">
-                <a href="#App" class="menu-toggle"><i class="zmdi zmdi-apps"></i> <span>Activity Log</span></a>
+                <a href="#App" class="menu-toggle"><i class="zmdi zmdi-swap-vertical-circle"></i> <span>Activity Log</span></a>
                 <ul class="ml-menu">
                     <li class="{{ Request::segment(2) === 'inbox' ? 'active' : null }}"><a href="{{route('activity.index')}}">Logs</a></li>
                 </ul>
@@ -172,7 +172,7 @@
 
             @anypermission('admin')
             <li class="{{ Request::segment(1) === 'app' ? 'active open' : null }}">
-                <a href="#App" class="menu-toggle"><i class="zmdi zmdi-apps"></i> <span>Report Area</span></a>
+                <a href="#App" class="menu-toggle"><i class="zmdi zmdi-calendar-note"></i> <span>Report Area</span></a>
                 <ul class="ml-menu">
                     <li class="{{ Request::segment(2) === 'inbox' ? 'active' : null }}"><a href="{{route('report.index')}}">Report</a></li>
                 </ul>
@@ -181,7 +181,7 @@
 
             @anypermission('admin')
             <li class="{{ Request::segment(1) === 'app' ? 'active open' : null }}">
-                <a href="#App" class="menu-toggle"><i class="zmdi zmdi-apps"></i> <span>Admin Area</span></a>
+                <a href="#App" class="menu-toggle"><i class="zmdi zmdi-account-box"></i> <span>Admin Area</span></a>
                 <ul class="ml-menu">
                     <li class="{{ Request::segment(2) === 'inbox' ? 'active' : null }}"><a href="{{route('users.index')}}">Users</a></li>
                     <li class="{{ Request::segment(2) === 'inbox' ? 'active' : null }}"><a href="{{route('users.create')}}">User Create</a></li>
