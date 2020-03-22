@@ -50,6 +50,11 @@ class Teacher extends Model
       return $this->hasOne('App\Course','id','assigned_course');
     }
 
+    public function relationBetweenBatch()
+    {
+      return $this->hasOne('App\Batch','teacher','id');
+    }
+
 
 
     //END

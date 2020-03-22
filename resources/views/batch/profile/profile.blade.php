@@ -8,10 +8,12 @@
 @stop
 @section('content')
 <div class="row clearfix">
-    <div class="col-lg-4 col-md-12">
+    <div class="col-lg-3 col-md-12">
         <div class="card mcard_3">
             <div class="body">
-                <a href="{{ url('batch/profile') }}/{{ $batch->id }}"><img src="{{ asset('uploads/course') }}/{{ $batch->relationBetweenTeacher->relationBetweenCourse->course_thumb }}" class="rounded-circle shadow " alt="profile-image"></a>
+                <a href="{{ url('batch/profile') }}/{{ $batch->id }}">
+                  <img src="{{ asset('uploads/course') }}/{{ $batch->relationBetweenTeacher->relationBetweenCourse->course_thumb }}" class="rounded-circle shadow " alt="profile-image">
+                </a>
                 <h4 class="m-t-10">{{ $batch->batch_no }}</h4>
                 <div class="row">
 
@@ -24,7 +26,7 @@
                         <p class="text-muted">{{ $batch->relationBetweenTeacher->name }}</p>
                     </div>
 
-                    <div class="col-4">
+                    <div class="col-12">
                         <small>Date</small>
                         <h6>{{ $batch->created_at->format('d-M-Y') }}</h6>
                     </div>
@@ -63,7 +65,7 @@
 
 
     </div>
-    <div class="col-lg-8 col-md-12">
+    <div class="col-lg-9 col-md-12">
 
       <div class="card">
           <div class="body">

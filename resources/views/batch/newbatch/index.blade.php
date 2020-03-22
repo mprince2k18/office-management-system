@@ -1,5 +1,5 @@
 @extends('layout.master')
-@section('title', 'Advanced')
+@section('title', 'Batch')
 @section('parentPageTitle', 'Form')
 @section('page-style')
 <link rel="stylesheet" href="{{asset('assets/plugins/morrisjs/morris.css')}}"/>
@@ -18,21 +18,12 @@
 @stop
 @section('content')
 
-
-
-
-
-
-
-
-
-
 <!-- Basic Validation -->
 <div class="row clearfix">
     <div class="col-lg-12 col-md-12 col-sm-12">
         <div class="card">
             <div class="header">
-                <h2><strong>Student</strong> Information</h2>
+                <h2><strong>Batch</strong> Information</h2>
                 <ul class="header-dropdown">
                     <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
                         <ul class="dropdown-menu dropdown-menu-right">

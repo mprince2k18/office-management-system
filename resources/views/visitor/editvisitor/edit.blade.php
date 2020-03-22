@@ -1,5 +1,5 @@
 @extends('layout.master')
-@section('title', 'Student Profile')
+@section('title', 'Visitor Profile')
 @section('parentPageTitle', 'Pages')
 @section('page-style')
 <link rel="stylesheet" href="{{asset('assets/plugins/light-gallery/css/lightgallery.css')}}">

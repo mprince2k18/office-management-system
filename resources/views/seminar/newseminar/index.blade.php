@@ -1,6 +1,6 @@
 @extends('layout.master')
-@section('title', 'New Visitor')
-@section('parentPageTitle', 'Visitor Area')
+@section('title', 'New Seminar')
+@section('parentPageTitle', 'Seminar Area')
 @section('page-style')
 <link rel="stylesheet" href="{{asset('assets/plugins/morrisjs/morris.css')}}"/>
 <link rel="stylesheet" href="{{asset('assets/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css')}}"/>
@@ -32,7 +32,7 @@
     <div class="col-lg-12 col-md-12 col-sm-12">
         <div class="card">
             <div class="header">
-                <h2><strong>Visitor</strong> Information</h2>
+                <h2><strong>Seminar</strong> Information</h2>
                 <ul class="header-dropdown">
                     <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
                         <ul class="dropdown-menu dropdown-menu-right">

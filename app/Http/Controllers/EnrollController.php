@@ -86,7 +86,7 @@ class EnrollController extends Controller
   function all()
   {
     $enrolls = Enroll::all();
-    return view('enrollment.allenroll.all',compact('enrolls','installments'));
+    return view('enrollment.allenroll.all',compact('enrolls'));
   }
   // profile
   function profile($enroll_id)

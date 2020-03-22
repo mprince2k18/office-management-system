@@ -1,6 +1,6 @@
 @extends('layout.master')
-@section('title', 'All Student')
-@section('parentPageTitle', 'Student Area')
+@section('title', 'All Visitor')
+@section('parentPageTitle', 'Visitor Area')
 @section('page-style')
 <link rel="stylesheet" href="{{asset('assets/plugins/jquery-datatable/dataTables.bootstrap4.min.css')}}"/>
 @stop
@@ -11,7 +11,7 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="header">
-                <h2><strong>All</strong> Student </h2>
+                <h2><strong>All</strong> Visitor </h2>
                 <ul class="header-dropdown">
                     <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
                         <ul class="dropdown-menu dropdown-menu-right slideUp">
@@ -34,7 +34,7 @@
                                 <th>Email</th>
                                 <th>Phone</th>
                                 <th>Talked About</th>
-                                <th>Action</th>
+                                <th>Visited Time</th>
                             </tr>
                         </thead>
                         <tfoot>
@@ -55,9 +55,7 @@
                               <td>{{ $visitor->email }}</td>
                               <td>{{ $visitor->phone }}</td>
                               <td>{{ $visitor->relationBetweenCourse->course_name }}</td>
-                              <td>
-                                <a href="#" class="btn-sm btn-danger">View</a>
-                              </td>
+                              <td>{{ $visitor->created_at->diffForHumans() }}</td>
                           </tr>
 
                           @endforeach

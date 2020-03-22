@@ -1,6 +1,6 @@
 @extends('layout.master')
-@section('title', 'All Employee')
-@section('parentPageTitle', 'Employee Area')
+@section('title', 'All Requisition')
+@section('parentPageTitle', 'Requisition Area')
 @section('page-style')
 <link rel="stylesheet" href="{{asset('assets/plugins/jquery-datatable/dataTables.bootstrap4.min.css')}}"/>
 @stop
@@ -11,7 +11,7 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="header">
-                <h2><strong>All</strong> Student </h2>
+                <h2><strong>All</strong> Requisition </h2>
                 <ul class="header-dropdown">
                     <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
                         <ul class="dropdown-menu dropdown-menu-right slideUp">

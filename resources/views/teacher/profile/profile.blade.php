@@ -1,5 +1,5 @@
 @extends('layout.master')
-@section('title', 'Student Profile')
+@section('title', 'Teacher Profile')
 @section('parentPageTitle', 'Pages')
 @section('page-style')
 <link rel="stylesheet" href="{{asset('assets/plugins/light-gallery/css/lightgallery.css')}}">
@@ -25,10 +25,10 @@
 
                     <div class="col-4">
                         <small>Batch</small>
-                        <h5>STIT 2020</h5>
+                        <h5>{{ $teacher->relationBetweenBatch->batch_no }}</h5>
                     </div>
 
-                    <div class="col-4">
+                    {{-- <div class="col-4">
                         <small>Roll No:</small>
                         <h5>001</h5>
                     </div>
@@ -36,7 +36,7 @@
                     <div class="col-4">
                         <small>Course Enrolled</small>
                         <h5>02</h5>
-                    </div>
+                    </div> --}}
 
                 </div>
             </div>

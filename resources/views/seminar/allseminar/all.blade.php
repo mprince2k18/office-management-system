@@ -11,7 +11,7 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="header">
-                <h2><strong>All</strong> Student </h2>
+                <h2><strong>All</strong> Enrollment </h2>
                 <ul class="header-dropdown">
                     <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
                         <ul class="dropdown-menu dropdown-menu-right slideUp">
@@ -33,7 +33,7 @@
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Phone</th>
-                                <th>Talked About</th>
+                                <th>Seminar Topic</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
