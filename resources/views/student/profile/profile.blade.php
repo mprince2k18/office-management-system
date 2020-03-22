@@ -21,7 +21,7 @@
                             <li><a title="instagram" href="javascript:void(0);"><i class="zmdi zmdi-instagram"></i></a></li>
                         </ul>
 
-                        @if (!isset( $student->relationBetweenEnroll->relationBetweenCourse->course_name) ===  NULL)
+                        @if (!empty( $student->relationBetweenEnroll->relationBetweenCourse->course_name))
                           <p class="text-muted">{{ $student->relationBetweenEnroll->relationBetweenCourse->course_name }}</p>
                         @else
                           <p class="text-muted">No Course Enrolled</p>
@@ -31,19 +31,20 @@
 
                     <div class="col-4">
                         <small>Batch</small>
-                        @if (!isset( $student->relationBetweenEnroll->relationBetweenCourse->batch_no) ===  NULL)
-                        <p class="text-muted">No Batch</p>
+                        @if (!empty( $student->relationBetweenEnroll->batch_no))
+                          <p class="text-muted">{{ $student->relationBetweenEnroll->relationBetweenBatch->batch_no }}</p>
                         @else
-                        <h5>{{ $student->relationBetweenEnroll->relationBetweenBatch->batch_no }}</h5>
+                          <p class="text-muted">No Batch</p>
+
                         @endif
                     </div>
 
                     <div class="col-4">
                         <small>Roll No:</small>
-                        @if (!isset( $student->relationBetweenEnroll->student_roll) ===  NULL)
-                          <p class="text-muted">No Roll</p>
+                        @if (!empty( $student->relationBetweenEnroll->student_roll))
+                          <p class="text-muted">{{ $student->relationBetweenEnroll->student_roll }}</p>
                         @else
-                        <h5>{{ $student->relationBetweenEnroll->student_roll }}</h5>
+                          <p class="text-muted">No Roll</p>
                         @endif
                     </div>
 

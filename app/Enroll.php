@@ -23,14 +23,14 @@ class Enroll extends Model
       return $this->hasOne('App\Course','id','course_name');
     }
 
-    public function relationBetweenStudent()
-    {
-      return $this->hasOne('App\Student','id','student_name');
-    }
-
     public function relationBetweenBatch()
     {
       return $this->hasOne('App\Batch','id','batch_no');
+    }
+
+    public function relationBetweenStudent()
+    {
+      return $this->hasOne('App\Student','id','student_name');
     }
 
     public function relationBetweenInstallment()

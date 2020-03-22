@@ -97,7 +97,7 @@ class StudentController extends Controller
     // all
     function all()
     {
-      $students = Student::all();
+      $students = Student::latest()->get();
       return view('student.allstudent.all',compact('students'));
     }
     // profile
