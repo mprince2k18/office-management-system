@@ -3,7 +3,7 @@
 // StudentController
 
 Route::get('student', 'StudentController@index')->name('student.index')
-->middleware('permissions:student-create');
+->middleware('permissions:student-index');
 Route::post('student/create', 'StudentController@create')->name('student.create')
 ->middleware('permissions:student-create');
 Route::get('student/all', 'StudentController@all')->name('student.all')
@@ -145,11 +145,15 @@ Route::post('duties/create', 'EmployeeController@duties_create')->name('duties.c
 
 
 // AppSettingsController
-Route::get('/application/settings','AppSettingsController@index')->name('app_index');
+Route::get('/application/settings','AppSettingsController@index')->name('app_index')
+->middleware('permissions:app-index');
 
-Route::post('/application/settings/logo/create','AppSettingsController@logo_create')->name('logo.create');
-Route::get('/application/settings/logo/delete/{logo_id}','AppSettingsController@logo_delete')->name('logo.delete');
-Route::get('/application/settings/logo/{logo_id}/change','AppSettingsController@logo_active')->name('logo.active');
+Route::post('/application/settings/logo/create','AppSettingsController@logo_create')->name('logo.create')
+->middleware('permissions:logo.create');
+Route::get('/application/settings/logo/delete/{logo_id}','AppSettingsController@logo_delete')->name('logo.delete')
+->middleware('permissions:logo.create');
+Route::get('/application/settings/logo/{logo_id}/change','AppSettingsController@logo_active')->name('logo.active')
+->middleware('permissions:logo.active');
 
 // AdminController
 Route::get('/admin/user','AdminController@index')->name('admin.index')
@@ -161,7 +165,8 @@ Route::post('/admin/user/create','AdminController@user_create')->name('user.crea
 
 
 // ActivityController
-Route::get('activity/log', 'ActivityController@index')->name('activity.index')->middleware('permissions:activity-index');
+Route::get('activity/log', 'ActivityController@index')->name('activity.index')
+->middleware('permissions:activity-index');
 Route::get('activity/log/search', 'ActivityController@searchLog')->name('activity.search')
 ->middleware('permissions:activity-search');
 

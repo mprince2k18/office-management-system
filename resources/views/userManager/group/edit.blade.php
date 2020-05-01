@@ -43,11 +43,14 @@
         </div>
 
         <div class="kt-portlet__body">
+
             <form action="{{route('groups.update')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" name="id" value="{{$group->id}}"/>
-                <div class="">
-                    <div class="form-group row">
+
+
+
+                     <div class="form-group row">
                         <label for="name" class="col-md-4 col-form-label text-md-right">Name</label>
 
                         <div class="col-md-6">
@@ -62,12 +65,16 @@
                         </div>
                     </div>
 
+
                     <div class="form-group row">
                         <label class="col-md-4 col-form-label text-md-right">Slug</label>
                         <div class="col-md-6">
                             <input type="text" class="form-control" value="{{ $group->slug }}" readonly>
                         </div>
                     </div>
+
+
+
                     <div class="form-group row">
                         <label class="col-md-4 col-form-label text-md-right">Description</label>
                         <div class="mb-3 col-md-6">
@@ -76,6 +83,9 @@
                                       style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{ $group->description }}</textarea>
                         </div>
                     </div>
+
+
+
                     <div class="form-group row">
                         <label class="col-md-4 col-form-label text-md-right">Select Permission</label>
                         <div class="col-md-6">
@@ -92,7 +102,7 @@
                             </select>
                         </div>
                     </div>
-                </div>
+
                 <div class="float-right">
                     <button class="btn btn-primary m-2" type="submit">Update</button>
                 </div>

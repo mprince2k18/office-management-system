@@ -40,7 +40,7 @@ class PermissionController extends Controller
      if ($permission->save()) {
 
        activity()->withProperties(['name' => $request->name])->log('New Permission named');
-       notify()->success($request->name . ' ' . translate('Permission Successfully'));
+       notify()->success($request->name . ' ' . 'Permission Successfully');
        return back();
 
      } else {

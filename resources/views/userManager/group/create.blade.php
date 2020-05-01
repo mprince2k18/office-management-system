@@ -73,12 +73,16 @@
 
                         <select class="mySelect for" multiple="multiple" name="permission_id[]">
                           <option></option>
-                          <optgroup label="Condiments" data-max-options="5">
+                          <optgroup label="Condiments">
                             @foreach($permissions as $item)
                             <option value="{{ $item->id }}">{{ $item->name }}</option>
                             @endforeach
                           </optgroup>
                         </select>
+
+
+
+
 
 
                         <div class="form-group">

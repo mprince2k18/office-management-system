@@ -30,6 +30,7 @@ class CreateUserHasPermissionsTable extends Migration
                     ->on($permissionsTable)
                     ->onDelete('cascade');
                 $table->primary(['user_id', 'permission_id']);
+                $table->timestamps();
             });
     }
 
